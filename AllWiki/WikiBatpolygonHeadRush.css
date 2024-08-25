@@ -11,7 +11,7 @@
   text-transform: uppercase;
   font-weight: 700;
   font-size: 1.25rem;
-  margin: -29px 100px 0 100px;
+  margin: -29px 100px 0 400px;
 }
 
 .u-section-1 .u-image-1 {
@@ -82,8 +82,8 @@
   .u-section-1 .u-text-2 {
     width: auto;
     margin-top: -32px;
-    margin-right: 340px;
-    margin-left: 276px;
+    margin-right: 50px;
+    margin-left: 700px;
   }
 
   .u-section-1 .u-image-1 {
