@@ -102,19 +102,6 @@ nav a:hover {
     color: #649ee0; /* Couleur de survol */
 }
 
-/* Adaptation pour les petits écrans */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column; /* Empile le logo et le menu */
-        padding: 0.625rem;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
 /* Main section */
 main {
     flex: 1; /* Permet à cette section de prendre tout l'espace disponible */
@@ -139,6 +126,34 @@ main {
     flex-direction: column; /* Aligne les éléments verticalement */
     align-items: center; /* Centre horizontalement */
     text-align: center; /* Centre le texte */
+}
+
+.container-discord {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+
+    .welcome {
+        margin: 5rem 0 0.25rem 0;
+    }
+}
+
+.discord-widget-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.discord-widget {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 0.25rem;
+    margin-top: 5rem;
+    min-width: 300px;
+    max-width: 500px;
+    width: 100%;
 }
 
 .profile-image {
@@ -292,6 +307,7 @@ main {
 
 .social-buttons {
     display: flex; /* Active Flexbox pour les boutons */
+    flex-wrap: wrap;
     gap: 1rem; /* Espace entre les boutons */
     justify-content: center; /* Centre horizontalement */
 }
@@ -514,4 +530,31 @@ main {
 
 .game-changelog h2:first-of-type {
     margin-top: 0; /* Supprime la marge supérieure du premier paragraphe */
+}
+
+/* Adaptation pour les petits écrans */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Empile le logo et le menu */
+        padding: 0.625rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container-discord {
+        width: 100%;
+        flex-direction: column;
+        gap: 20px;
+
+        .welcome {
+            margin: 5rem 0 0.25rem 0;
+        }
+
+        .discord-widget {
+            max-width: 100%;
+        }
+    }
 }
