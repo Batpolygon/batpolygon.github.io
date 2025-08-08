@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="images/icons/MadeByBatpolygonFavIcon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signaler un Bug - Made by Batpolygon</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/icons/MadeByBatpolygonColoredIcon.png" alt="Logo" class="logo-image">
+            <span>Made By <strong>BATPOLYGON</strong></span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="games.html">Jeux</a></li>
+                <li><a href="projects.html">Projets</a></li>
+                <li><a href="about.html">À propos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="container">
+            <h1>Signaler un Bug</h1>
+            <form id="bugReportForm">
+                <div class="form-group">
+                    <label for="game_select">Jeu concerné :</label>
+                    <select id="game_select" name="Jeu" required>
+                        <option value="" disabled selected>-- Sélectionner un jeu --</option>
+                        <option value="Batpolygon Home">Batpolygon Home</option>
+                        <option value="Batpolygon Head Rush">Batpolygon Head Rush</option>
+                        <option value="Platroomer">Platroomer</option>
+                        <option value="Polygons">Polygons</option>
+                        <option value="Tout Milieu">Tout Milieu</option>
+                        <option value="HellHeaven">HellHeaven</option>
+                        <option value="Cloud Trials">Cloud Trials</option>
+                        <option value="Polyhedron">Polyhedron</option>
+                        <option value="Celestial DEUS">Celestial DEUS</option>
+                        <option value="Cardygon">Cardygon</option>
+                        <option value="Autre">Autre</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="pseudo">Votre Pseudo :</label>
+                    <input type="text" id="pseudo" name="Pseudo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Votre Email (pour suivi) :</label>
+                    <input type="email" id="email" name="Email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="bug_description">Description du Bug :</label>
+                    <textarea id="bug_description" name="Description_du_Bug" rows="8" required placeholder="Veuillez décrire le bug le plus précisément possible, incluant les étapes pour le reproduire si possible. Version du jeu, configuration si pertinente, etc."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit">Préparer l'Email de Rapport</button>
+                </div>
+            </form>
+            <!-- Paragraphe mis en italique -->
+            <p class="form-note">
+                <em>En cliquant sur "Préparer l'Email de Rapport", votre client de messagerie par défaut s'ouvrira avec les informations pré-remplies.
+                Merci pour votre aide !</em>
+            </p>
+        </section>
+    </main>
+
+    <div class="footer-message">
+        <p>Merci de contribuer à l'amélioration de nos jeux !</p>
+    </div>
+
+    <script>
+        document.getElementById('bugReportForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const game = document.getElementById('game_select').value;
+            const pseudo = document.getElementById('pseudo').value;
+            const email = document.getElementById('email').value;
+            const description = document.getElementById('bug_description').value;
+
+            let subject = `Rapport de Bug - ${game}`;
+            if (pseudo) {
+                subject += ` - par ${pseudo}`;
+            }
+
+            let body = `Bonjour,\n\nVoici un rapport de bug concernant le jeu "${game}" :\n\n`;
+            body += `Pseudo du joueur : ${pseudo}\n`;
+            body += `Email du joueur : ${email}\n\n`;
+            body += `Description du bug :\n----------------------\n${description}\n\n`;
+            body += `----------------------\n`;
+            // Texte entre guillemets
+            body += `"Veuillez joindre une capture d'écran si nécessaire."\n\n`;
+            body += `Cordialement,\n${pseudo}`;
+
+            const mailtoLink = `mailto:batpolygoncontact@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+            window.location.href = mailtoLink;
+        });
+    </script>
+</body>
+</html>

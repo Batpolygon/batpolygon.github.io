@@ -23,7 +23,7 @@ strong {
 .games h2 {
     font-size: 2rem; /* Taille du texte */
     text-align: center; /* Centre le titre */
-    margin-top: 4rem; /* Espace au-dessus */
+    margin-top: 0; /* L'espacement est maintenant géré par le padding de <main> */
     margin-bottom: 1rem; /* Espace en-dessous */
 }
 
@@ -102,10 +102,30 @@ nav a:hover {
     color: #649ee0; /* Couleur de survol */
 }
 
+/* Adaptation pour les petits écrans */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Empile le logo et le menu */
+        padding: 0.625rem;
+        gap: 1rem; /* Ajoute un espace entre le logo et la navigation */
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem; /* Réduit l'espace entre les liens pour un menu plus compact */
+    }
+
+    main {
+        padding-top: 14rem; /* Augmente le décalage pour le header mobile qui est plus haut */
+    }
+}
+
 /* Main section */
 main {
     flex: 1; /* Permet à cette section de prendre tout l'espace disponible */
-    padding: 1.25rem;
+    padding: 7rem 1.25rem 1.25rem; /* Ajoute un padding-top pour décaler le contenu sous le header */
+    transition: padding-top 0.3s ease; /* Transition douce lors du changement de taille */
 }
 
 .container {
@@ -120,40 +140,16 @@ main {
     border: var(--box-border);
     border-radius: var(--box-border-radius);
     background-color: var(--box-bg-color);
-    margin-bottom: 0.25rem;
-    margin-top: 5rem; /* Garde l'espacement avec le header */
     display: flex; /* Active Flexbox */
     flex-direction: column; /* Aligne les éléments verticalement */
     align-items: center; /* Centre horizontalement */
     text-align: center; /* Centre le texte */
 }
 
-.container-discord {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-
-    .welcome {
-        margin: 5rem 0 0.25rem 0;
-    }
-}
-
-.discord-widget-container {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-}
-
-.discord-widget {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+/* La marge est maintenant gérée par le conteneur de la page "À propos" */
+.welcome {
+    margin-top: 0;
     margin-bottom: 0.25rem;
-    margin-top: 5rem;
-    min-width: 300px;
-    max-width: 500px;
-    width: 100%;
 }
 
 .profile-image {
@@ -212,6 +208,8 @@ main {
     padding: 0.5rem; /* Marges internes */
     width: 200px; /* Largeur fixe pour uniformité */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation au survol */
+    position: relative; /* Nécessaire pour positionner le bandeau "NOUVEAU" */
+    overflow: hidden; /* Empêche le bandeau de déborder */
 }
 
 .game-card:hover {
@@ -269,6 +267,67 @@ main {
     white-space: nowrap; /* Empêche le texte de sauter à la ligne */
 }
 
+.new-banner {
+    position: absolute;
+    width: 160px;
+    padding: 8px 0;
+    background-color: #ff0707; /* Jaune vif */
+    color: #ffffff; /* Texte sombre pour le contraste */
+    
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    
+    /* Positionnement et rotation */
+    top: 22px;
+    left: -40px;
+    transform: rotate(-45deg);
+    
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 2; /* S'assure qu'il est au-dessus de l'image */
+    animation: pulse-animation 2.5s infinite ease-in-out;
+}
+
+/* Crée les "plis" du ruban */
+.new-banner::before,
+.new-banner::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    border: 5px solid #ad8c00; /* Jaune plus foncé pour l'effet d'ombre */
+}
+
+.new-banner::before {
+    top: 0;
+    left: -10px;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+}
+
+.new-banner::after {
+    bottom: 0;
+    right: -10px;
+    border-top-color: transparent;
+    border-left-color: transparent;
+}
+
+/* Animation de pulsation pour le bandeau */
+@keyframes pulse-animation {
+    0% {
+        transform: rotate(-45deg) scale(1);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        transform: rotate(-45deg) scale(1.05);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    }
+    100% {
+        transform: rotate(-45deg) scale(1);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+}
+
 .game-card-link {
     text-decoration: none; /* Supprime le soulignement des liens */
 }
@@ -307,7 +366,6 @@ main {
 
 .social-buttons {
     display: flex; /* Active Flexbox pour les boutons */
-    flex-wrap: wrap;
     gap: 1rem; /* Espace entre les boutons */
     justify-content: center; /* Centre horizontalement */
 }
@@ -375,6 +433,34 @@ main {
     border-color: #8d862b; /* Bordure jaune foncé */
 }
 
+/* Styles spécifiques pour les boutons Steam et Google Play.
+   On utilise un sélecteur plus spécifique (.btn-download.btn-steam) 
+   pour s'assurer qu'il surcharge toujours .btn-download. */
+
+/* Bouton bleu/gris pour Steam */
+.btn-download.btn-steam {
+    background-color: #1b2838; /* Bleu/gris foncé de Steam */
+    color: #c7d5e0; /* Texte clair de Steam */
+    border-color: #1b2838;
+}
+
+.btn-download.btn-steam:hover {
+    background-color: #2a475e; /* Un peu plus clair au survol */
+    color: #ffffff;
+    border-color: #2a475e;
+}
+
+/* Bouton blanc pour Google Play */
+.btn-download.btn-google-play {
+    background-color: #ffffff; /* Fond blanc */
+    color: #3c4043; /* Texte gris foncé */
+    border-color: #dadce0; /* Bordure grise claire */
+}
+
+.btn-download.btn-google-play:hover {
+    background-color: #e0e0e0; /* Léger gris au survol */
+}
+
 /* Bouton bleu pour PlushNToy */
 .btn-plushntoy {
     display: inline-block; /* Permet de donner une taille au bouton */
@@ -418,6 +504,103 @@ main {
     border-color: #000000; /* Bordure blanche au survol */
 }
 
+/* Bouton rouge pour "Signaler un bug" */
+.btn-report-bug {
+    display: inline-block;
+    background-color: #e74c3c; /* Un rouge un peu moins agressif */
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.625rem 1.25rem;
+    border: 2px solid #e74c3c;
+    border-radius: 1.25rem;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn-report-bug:hover {
+    background-color: #fff;
+    color: #e74c3c;
+}
+
+/* --- Form Styling (report_bug.html) --- */
+
+#bugReportForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #e0e0e0;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    font-family: 'KidZone', sans-serif;
+    font-size: 1rem;
+    background-color: #333;
+    color: #fff;
+    border: 2px solid #555;
+    border-radius: 0.75rem; /* 12px */
+    box-sizing: border-box; /* Important for padding and width */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #649ee0;
+    box-shadow: 0 0 8px rgba(100, 158, 224, 0.5);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.form-group button[type="submit"] {
+    font-family: 'KidZone', sans-serif;
+    background-color: #649ee0; /* A nice blue */
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #649ee0;
+    border-radius: 1.25rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    align-self: center; /* Center the button */
+    margin-top: 1rem;
+}
+
+.form-group button[type="submit"]:hover {
+    background-color: #fff;
+    color: #649ee0;
+}
+
+.form-note {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #aaa;
+}
 
 /* Footer section */
 .footer-message {
@@ -434,7 +617,6 @@ main {
     flex-wrap: wrap;
     gap: 1rem;
     align-items: flex-start;
-    margin-top: 100px; /* Ajuste la marge supérieure pour compenser la hauteur du header */
 }
 
 .game-page {
@@ -448,6 +630,29 @@ main {
     background-color: var(--box-bg-color);
 }
 
+.title-version-selector {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap; /* Permet de passer à la ligne sur petits écrans */
+    margin-bottom: 1rem;
+}
+
+#version-selector {
+    font-family: 'KidZone', sans-serif;
+    font-size: 1rem;
+    padding: 0.5rem;
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+#version-selector:disabled {
+    color: #888;
+}
+
 .game-page h1 {
     font-size: 2.5rem;
     margin: 0;
@@ -455,6 +660,10 @@ main {
 
 .platform-windows {
     color: #0088ff;
+}
+
+.platform-linux {
+    color: #ffe600;
 }
 
 .platform-android {
@@ -498,25 +707,117 @@ main {
 .game-trailer-container {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    gap: 1rem;
-    max-width: 900px;  /* Limite la largeur du conteneur */
-    overflow-x: auto;  /* Active le défilement horizontal */
-    position: relative;
+    justify-content: flex-start; /* Aligne le slider à gauche */
+    align-items: center;
+    min-height: 315px; /* Hauteur d'une vidéo pour éviter le saut de page */
 }
 
 /* Les iframes ne doivent pas se réduire et doivent rester à leur taille d'origine */
 .game-trailer-container iframe {
     flex-shrink: 0;  /* Empêche l'iframe de se réduire */
-    width: 560px;  /* Largeur de l'iframe */
-    height: 315px;  /* Hauteur de l'iframe */
+}
+
+/* --- Video Slider --- */
+.video-slider-container {
+    position: relative;
+    width: 560px; /* Largeur d'une vidéo standard */
+    max-width: 100%; /* S'adapte aux écrans plus petits */
+    margin: 0; /* Aligne le conteneur à gauche au lieu de le centrer */
+    overflow: hidden;
+}
+
+.video-slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.video-slide {
+    flex: 0 0 100%;
+    box-sizing: border-box;
+}
+
+.video-slide iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9; /* Maintient le ratio 16:9 de la vidéo */
+    display: block;
+}
+
+/* Cache les boutons de navigation s'il n'y a qu'un seul élément */
+.slider-container.single-slide .slider-btn,
+.video-slider-container.single-slide .slider-btn {
+    display: none;
+}
+
+.game-screenshots {
+    flex-basis: 100%; /* Prend toute la largeur disponible */
+    margin-top: 1rem;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    margin: auto;
+    overflow: hidden; /* Cache les images qui dépassent */
+    border: var(--box-border);
+    border-radius: var(--box-border-radius);
+    background-color: var(--box-bg-color);
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Animation de glissement */
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.slide img {
+    width: 100%;
+    display: block; /* Supprime l'espace sous l'image */
+    border-radius: var(--box-border-radius);
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.slider-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
 }
 
 .game-buttons {
     display: flex;
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne */
     flex-direction: row;
     justify-content: flex-start;
     gap: 1rem;
+}
+
+.flex-break {
+    flex-basis: 100%;
+    height: 0;
 }
 
 .game-changelog {
@@ -524,6 +825,7 @@ main {
     border-radius: var(--box-border-radius);
     background-color: var(--box-bg-color);
     padding: 1rem;
+    margin-top: 2rem;
     max-width: 1000px;
     text-align: left;
 }
@@ -532,29 +834,147 @@ main {
     margin-top: 0; /* Supprime la marge supérieure du premier paragraphe */
 }
 
-/* Adaptation pour les petits écrans */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column; /* Empile le logo et le menu */
-        padding: 0.625rem;
+/* Styles for the changelog accordion */
+.changelog-accordion {
+    margin-top: 20px;
+}
+
+.changelog-version {
+    border: 1px solid #444;
+    border-radius: var(--box-border-radius);
+    margin-bottom: 10px;
+    background-color: #2a2a2a;
+    overflow: hidden;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.changelog-version[open] {
+    background-color: #333;
+}
+
+.changelog-version summary {
+    padding: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    list-style: none; /* Remove default arrow */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+}
+
+.changelog-version summary::-webkit-details-marker {
+    display: none; /* Remove default arrow on Chrome/Safari */
+}
+
+.changelog-version summary::after {
+    content: '+';
+    font-size: 1.5em;
+    transition: transform 0.2s;
+}
+
+.changelog-version[open] summary::after {
+    content: '−';
+}
+
+.changelog-content {
+    padding: 0 15px 15px 30px; /* Add left padding for indentation */
+    border-top: 1px solid #444;
+}
+
+/* --- Page Load Animations --- */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
+}
 
-    .container-discord {
-        width: 100%;
-        flex-direction: column;
-        gap: 20px;
-
-        .welcome {
-            margin: 5rem 0 0.25rem 0;
-        }
-
-        .discord-widget {
-            max-width: 100%;
-        }
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
     }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* General animations for all sub-pages */
+body:not(.home-page) main {
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+body:not(.home-page) main {
+    animation: fadeInUp 0.7s ease-out 0.3s forwards; /* 0.3s delay */
+}
+
+/* Home page specific, more complex animations */
+.home-page .welcome,
+.home-page .gamesprime {
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+.home-page .welcome {
+    animation: fadeInUp 0.8s ease-in-out 0.4s forwards; /* 0.4s delay */
+}
+
+.home-page .welcome + .gamesprime {
+    animation: slideInFromRight 0.7s ease-out 0.6s forwards; /* 0.6s delay */
+}
+
+.home-page .welcome + .gamesprime + .gamesprime {
+    animation: slideInFromRight 0.7s ease-out 0.8s forwards; /* 0.8s delay */
+}
+
+/* About Page Layout */
+.about-page-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows sidebar to wrap on smaller screens */
+    gap: 2rem;
+    align-items: flex-start; /* Align items to the top */
+}
+
+.about-content {
+    flex: 2; /* Takes up 2/3 of the space */
+    min-width: 300px; /* Ensures content is readable on smaller flex layouts */
+}
+
+.sidebar-widgets {
+    flex: 1; /* Takes up 1/3 of the space */
+    min-width: 300px; /* Minimum width before wrapping */
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.widget-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.widget-container iframe {
+    width: 100%;
+    border-radius: var(--box-border-radius);
+    border: none; /* Discord widget looks better without a border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Specific iframe styling */
+.widget-container iframe[src*="youtube.com"] {
+    aspect-ratio: 16 / 9; /* Maintain video aspect ratio */
+    height: auto;
+}
+
+.widget-container iframe[src*="discord.com"] {
+    height: 400px; /* Fixed height for discord widget */
 }

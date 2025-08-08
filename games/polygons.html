@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="../images/MadeByBatpolygonFavIcon.png">
+    <link rel="icon" type="image/png" href="../images/icons/MadeByBatpolygonFavIcon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Polygons - Made by Batpolygon</title>
     <link rel="stylesheet" href="../style.css">
@@ -10,7 +10,7 @@
 <body>
     <header>
         <div class="logo">
-            <img src="../images/MadeByBatpolygonColoredIcon.png" alt="Logo" class="logo-image">
+            <img src="../images/icons/MadeByBatpolygonColoredIcon.png" alt="Logo" class="logo-image">
             <span>Made By <strong>BATPOLYGON</strong></span>
         </div>
         <nav>
@@ -27,7 +27,7 @@
         <section class="game-details container">
             <div class="game-header">
                 <div class="game-card-trailer">
-                    <img src="../images/PolygonsGameCover.jpg" alt="Polygons Cover" class="game-card-trailer-image">
+                    <img src="../images/gamescover/PolygonsGameCover.jpg" alt="Polygons Cover" class="game-card-trailer-image">
                 </div>
             </div>
                 <div class="game-page">
@@ -39,45 +39,134 @@
                     <p class="note"><em>*Si vous trouvez un ou plusieurs bugs, n'hésitez pas à me les faire remonter sur mon Discord.</em></p>
                     <div class="game-buttons">
                         <a href="https://www.mediafire.com/file/48xqdo05795pxy6/Polygons_Installer.exe/file" class="btn btn-download" target="_blank">
-                            Télécharger <img src="../images/WindowsIcon.png" alt="Windows Icon" class="platform-icon">
-                        </a>                       
+                            Télécharger <img src="../images/icons/WindowsIcon.png" alt="Windows Icon" class="platform-icon">
+                        </a>
                         <a href="https://discord.gg/fTwdczkQ39" class="btn btn-discord" target="_blank">Discord</a>
+                        <a href="../report_bug.html" class="btn btn-report-bug">Signaler un bug</a>
                     </div>
                 </div>
             </div>
             <div class="game-trailer">
                 <h2>Trailer :</h2>
                 <div class="game-trailer-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/L9i2XDSHh-U"
-                            title="Trailer de Polygons" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
+                    <div class="video-slider-container">
+                        <div class="video-slider-track">
+                            <div class="video-slide">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/L9i2XDSHh-U" title="Trailer de Polygons" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <button class="slider-btn prev-btn" aria-label="Précédent">&#10094;</button>
+                        <button class="slider-btn next-btn" aria-label="Suivant">&#10095;</button>
+                    </div>
                 </div>
             </div>
             <div class="game-trailer">
                 <h2>Let's Play :</h2>
                 <div class="game-trailer-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/HfnipYS2dqM"
-                            title="Let's Play de Polygons" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
+                    <div class="video-slider-container">
+                        <div class="video-slider-track">
+                            <div class="video-slide">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/HfnipYS2dqM" title="Let's Play de Polygons" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <button class="slider-btn prev-btn" aria-label="Précédent">&#10094;</button>
+                        <button class="slider-btn next-btn" aria-label="Suivant">&#10095;</button>
+                    </div>
                 </div>
             </div>          
-            <div class="game-changelog">
-                <h2>Changelog :</h2>
-                <p><strong>Version 1.0 [02/05/2023] :<br></strong>Reprise et amelioration du gameplay de la VT-1, 3 catégories d'objets (Polygons, Appareils, Minerais), 3 sous-categories par categories ([wagon, ventilateur, levitateur], [lumite, fragnet, estal], [triangle, plan, decagon]), 2 mondes disponibles librement (Chateau, Zone Plate), Tutoriel au premier demarage du jeu.<br>
-                </p>
-                <p><strong>Bugs Non Résolus de la V1.0 :<br></strong>
-                    -Le wagon peux deriver de sa trajectoire ou se bloquer si des "bornes" (levitateur + fragnet) sont trop éloigné. <br>
-                </p>
-                <p><strong>Version Test 1 <em>(VT-1)</em> [01/12/2021] :<br></strong>Mise en place du Gameplay de base, construction avec des plans, machines (ventilateurs, estal drainer, pocket estal drainer) <br>
-                </p>
-            </div>
         </section>
+            <section class="game-changelog container">
+                <h2>Changelog :</h2>
+                <div class="changelog-accordion">
+                    <details class="changelog-version" open>
+                        <summary>Version 1.0 [02/05/2023]</summary>
+                        <div class="changelog-content">
+                            <h3>Améliorations</h3>
+                            <ul>
+                                <li>Reprise et amélioration du gameplay de la VT-1.</li>
+                                <li>3 catégories d'objets (Polygons, Appareils, Minerais) avec sous-catégories.</li>
+                                <li>2 mondes disponibles (Château, Zone Plate).</li>
+                                <li>Tutoriel au premier démarrage.</li>
+                            </ul>
+                            <h3>Bugs Connus</h3>
+                            <ul>
+                                <li>Le wagon peut dériver ou se bloquer si les "bornes" sont trop éloignées.</li>
+                            </ul>
+                        </div>
+                    </details>
+                    <details class="changelog-version">
+                        <summary>Version Test 1 (VT-1) [01/12/2021]</summary>
+                        <div class="changelog-content">
+                            <h3>Fonctionnalités Initiales</h3>
+                            <ul>
+                                <li>Mise en place du gameplay de base, construction avec des plans, machines.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+            </section>
     </main>
     
     <div class="footer-message">
-        <p>Créé par Batpolygon</p>
+        <p>Créé par Batpolygon | <a href="../eula.html">EULA & Copyright</a></p>
     </div> 
+    <script>
+        // Script for the accordion behavior of the changelog
+        const allDetails = document.querySelectorAll('.changelog-version');
+    
+        allDetails.forEach(details => {
+            details.addEventListener('toggle', () => {
+                // We only want to run this when a details element is opened
+                if (details.open) {
+                    // Close all other details elements
+                    allDetails.forEach(d => {
+                        if (d !== details) d.open = false;
+                    });
+                }
+            });
+        });
+
+        function initializeSlider(container) {
+            if (!container) return;
+            
+            const track = container.querySelector('.slider-track') || container.querySelector('.video-slider-track');
+            const prevButton = container.querySelector('.prev-btn');
+            const nextButton = container.querySelector('.next-btn');
+
+            if (!track || !prevButton || !nextButton) return;
+
+            const slides = Array.from(track.children);
+            if (slides.length <= 1) {
+                container.classList.add('single-slide');
+                return;
+            }
+
+            let currentIndex = 0;
+
+            const updateSlidePosition = (animate = true) => {
+                const slideWidth = slides.length > 0 ? slides[0].getBoundingClientRect().width : 0;
+                if (slideWidth > 0) {
+                    track.style.transition = animate ? 'transform 0.5s ease-in-out' : 'none';
+                    track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+                }
+            };
+
+            prevButton.addEventListener('click', () => {
+                currentIndex = currentIndex === 0 ? slides.length - 1 : currentIndex - 1;
+                updateSlidePosition();
+            });
+
+            nextButton.addEventListener('click', () => {
+                currentIndex = currentIndex === slides.length - 1 ? 0 : currentIndex + 1;
+                updateSlidePosition();
+            });
+
+            new ResizeObserver(() => {
+                updateSlidePosition(false); // Update without animation on resize
+            }).observe(container);
+        }
+
+        document.querySelectorAll('.slider-container, .video-slider-container').forEach(initializeSlider);
+    </script>
 </body>
 </html>

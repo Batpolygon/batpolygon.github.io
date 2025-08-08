@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="../images/MadeByBatpolygonFavIcon.png">
+    <link rel="icon" type="image/png" href="../images/icons/MadeByBatpolygonFavIcon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>À propos - Made by Batpolygon</title>
     <link rel="stylesheet" href="../style.css">
@@ -10,7 +10,7 @@
 <body>
     <header>
         <div class="logo">
-            <img src="../images/MadeByBatpolygonColoredIcon.png" alt="Logo" class="logo-image">
+            <img src="../images/icons/MadeByBatpolygonColoredIcon.png" alt="Logo" class="logo-image">
             <span>Made By <strong>BATPOLYGON</strong></span>
         </div>
         <nav>
@@ -24,7 +24,7 @@
     </header>    
     <main>
         <section class="welcome container">
-            <img src="../images/PlushNToyLogo.png" alt="PlushNToy Logo" class="project-image">
+            <img src="../images/projectslogo/PlushNToyLogo.png" alt="PlushNToy Logo" class="project-image">
             <p>PlushNToy est un projet de "moteur de jeu" développé sous Unreal Engine.Avec au moins un nouveau jeu publié chaque année, le projet évolue progressivement pour devenir de plus en plus complet et abouti au fil du temps.
                 Le développement a commencé le 7 octobre 2022, avec l’idée initiale de créer un jeu de plateforme et d’énigmes où l’on incarne trois jouets : Man le mannequin, Pel la peluche et Pan le pantin.
                 Cependant, la véritable motivation derrière ce projet est de recréer les aventures imaginaires que je partageais avec mes sœurs.
@@ -35,41 +35,72 @@
             <div class="games-box">
                 <a href="../games/cloud_trials.html" class="game-card-link">
                     <div class="game-card">
-                        <img src="../images/CloudTrialsGameCover.jpg" alt="Cloud Trials">
+                        <img src="../images/gamescover/CloudTrialsGameCover.jpg" alt="Cloud Trials">
                         <div class="game-title">Cloud Trials
-                            <img src="../images/WindowsIcon.png" alt="Windows Icon" class="platform-icon">
+                            <img src="../images/icons/WindowsIcon.png" alt="Windows Icon" class="platform-icon">
                         </div>
                     </div>
                 </a>
                 <a href="../games/platroomer.html" class="game-card-link">
                     <div class="game-card">
-                        <img src="../images/PlatroomerGameCover.jpg" alt="Platroomer">
+                        <img src="../images/gamescover/PlatroomerGameCover.jpg" alt="Platroomer">
                         <div class="game-title">Platroomer
-                            <img src="../images/WindowsIcon.png" alt="Windows Icon" class="platform-icon">
+                            <img src="../images/icons/WindowsIcon.png" alt="Windows Icon" class="platform-icon">
                         </div>
                     </div>
                 </a>
             </div>
         </section>
         <section class="game-changelog container">
-                <h2>Changelog :</h2>
-                <p><strong>Version Test 07012024 [07/01/2024] :<br></strong> 
-                    La <strong>VT-07012024</strong>, développée sous Unreal Engine 4, est la version utilisée pour créer un deuxième jeu nommé : <strong>Cloud Trials</strong>.<br>
-                    Ce jeu reprend l’idée de base du projet : un jeu de plateforme et d’énigmes où l’on incarne trois jouets principaux : Man le mannequin, Pel la peluche et Pan le pantin.<br>
-                    Cette version améliore de nombreux aspects du moteur, comme le développement d’un HUB central avec des niveaux, un mode coopération, et un level design plus abouti.<br> 
-                    Elle marque aussi un grand pas dans la construction de "notre" univers, inspiré des aventures que je partageais avec mes sœurs.<br> 
-                    L’histoire de Cloud Trials se déroule dans une partie spécifique de cet univers : le monde des nuages.<br>
-                </p>
-                <p><strong>Version Test 27012023 [07/01/2023] :<br></strong> 
-                    La <strong>VT-27012023</strong>, développée sous Unreal Engine 4, est la toute première version utilisée pour créer un jeu : <strong>Platroomer</strong>.<br>
-                    Ce jeu a permis de poser les bases du moteur en explorant le gameplay orienté plateforme, l’intégration de pouvoirs, et des systèmes comme le HUD et la génération aléatoire de parcours et de jouets.<br>
-                    L’idée de Platroomer vient d’un jeu que je faisais avec mes deux sœurs quand nous étions enfants : on utilisait des objets de notre chambre pour créer des parcours et jouer avec nos jouets.<br>
-                    D’ailleurs, la chambre modélisée dans le jeu est inspirée de celle où nous jouions ensemble.<br>
-                </p>
+            <h2>Changelog :</h2>
+            <div class="changelog-accordion">
+                <details class="changelog-version" open>
+                    <summary>Version Test 07012024 [07/01/2024]</summary>
+                    <div class="changelog-content">
+                        <h3>Améliorations et Nouveautés (Cloud Trials)</h3>
+                        <ul>
+                            <li>Développement du jeu <strong>Cloud Trials</strong> avec cette version.</li>
+                            <li>Reprise de l'idée de base : un jeu de plateforme et d’énigmes avec trois personnages jouables (Man, Pel, et Pan).</li>
+                            <li>Ajout d'un HUB central pour la sélection des niveaux.</li>
+                            <li>Intégration d'un mode coopération.</li>
+                            <li>Amélioration significative du level design.</li>
+                            <li>Étape majeure dans la construction de l'univers du projet.</li>
+                        </ul>
+                    </div>
+                </details>
+                <details class="changelog-version">
+                    <summary>Version Test 27012023 [27/01/2023]</summary>
+                    <div class="changelog-content">
+                        <h3>Première Version (Platroomer)</h3>
+                        <ul>
+                            <li>Toute première version du moteur, utilisée pour créer <strong>Platroomer</strong>.</li>
+                            <li>Pose des bases du gameplay : plateforme, intégration de pouvoirs.</li>
+                            <li>Implémentation de systèmes fondamentaux : HUD, génération aléatoire de parcours.</li>
+                            <li>Inspiré par des jeux d'enfance et la chambre où ils se déroulaient.</li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
         </section>       
     </main>    
     <div class="footer-message">
-        <p>Plus à venir !</p>
-    </div>    
+        <p>Créé par Batpolygon | <a href="../eula.html">EULA & Copyright</a></p>
+    </div>
+    <script>
+        // Script for the accordion behavior of the changelog
+        const allDetails = document.querySelectorAll('.changelog-version');
+    
+        allDetails.forEach(details => {
+            details.addEventListener('toggle', () => {
+                // We only want to run this when a details element is opened
+                if (details.open) {
+                    // Close all other details elements
+                    allDetails.forEach(d => {
+                        if (d !== details) d.open = false;
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>

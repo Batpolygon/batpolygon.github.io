@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="../images/MadeByBatpolygonFavIcon.png">
+    <link rel="icon" type="image/png" href="../images/icons/MadeByBatpolygonFavIcon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Polyhedron - Made by Batpolygon</title>
     <link rel="stylesheet" href="../style.css">
@@ -10,7 +10,7 @@
 <body>
     <header>
         <div class="logo">
-            <img src="../images/MadeByBatpolygonColoredIcon.png" alt="Logo" class="logo-image">
+            <img src="../images/icons/MadeByBatpolygonColoredIcon.png" alt="Logo" class="logo-image">
             <span>Made By <strong>BATPOLYGON</strong></span>
         </div>
         <nav>
@@ -27,75 +27,249 @@
         <section class="game-details container">
             <div class="game-header">
                 <div class="game-card-trailer">
-                    <img src="../images/PolyhedronV0.2GameCover.jpg" alt="Polyhedron V0.2 Cover" class="game-card-trailer-image">
+                    <img src="../images/gamescover/PolyhedronV0.2GameCover.jpg" alt="Polyhedron Cover" class="game-card-trailer-image" id="game-cover-image">
                 </div>
             </div>
                 <div class="game-page">
-                    <h1>Polyhedron</h1>
+                    <div class="title-version-selector">
+                        <h1>Polyhedron</h1>
+                        <select id="version-selector">
+                            <option value="0.3" disabled>Version 0.3 (à venir)</option>
+                            <option value="0.2">Version 0.2</option>
+                            <option value="0.1">Version 0.1</option>
+                        </select>
+                    </div>
                     <p><span class="platform-windows">Windows</span></p>
-                    <p>
-                        Voici <strong>Polyhedron</strong> ! Un <strong>sandbox</strong> où vous pouvez créer tout un tas de construction, machine et bien plus !
-                        De simple maison ou pixel art à création de robot ou véhicule, votre imagination est la seule limite !
-                        Le jeu est actuellement en <strong>version 0.2</strong> donc n'hésitez pas à me faire de retours sur des améliorations potentiels et nouveautés à ajouter !
-                    </p>
+                    <p id="game-description"></p>
                     <p class="note"><em>*Si vous trouvez un ou plusieurs bugs, n'hésitez pas à me les faire remonter sur mon Discord.</em></p>
                     <div class="game-buttons">
-                        <a href="https://www.mediafire.com/file/ulhqjxvi54bhixr/Polyhedron_V0.2_Installer.exe/file" class="btn btn-download" target="_blank">
-                            Télécharger <img src="../images/WindowsIcon.png" alt="Windows Icon" class="platform-icon">
-                        </a>                       
+                        <a href="#" id="download-button" class="btn btn-download" target="_blank">
+                            Télécharger <img src="../images/icons/WindowsIcon.png" alt="Windows Icon" class="platform-icon">
+                        </a>
                         <a href="https://discord.gg/fTwdczkQ39" class="btn btn-discord" target="_blank">Discord</a>
+                        <a href="../report_bug.html" class="btn btn-report-bug">Signaler un bug</a>
                     </div>
                 </div>
             </div>
             <div class="game-trailer">
                 <h2>Trailer :</h2>
-                <div class="game-trailer-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/2uElYGDG9KE"
-                            title="Trailer de Polyhedron V0.2" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-            
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/1tWfEh2HlS8"
-                            title="Trailer de Polyhedron v0.1" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                </div>
+                <div class="game-trailer-container" id="trailers-container"></div>
             </div>
             <div class="game-trailer">
                 <h2>Let's Play :</h2>
-                <div class="game-trailer-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/E2FOU37jhu0"
-                            title="Let's Play de Polyhedron V0.1" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                </div>
+                <div class="game-trailer-container" id="lets-play-container"></div>
             </div>     
-            <div class="game-changelog">
-                <h2>Changelog :</h2>
-                <p><strong>Version 0.2 [20/12/2024] :<br></strong> Ajout de la customisation de personnage, refonte des couleurs (24 Solides, 4 Metaliques, 6 Transparentes), ajout de 4 textures pour les blocs, ajout de 4 types de blocs (StairsInCorner, StairsOutCorner, RampInCorner, RampOutCorner), ajout de 5 Machines (Emitter, Repulsor, Wagon, Receiver, Controller), refonte de la lumiere et de la Light (configurable), ajout de 2 modes au Transmitter (Signal, Calcul), refonte du mode Attack pour le Sensor (output Float qui capte les degats reçu), ajout du mode Loop pour le Commandor, refonte de la physique des Movables, refonte du mode Impact pour le Motor, amelioration du placement des polyhedrons, ajouts de 20 Commandes (/setstat, /setrespawnpoint, /settime, /setAitrait, /setworldrule, /findvar, /sendchat, /sendsignal, /assignvar, /deletevar, /listvar, /stopmachine, /wire, /gettime, /getstat, /getAItraits, /getworldrule, /createentity, /rideentity, /ridepolyhedron), ajout dans la Console (Autocompletion, historique de commandes, sauvegarde de coordonnée), ajout d'options pour les selectors (ID, Tags, Life, Stamina, Crouch?, Jump?, Fall?, Hurt?, Attack?, prise en charge de la negation =!), refonte des Categories (Tools, Construction, Mechanical, Programming, Entities), ajout de 6 Tools (Sword, Pickaxe, Gun, Brush, Wrench, RemoteControl), refonte visuel des Wires (adapté en fonction de l'input/output), changement de l'input Integer qui devient Float, ajout de l'output String, ajouts de 10 Entitées (Dummy, Rockle, Gardener, Miby, Galopin, Wise, Cronil, Gim-Gim, Squipter, Sulfy), ajout d'un model 3D pour le mode FPS, ajout des previsualisation des items dans la mains, ajout d'une vue TPS Frontal, ajout d'un Inventaire, optimisation de la generation Procedural, ajout de biome, structure, spawn d'entité et block data (Block personalisée, temps de minage, etc...) pour la generation procedural, ajout d'une generation Pre-Procedural, ajout de Regle de mondes (Cycle du soleil, stat du joueurs), refonte du ciel et du cycle jour/nuit (Nuage 3d, soleil dynamique), ajout pour modifier un monde existant, ajout de screenshot et icon de type de generation a la selection monde, ajout de 10 Trophy (Trophy Race dans la generation Pre-Procedural), ajout de presets pour les Claviers Européen (AZERTY, QWERTY, QWERTZ).<br>
-                </p>
-                <p><strong>Bugs Non Résolus de la V0.2 :<br></strong>
-                    -Certain éléments du jeu sont lourdement affecté par le nombre de FPS (FPS normal autour de 30-60)<br>
-                    -Pics de lags a la generation de chunks<br>
-                    -Si le joueur Ride une entité et quelle se fait tuer, le joueur peux se retrouver dans le sol<br>
-                    -Lors d'un chargement de monde, le temps peut etre mit à 0:0 ou/et decaler l'emplacement du joueurs<br>
-                    -Lorsqu'un Motor est attaché à un Movable, le bloc attaché directement sur le Motor n'aura pas de collision<br>
-                    -Lorsqu'un Motor est attaché à un Movable, qu'il y a plus de 2 blocs connectés à lui et que l'un des blocs à partir du 2ème touche le Movable ou le moteur est attaché, la structure prendra énormément de vitesse<br>
-                    -Lorsque l'on met le Terminal en route en mode Loop, qu'on Save et qu'on recharge le monde, le Terminal ne se lance pas<br>
-                    -Il y a 1 chance sur 10 000 000 que 2 Polyhedron ai le même ID ce qui peut poser un problème lorsqu'on charge un monde au niveau des Wires et des Attaches<br>
-                    -Prise en charge partiel de la manette : ne fonctionne pas dans les menus<br>
-                    -Deux commandes peuvent avoir la même touche<br>
-                    -Lors du Reset du Key Binding, certaine touche sont gardées en mémoire, pour remédier à ça appuyez plusieurs fois sur le bouton Reset<br>
-                    -Le clavier peut assigner des touches pour les manettes<br></p>
-                <p><strong>Version 0.1 [01/09/2024] :<br></strong> 
-                    Mise en place du Gameplay de base, 6 mouvements pour le Joueur (marcher, courir, sauter, s'accroupir, attaquer, interagir), 3 modes disponibles (Hand, Construction, ​Engineering), 5 Blocs pour le mode ​"Construction" avec 12 couleurs disponibles, 8 Machines avec le système de câble (Wire) dans le mode "Engineering", 12 commandes "/" disponible, 3 IA disponible à travers la commande "/spawnentity" (Passive, Agressive, Fearfull), 4 options graphiques disponible (Bad, Medium, Good, Perfect), 3 options uniquement disponible dans le menu (Nickname, Beautiful Shadow, Render Distance), 5 autres options disponibles (Player Display Hud, MiniMap Hud, Music Slider, Sound Slider, Keys Binding)
-                </p>
-            </div>
         </section>
+            <section class="game-changelog container">
+                <h2>Changelog :</h2>
+                <div class="changelog-accordion">
+                    <details class="changelog-version" data-version="0.2" open>
+                        <summary>Version 0.2 [20/12/2024]</summary>
+                        <div class="changelog-content">
+                            <h3>Nouveautés & Améliorations</h3>
+                            <ul>
+                                <li>Customisation du personnage.</li>
+                                <li>Refonte des couleurs (24 Solides, 4 Métalliques, 6 Transparentes).</li>
+                                <li>Ajout de 4 textures et 4 nouveaux types de blocs (Stairs, Ramps et coins).</li>
+                                <li>Ajout de 5 nouvelles Machines (Emitter, Repulsor, Wagon, Receiver, Controller).</li>
+                                <li>Refonte de la lumière et de l'objet "Light" (configurable).</li>
+                                <li>Améliorations des machines existantes (Transmitter, Sensor, Commandor, Motor).</li>
+                                <li>Amélioration du placement des polyhedrons.</li>
+                                <li>Ajout de 20 nouvelles Commandes (gestion stats, monde, variables, entités...).</li>
+                                <li>Amélioration de la Console (autocomplétion, historique, sauvegarde de coordonnées).</li>
+                                <li>Refonte des catégories d'objets (Tools, Construction, Mechanical, Programming, Entities).</li>
+                                <li>Ajout de 6 Outils (Sword, Pickaxe, Gun, Brush, Wrench, RemoteControl).</li>
+                                <li>Refonte visuelle des câbles (Wires) et gestion des types de données (Float, String).</li>
+                                <li>Ajout de 10 nouvelles Entités avec des comportements uniques.</li>
+                                <li>Ajout d'un modèle 3D pour la vue FPS, d'une vue TPS et d'un inventaire.</li>
+                                <li>Optimisation majeure de la génération procédurale de monde (biomes, structures, etc.).</li>
+                                <li>Refonte du ciel, du cycle jour/nuit et ajout de règles de monde.</li>
+                                <li>Ajout de 10 Trophées et de presets clavier (AZERTY, QWERTY, QWERTZ).</li>
+                            </ul>
+                            <h3>Bugs Connus</h3>
+                            <ul>
+                                <li>Certains éléments du jeu sont affectés par les variations de FPS.</li>
+                                <li>Pics de lag possibles lors de la génération de nouveaux chunks.</li>
+                                <li>Le joueur peut passer à travers le sol si l'entité qu'il chevauche est tuée.</li>
+                                <li>Le temps et la position du joueur peuvent être incorrects au chargement d'un monde.</li>
+                                <li>Problèmes de collision et de physique avec les Movables et Motors.</li>
+                                <li>Le Terminal en mode Loop ne se réactive pas après un chargement.</li>
+                                <li>Risque infime de duplication d'ID pour les Polyhedrons.</li>
+                                <li>Prise en charge partielle de la manette (ne fonctionne pas dans les menus).</li>
+                                <li>Problèmes de configuration des touches (conflits, reset incomplet).</li>
+                            </ul>
+                        </div>
+                    </details>
+                    <details class="changelog-version" data-version="0.1">
+                        <summary>Version 0.1 [01/09/2024]</summary>
+                        <div class="changelog-content">
+                            <h3>Fonctionnalités Initiales</h3>
+                            <ul>
+                                <li>Mouvements de base du joueur (marcher, courir, sauter, etc.).</li>
+                                <li>3 modes de jeu : Hand, Construction, Engineering.</li>
+                                <li>Système de construction avec 5 types de blocs et 12 couleurs.</li>
+                                <li>Système de programmation visuelle avec 8 machines et des câbles (Wires).</li>
+                                <li>12 commandes de base disponibles.</li>
+                                <li>3 types d'IA pour les entités.</li>
+                                <li>Options graphiques et de jeu.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+            </section>
     </main>
     
     <div class="footer-message">
-        <p>Plus à venir !</p>
+        <p>Créé par Batpolygon | <a href="../eula.html">EULA & Copyright</a></p>
     </div> 
+    <script>
+        const versionData = {
+            "0.2": {
+                description: `Voici <strong>Polyhedron</strong> ! Un <strong>sandbox</strong> où vous pouvez créer tout un tas de construction, machine et bien plus !
+                              De simple maison ou pixel art à création de robot ou véhicule, votre imagination est la seule limite !
+                              Le jeu est actuellement en <strong>version 0.2</strong> donc n'hésitez pas à me faire de retours sur des améliorations potentiels et nouveautés à ajouter !`,
+                downloadLink: "https://www.mediafire.com/file/ulhqjxvi54bhixr/Polyhedron_V0.2_Installer.exe/file",
+                coverImage: "../images/gamescover/PolyhedronV0.2GameCover.jpg",
+                trailers: [
+                    { src: "https://www.youtube.com/embed/2uElYGDG9KE", title: "Trailer de Polyhedron V0.2" }
+                ],
+                letsPlays: [
+                    { src: "https://www.youtube.com/embed/16L48jPzMI4", title: "Let's Play 1 de Polyhedron V0.2" },
+                    { src: "https://www.youtube.com/embed/w3QRk77M9FE", title: "Let's Play 2 de Polyhedron V0.2" },
+                    { src: "https://www.youtube.com/embed/sUC6Ts8KEbQ", title: "Let's Play 3 de Polyhedron V0.2" }
+                ]
+            },
+            "0.1": {
+                description: `Découvrez la première version de <strong>Polyhedron</strong>. Une version fondamentale qui a posé les bases du jeu avec ses mécaniques de construction et de programmation initiales.`,
+                downloadLink: "https://www.mediafire.com/file/vh24v1342c8msx2/Polyhedron_V0.1_Installer.exe/file",
+                coverImage: "../images/gamescover/PolyhedronV0.1GameCover.jpg", // J'ai supposé un nom d'image, à adapter
+                trailers: [
+                    { src: "https://www.youtube.com/embed/1tWfEh2HlS8", title: "Trailer de Polyhedron v0.1" }
+                ],
+                letsPlays: [
+                    { src: "https://www.youtube.com/embed/E2FOU37jhu0", title: "Let's Play de Polyhedron V0.1" }
+                ]
+            }
+        };
+
+        function createIframe(video) {
+            return `<iframe width="560" height="315" src="${video.src}"
+                            title="${video.title}" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>`;
+        }
+
+        function createVideoSlider(videos) {
+            if (!videos || videos.length === 0) return '';
+
+            const slidesHTML = videos.map(video => `
+                <div class="video-slide">
+                    ${createIframe(video)}
+                </div>
+            `).join('');
+
+            return `
+                <div class="video-slider-container">
+                    <div class="video-slider-track">${slidesHTML}</div>
+                    <button class="slider-btn prev-btn" aria-label="Précédent">&#10094;</button>
+                    <button class="slider-btn next-btn" aria-label="Suivant">&#10095;</button>
+                </div>`;
+        }
+
+        function updatePage(version) {
+            const data = versionData[version];
+            if (!data) return;
+
+            // Mettre à jour les éléments de la page
+            document.getElementById('game-description').innerHTML = data.description;
+            document.getElementById('download-button').href = data.downloadLink;
+            document.getElementById('game-cover-image').src = data.coverImage;
+            document.getElementById('game-cover-image').alt = `Polyhedron ${version} Cover`;
+
+            // Mettre à jour les trailers
+            const trailersContainer = document.getElementById('trailers-container');
+            trailersContainer.innerHTML = createVideoSlider(data.trailers);
+            if (data.trailers.length > 0) {
+                initializeSlider(trailersContainer.querySelector('.video-slider-container'));
+            }
+
+            // Mettre à jour les Let's Plays
+            const letsPlayContainer = document.getElementById('lets-play-container');
+            letsPlayContainer.innerHTML = createVideoSlider(data.letsPlays);
+            if (data.letsPlays.length > 0) {
+                initializeSlider(letsPlayContainer.querySelector('.video-slider-container'));
+            }
+
+            // Gérer la visibilité des sections de vidéos
+            trailersContainer.parentElement.style.display = data.trailers.length > 0 ? 'flex' : 'none';
+            letsPlayContainer.parentElement.style.display = data.letsPlays.length > 0 ? 'flex' : 'none';
+
+            // Mettre à jour le changelog pour n'afficher que la version sélectionnée
+            const allChangelogs = document.querySelectorAll('.changelog-version');
+            allChangelogs.forEach(details => {
+                if (details.dataset.version === version) {
+                    details.style.display = 'block';
+                    details.open = true; // Ouvre le changelog de la version sélectionnée
+                } else {
+                    details.style.display = 'none';
+                }
+            });
+        }
+
+        function initializeSlider(container) {
+            if (!container) return;
+            
+            const track = container.querySelector('.slider-track') || container.querySelector('.video-slider-track');
+            const prevButton = container.querySelector('.prev-btn');
+            const nextButton = container.querySelector('.next-btn');
+            
+            if (!track || !prevButton || !nextButton) return;
+
+            const slides = Array.from(track.children);
+            if (slides.length <= 1) {
+                container.classList.add('single-slide');
+                return;
+            }
+
+            let currentIndex = 0;
+
+            const updateSlidePosition = (animate = true) => {
+                const slideWidth = slides.length > 0 ? slides[0].getBoundingClientRect().width : 0;
+                if (slideWidth > 0) {
+                    track.style.transition = animate ? 'transform 0.5s ease-in-out' : 'none';
+                    track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+                }
+            };
+
+            prevButton.addEventListener('click', () => {
+                currentIndex = currentIndex === 0 ? slides.length - 1 : currentIndex - 1;
+                updateSlidePosition();
+            });
+
+            nextButton.addEventListener('click', () => {
+                currentIndex = currentIndex === slides.length - 1 ? 0 : currentIndex + 1;
+                updateSlidePosition();
+            });
+
+            new ResizeObserver(() => {
+                updateSlidePosition(false); // Update without animation on resize
+            }).observe(container);
+        }
+
+        // Écouteur d'événement pour le sélecteur de version
+        const versionSelector = document.getElementById('version-selector');
+        versionSelector.addEventListener('change', (event) => {
+            updatePage(event.target.value);
+        });
+
+        // Initialiser la page avec la version la plus récente
+        document.addEventListener('DOMContentLoaded', () => {
+            const latestVersion = versionSelector.value;
+            updatePage(latestVersion);
+        });
+
+        // Le script de l'accordéon n'est plus nécessaire car on gère l'affichage
+        // de manière exclusive dans la fonction updatePage.
+    </script>
 </body>
 </html>

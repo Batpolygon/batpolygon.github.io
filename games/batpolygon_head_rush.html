@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="../images/MadeByBatpolygonFavIcon.png">
+    <link rel="icon" type="image/png" href="../images/icons/MadeByBatpolygonFavIcon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Batpolygon Head Rush - Made by Batpolygon</title>
     <link rel="stylesheet" href="../style.css">
@@ -10,7 +10,7 @@
 <body>
     <header>
         <div class="logo">
-            <img src="../images/MadeByBatpolygonColoredIcon.png" alt="Logo" class="logo-image">
+            <img src="../images/icons/MadeByBatpolygonColoredIcon.png" alt="Logo" class="logo-image">
             <span>Made By <strong>BATPOLYGON</strong></span>
         </div>
         <nav>
@@ -27,7 +27,7 @@
         <section class="game-details container">
             <div class="game-header">
                 <div class="game-card-trailer">
-                    <img src="../images/BatpolygonHeadRushGameCover.jpg" alt="Batpolygon Head Rush Cover" class="game-card-trailer-image">
+                    <img src="../images/gamescover/BatpolygonHeadRushGameCover.jpg" alt="Batpolygon Head Rush Cover" class="game-card-trailer-image">
                 </div>
             </div>
                 <div class="game-page">
@@ -38,58 +38,146 @@
                         Synopsis : <strong>Ender</strong> , le robot de Batpolygon à une defaillance dans son systeme ! Il est devenue agressif voir meme dangereux, incarne Batpolygon et bat le robot Ender un lui jettant des moutons Youtmouts !
                         Realise les défis pour <strong>debloquer les costumes de Batpolygon</strong>, bonne chance !
                     </p>
-                    <p class="note"><em>*Si vous trouvez un ou plusieurs bugs, n'hésitez pas à me les faire remonter sur mon Discord.</em></p>
                     <div class="game-buttons">
                         <a href="https://www.mediafire.com/file/etove7qbznj87n2/BatpolygonHeadRush_Installer.exe/file" class="btn btn-download" target="_blank">
-                            Télécharger <img src="../images/WindowsIcon.png" alt="Windows Icon" class="platform-icon">
+                            Télécharger <img src="../images/icons/WindowsIcon.png" alt="Windows Icon" class="platform-icon">
                         </a>
                         <a href="https://www.mediafire.com/file/5b183j695awqglu/BatpolygonHeadRush-Android-Shipping_universal.apk/file" class="btn btn-download" target="_blank">
-                            Télécharger <img src="../images/AndroidIcon.png" alt="Android Icon" class="platform-icon">
-                        </a>                        
+                            Télécharger <img src="../images/icons/AndroidIcon.png" alt="Android Icon" class="platform-icon">
+                        </a>
+                        <div class="flex-break"></div>
+                        <a href="https://play.google.com/store/apps/details?id=com.batpolygon.batpolygonheadrush&hl=fr" class="btn btn-download btn-google-play" target="_blank">
+                            Télécharger Google Play Store <img src="../images/icons/GooglePlayIcon.png" alt="Google Play Store Icon" class="platform-icon">
+                        </a>
+                        <p class="note"><em>*Si vous trouvez un ou plusieurs bugs, n'hésitez pas à me les faire remonter sur mon Discord.</em></p>
                         <a href="https://discord.gg/fTwdczkQ39" class="btn btn-discord" target="_blank">Discord</a>
+                        <a href="../report_bug.html" class="btn btn-report-bug">Signaler un bug</a>
                     </div>
                 </div>
             </div>
             <div class="game-trailer">
                 <h2>Trailer :</h2>
                 <div class="game-trailer-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/TLYkPhfTI0U"
-                            title="Trailer de Batpolygon Head Rush" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
+                    <div class="video-slider-container">
+                        <div class="video-slider-track">
+                            <div class="video-slide">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/TLYkPhfTI0U" title="Trailer de Batpolygon Head Rush" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <button class="slider-btn prev-btn" aria-label="Précédent">&#10094;</button>
+                        <button class="slider-btn next-btn" aria-label="Suivant">&#10095;</button>
+                    </div>
                 </div>
             </div> 
             <div class="game-trailer">
                 <h2>Let's Play :</h2>
                 <div class="game-trailer-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/oZPrPmGDzHk"
-                            title="Let's Play de Batpolygon Head Rush" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
+                    <div class="video-slider-container">
+                        <div class="video-slider-track">
+                            <div class="video-slide">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/oZPrPmGDzHk" title="Let's Play de Batpolygon Head Rush" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <button class="slider-btn prev-btn" aria-label="Précédent">&#10094;</button>
+                        <button class="slider-btn next-btn" aria-label="Suivant">&#10095;</button>
+                    </div>
                 </div>
             </div>  
-            <div class="game-changelog">
-                <h2>Changelog :</h2>
-                <p><strong>Version 1.1 [09/07/2024] :<br></strong> 
-                    -Ajout du plein écran (enlève les bordures noires)<br>
-                    -Reduction de nombre de piece perdu lorsque l'on se fait assomer<br>
-                    -Augmentation de la probabilité de "réveille" lorsqu'on tape sur l'écran (passe de 1% à 5%)<br>
-                    -Lorsque l'on est assommé , on ne peut plus de récupérer des pièces ou des pouvoirs<br>
-                    -Certaines particules ont été améliorées.<br>
-                </p>
-                <p><strong>Bugs Non Résolus de la V1.0 :<br></strong>
-                    -Ender peux ne pas apparaitre à l'écran si Ender reapparait trop vite<br>
-                    -Les 2 premières parties sur PC vous tue instantanément<br>
-                </p>
-                <p><strong>Version 1.0 [07/11/2022] :<br></strong> 
-                    Mise en place du Gameplay de base et des defis costumes.
-                </p>
-            </div>
         </section>
+            <section class="game-changelog container">
+                <h2>Changelog :</h2>
+                <div class="changelog-accordion">
+                    <details class="changelog-version" open>
+                        <summary>Version 1.1 [09/07/2024]</summary>
+                        <div class="changelog-content">
+                            <h3>Améliorations</h3>
+                            <ul>
+                                <li>Ajout du plein écran (enlève les bordures noires).</li>
+                                <li>Réduction du nombre de pièces perdues lorsque l'on se fait assommer.</li>
+                                <li>Augmentation de la probabilité de "réveil" (passe de 1% à 5%).</li>
+                                <li>Le joueur ne peut plus récupérer de pièces ou de pouvoirs lorsqu'il est assommé.</li>
+                                <li>Amélioration de certaines particules.</li>
+                            </ul>
+                        </div>
+                    </details>
+                    <details class="changelog-version">
+                        <summary>Version 1.0 [07/11/2022]</summary>
+                        <div class="changelog-content">
+                            <h3>Fonctionnalités Initiales</h3>
+                            <ul>
+                                <li>Mise en place du gameplay de base et des défis costumes.</li>
+                            </ul>
+                            <h3>Bugs Connus</h3>
+                            <ul>
+                                <li>Ender peut ne pas apparaître à l'écran s'il réapparaît trop vite.</li>
+                                <li>Les 2 premières parties sur PC peuvent tuer instantanément le joueur.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+            </section>
     </main>
     
     <div class="footer-message">
-        <p>Créé par Batpolygon</p>
+        <p>Créé par Batpolygon | <a href="../eula.html">EULA & Copyright</a></p>
     </div> 
+    <script>
+        // Script for the accordion behavior of the changelog
+        const allDetails = document.querySelectorAll('.changelog-version');
+    
+        allDetails.forEach(details => {
+            details.addEventListener('toggle', () => {
+                // We only want to run this when a details element is opened
+                if (details.open) {
+                    // Close all other details elements
+                    allDetails.forEach(d => {
+                        if (d !== details) d.open = false;
+                    });
+                }
+            });
+        });
+
+        function initializeSlider(container) {
+            if (!container) return;
+            
+            const track = container.querySelector('.slider-track') || container.querySelector('.video-slider-track');
+            const prevButton = container.querySelector('.prev-btn');
+            const nextButton = container.querySelector('.next-btn');
+
+            if (!track || !prevButton || !nextButton) return;
+
+            const slides = Array.from(track.children);
+            if (slides.length <= 1) {
+                container.classList.add('single-slide');
+                return;
+            }
+
+            let currentIndex = 0;
+
+            const updateSlidePosition = (animate = true) => {
+                const slideWidth = slides.length > 0 ? slides[0].getBoundingClientRect().width : 0;
+                if (slideWidth > 0) {
+                    track.style.transition = animate ? 'transform 0.5s ease-in-out' : 'none';
+                    track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+                }
+            };
+
+            prevButton.addEventListener('click', () => {
+                currentIndex = currentIndex === 0 ? slides.length - 1 : currentIndex - 1;
+                updateSlidePosition();
+            });
+
+            nextButton.addEventListener('click', () => {
+                currentIndex = currentIndex === slides.length - 1 ? 0 : currentIndex + 1;
+                updateSlidePosition();
+            });
+
+            new ResizeObserver(() => {
+                updateSlidePosition(false); // Update without animation on resize
+            }).observe(container);
+        }
+
+        document.querySelectorAll('.slider-container, .video-slider-container').forEach(initializeSlider);
+    </script>
 </body>
 </html>
