@@ -4,78 +4,91 @@
     <!-- Pages Principales -->
     <url>
         <loc>https://batpolygon.github.io/index.html</loc>
-        <lastmod>2025-08-05</lastmod>
+        <lastmod>2025-08-24</lastmod>
         <priority>1.00</priority>
     </url>
     <url>
         <loc>https://batpolygon.github.io/games.html</loc>
-        <lastmod>2025-08-05</lastmod>
+        <lastmod>2025-08-24</lastmod>
         <priority>0.90</priority>
     </url>
     <url>
         <loc>https://batpolygon.github.io/projects.html</loc>
-        <lastmod>2025-08-05</lastmod>
+        <lastmod>2025-08-24</lastmod>
         <priority>0.90</priority>
     </url>
     <url>
         <loc>https://batpolygon.github.io/about.html</loc>
-        <lastmod>2025-08-05</lastmod>
+        <lastmod>2025-08-24</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
         <loc>https://batpolygon.github.io/report_bug.html</loc>
+        <lastmod>2025-08-24</lastmod>
         <priority>0.50</priority>
     </url>
     <url>
         <loc>https://batpolygon.github.io/eula.html</loc>
+        <lastmod>2025-08-24</lastmod>
         <priority>0.30</priority>
     </url>
 
     <!-- Pages des Jeux (dans le dossier /games/) -->
     <url>
         <loc>https://batpolygon.github.io/games/batpolygon_head_rush.html</loc>
+        <lastmod>2025-08-24</lastmod>
         <priority>0.70</priority>
     </url>
     <url>
         <loc>https://batpolygon.github.io/games/batpolygon_home.html</loc>
+        <lastmod>2025-08-24</lastmod>
         <priority>0.70</priority>
     </url>
     <url>
         <loc>https://batpolygon.github.io/games/cardygon.html</loc>
+        <lastmod>2025-08-24</lastmod>
         <priority>0.70</priority>
     </url>
     <url>
         <loc>https://batpolygon.github.io/games/celestial_deus.html</loc>
+        <lastmod>2025-08-24</lastmod>
         <priority>0.70</priority>
     </url>
     <url>
         <loc>https://batpolygon.github.io/games/cloud_trials.html</loc>
+        <lastmod>2025-08-24</lastmod>
         <priority>0.70</priority>
     </url>
     <url>
         <loc>https://batpolygon.github.io/games/hellheaven.html</loc>
+        <lastmod>2025-08-24</lastmod>
         <priority>0.70</priority>
     </url>
     <url>
         <loc>https://batpolygon.github.io/games/platroomer.html</loc>
+        <lastmod>2025-08-24</lastmod>
         <priority>0.70</priority>
     </url>
     <url>
         <loc>https://batpolygon.github.io/games/polygons.html</loc>
+        <lastmod>2025-08-24</lastmod>
         <priority>0.70</priority>
     </url>
     <url>
         <loc>https://batpolygon.github.io/games/polyhedron.html</loc>
+        <lastmod>2025-08-24</lastmod>
         <priority>0.70</priority>
     </url>
     <url>
         <loc>https://batpolygon.github.io/games/tout_milieu.html</loc>
+        <lastmod>2025-08-24</lastmod>
         <priority>0.70</priority>
     </url>
 
     <!-- Pages des Projets (dans le dossier /projects/) -->
     <url>
         <loc>https://batpolygon.github.io/projects/plushntoy.html</loc>
+        <lastmod>2025-08-24</lastmod>
         <priority>0.70</priority>
     </url>
 
