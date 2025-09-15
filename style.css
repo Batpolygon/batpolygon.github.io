@@ -450,6 +450,112 @@ main {
     border-color: #2a475e;
 }
 
+/* NOUVEAU: Bouton animé pour exclusivité Steam */
+.btn-steam-exclusive {
+    position: relative; /* Nécessaire pour le pseudo-élément */
+    overflow: hidden;  /* Cache le dégradé qui dépasse */
+    animation: pulse-border 2.5s infinite ease-in-out; /* NOUVELLE animation */
+}
+
+.btn-steam-exclusive::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -75%;
+    width: 50%;
+    height: 200%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg);
+    animation: shine 4s infinite linear; /* Animation de brillance */
+    animation-delay: 1s; /* Petit délai avant le début */
+}
+
+/* Keyframes pour l'animation de brillance */
+@keyframes shine {
+    from {
+        left: -75%;
+    }
+    to {
+        left: 125%;
+    }
+}
+
+/* MODIFIÉ: Keyframes pour l'animation de la bordure */
+@keyframes pulse-border {
+    0% {
+        border-color: #66c0f4; /* Bleu clair Steam */
+        box-shadow: 0 0 5px rgba(102, 192, 244, 0.3);
+    }
+    50% {
+        border-color: #ffffff; /* Blanc éclatant */
+        box-shadow: 0 0 15px rgba(102, 192, 244, 0.7);
+    }
+    100% {
+        border-color: #66c0f4; /* Retour au bleu */
+        box-shadow: 0 0 5px rgba(102, 192, 244, 0.3);
+    }
+}
+
+/* MODIFIÉ: Style pour le badge Steam en bas à droite avec reflet et pause */
+.exclusive-steam-logo {
+    position: absolute;
+    bottom: 60px;   /* Positionné en bas */
+    right: 12px;    /* Avec l'offset depuis la droite */
+    width: 38px;
+    height: 38px;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.exclusive-steam-logo img {
+    width: 85%;
+    height: auto;
+    filter: none;
+}
+
+/* Le reflet qui traverse le badge */
+.exclusive-steam-logo::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -150%;
+    width: 75%;
+    height: 200%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.25) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg);
+    /* L'animation dure 4.75s au total (1.75s d'effet + 3s de pause) et se répète à l'infini */
+    animation: shine-badge 4.75s linear infinite;
+}
+
+/* MODIFIÉ: Keyframes pour intégrer la pause de 3 secondes */
+@keyframes shine-badge {
+    /* L'effet de balayage se produit sur les premiers 37% de l'animation (soit ~1.75s) */
+    0% {
+        left: -150%;
+    }
+    37% {
+        left: 150%;
+    }
+    /* Le reflet reste en dehors du badge pour le reste du temps (soit ~3s), créant la pause */
+    100% {
+        left: 150%;
+    }
+}
+
 /* Bouton blanc pour Google Play */
 .btn-download.btn-google-play {
     background-color: #ffffff; /* Fond blanc */

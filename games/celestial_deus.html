@@ -5,10 +5,10 @@
     <link rel="icon" type="image/png" href="../images/icons/MadeByBatpolygonFavIcon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Jouez à Celestial DEUS, un jeu Souls Like où vous incarnez Axelia, une déesse de la vie. Sauvez les autres dieux de la folie et de la peur.">
-    <meta name="keywords" content="Celestial DEUS, Batpolygon, Souls Like, jeu pc, made by batpolygon">
-    <meta property="og:title" content="Celestial DEUS - Made by Batpolygon">
+    <meta name="keywords" content="Celestial DEUS, Batpolygon, Souls Like, jeu pc, made by batpolygon, Aleatores Palace, roguelite">
+    <meta property="og:title" content="Celestial DEUS + Aleatores Palace - Made by Batpolygon">
     <meta property="og:description" content="Jouez à Celestial DEUS, un jeu Souls Like où vous incarnez Axelia, une déesse de la vie. Sauvez les autres dieux de la folie et de la peur.">
-    <meta property="og:image" content="https://madebybatpolygon.github.io/images/gamescover/CelestialDEUSGameCover.jpg">
+    <meta property="og:image" content="https://madebybatpolygon.github.io/images/gamescover/GameCoverCelestialDeus+AleatoresPalace.jpg">
     <meta property="og:url" content="https://madebybatpolygon.github.io/games/celestial_deus.html">
     <link rel="canonical" href="https://madebybatpolygon.github.io/games/celestial_deus.html">
     <title>Celestial DEUS - Made by Batpolygon</title>
@@ -34,58 +34,61 @@
         <section class="game-details container">
             <div class="game-header">
                 <div class="game-card-trailer">
-                    <img src="../images/gamescover/CelestialDEUSGameCover.jpg" alt="Celestial DEUS Cover" class="game-card-trailer-image">
+                    <img src="../images/gamescover/CelestialDEUSGameCover.jpg" alt="Celestial DEUS Cover" class="game-card-trailer-image" id="game-cover-image">
                 </div>
             </div>
                 <div class="game-page">
-                    <h1>Celestial DEUS</h1>
-                    <p><span class="platform-windows">Windows</span></p>
+                    <div class="title-version-selector">
+                        <h1 id="game-title">Celestial DEUS</h1>
+                        <select id="version-selector">
+                            <option value="2025">2025</option>
+                            <option value="2024">2024</option>
+                        </select>
+                    </div>
                     <p>
-                        Voici <strong>Celestial DEUS</strong> ! Un jeu Souls Like où vous incarnez Axelia une déesse de la vie qui sauvera les autres Dieux rongés par la Folie et la Peur ! 
-                        Vous débloquerez des compétences plus uniques les unes des autres à chaque combat avec des adversaires de plus en plus coriace !<br>
-                        Bonne chance !
+                        <span class="platform-windows">Windows</span>
+                        <span class="platform-linux" id="linux-platform" style="display:none;">Linux</span>
                     </p>
+                    <p id="game-description"></p>
                     <p class="note"><em>*Si vous trouvez un ou plusieurs bugs, n'hésitez pas à me les faire remonter sur mon Discord.</em></p>
                     <div class="game-buttons">
-                        <a href="https://www.mediafire.com/file/xvyltjo1gh6hhi3/CelestialDEUS_Installer.exe/file" class="btn btn-download" target="_blank">
-                            Télécharger <img src="../images/icons/WindowsIcon.png" alt="Windows Icon" class="platform-icon">
+                        <a href="#" id="download-button" class="btn btn-download" target="_blank">
+                            Télécharger <img src="../images/icons/WindowsIcon.png" alt="Windows Icon" class="platform-icon" id="platform-icon">
                         </a>
                         <a href="https://discord.gg/fTwdczkQ39" class="btn btn-discord" target="_blank">Discord</a>
                         <a href="../report_bug.html" class="btn btn-report-bug">Signaler un bug</a>
                     </div>
                 </div>
             </div>
-            <div class="game-trailer">
+            <div class="game-trailer" id="trailer-section">
                 <h2>Trailer :</h2>
-                <div class="game-trailer-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/r-srIgCiOk8"
-                            title="Trailer de Celestial DEUS" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                </div>
+                <div class="game-trailer-container" id="trailers-container"></div>
             </div>
-            <div class="game-trailer">
+            <div class="game-trailer" id="lets-play-section">
                 <h2>Let's Play :</h2>
-                <div class="game-trailer-container" id="lets-play-slider">
-                    <div class="video-slider-container">
-                        <div class="video-slider-track">
-                            <div class="video-slide">
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/uTgcjwGAPnM" title="Let's Play 2 de Celestial DEUS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                            <div class="video-slide">
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/zeBbd09_D4Y" title="Let's Play 1 de Celestial DEUS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        <button class="slider-btn prev-btn" aria-label="Précédent">&#10094;</button>
-                        <button class="slider-btn next-btn" aria-label="Suivant">&#10095;</button>
-                    </div>
-                </div>
+                <div class="game-trailer-container" id="lets-play-container"></div>
             </div>          
         </section>
             <section class="game-changelog container">
                 <h2>Changelog :</h2>
                 <div class="changelog-accordion">
-                    <details class="changelog-version" open>
+                    <details class="changelog-version" data-version="2025">
+                        <summary>Version 2025 [01/10/2025]</summary>
+                        <div class="changelog-content">
+                            <h3>Nouveautés & Améliorations Majeures</h3>
+                            <ul>
+                                <li>Portage complet du jeu de Unreal Engine 4.27 vers <strong>Unreal Engine 5.6</strong>.</li>
+                                <li><strong>Refonte visuelle</strong> complète avec des graphismes modernes.</li>
+                                <li>Ajout du mode de jeu Rogue-lite : <strong>Aleatores Palace</strong>.</li>
+                                <li>Intégration d'un <strong>Leaderboard Steam</strong> pour suivre les scores en ligne.</li>
+                                <li>Ajout de <strong>succès Steam</strong> exclusifs.</li>
+                                <li>Options d'accessibilité améliorées.</li>
+                                <li>Support des langues : <strong>Français et Anglais</strong>.</li>
+                                <li>Ajustements de gameplay et corrections de bugs de la version 2024.</li>
+                            </ul>
+                        </div>
+                    </details>
+                    <details class="changelog-version" data-version="2024">
                         <summary>Version 1.0 [31/10/2024]</summary>
                         <div class="changelog-content">
                             <h3>Fonctionnalités Initiales</h3>
@@ -108,62 +111,136 @@
         <p>Créé par Batpolygon | <a href="../eula.html">EULA & Copyright</a></p>
     </div> 
     <script>
-        // Script for the accordion behavior of the changelog
-        const allDetails = document.querySelectorAll('.changelog-version');
-    
-        allDetails.forEach(details => {
-            details.addEventListener('toggle', () => {
-                // We only want to run this when a details element is opened
-                if (details.open) {
-                    // Close all other details elements
-                    allDetails.forEach(d => {
-                        if (d !== details) d.open = false;
-                    });
-                }
+        const versionData = {
+            "2025": {
+                title: "Celestial DEUS + Aleatores Palace",
+                description: `Découvrez la version définitive ! Un <strong>Souls-like boss rush</strong> reconstruit sur <strong>Unreal Engine 5</strong>. Affrontez des divinités, absorbez leurs pouvoirs et testez vos limites dans le nouveau mode rogue-lite infini, <strong>Aleatores' Palace</strong>, avec classement en ligne via Steam. Cette version inclut une refonte visuelle, des succès exclusifs, et le support pour l'anglais et le français.`,
+                downloadLink: "https://store.steampowered.com/app/4023620/Celestial_DEUS__Aleatores_Palace/",
+                buttonText: 'Exclusivité Steam',
+                buttonClass: 'btn btn-download btn-steam btn-steam-exclusive',
+                coverImage: "../images/gamescover/GameCoverCelestialDeus+AleatoresPalace.jpg",
+                iconImage: "../images/icons/SteamIcon.png",
+                showLinuxPlatform: true,
+                trailers: [
+                    { src: "https://www.youtube.com/embed/5a-4nS52g3I", title: "Trailer de Celestial DEUS + Aleatores Palace" }
+                ],
+                // MODIFIÉ: Ajout des Let's Plays de 2024
+                letsPlays: [
+                    { src: "https://www.youtube.com/embed/uTgcjwGAPnM", title: "Let's Play 2 de Celestial DEUS" },
+                    { src: "https://www.youtube.com/embed/zeBbd09_D4Y", title: "Let's Play 1 de Celestial DEUS" }
+                ]
+            },
+            "2024": {
+                title: "Celestial DEUS",
+                description: `Voici <strong>Celestial DEUS</strong> ! Un jeu Souls Like où vous incarnez Axelia une déesse de la vie qui sauvera les autres Dieux rongés par la Folie et la Peur ! Vous débloquerez des compétences plus uniques les unes des autres à chaque combat avec des adversaires de plus en plus coriace !<br>Bonne chance !`,
+                downloadLink: "https://store.steampowered.com/app/4023620/Celestial_DEUS__Aleatores_Palace/",
+                buttonText: 'Voir sur Steam',
+                buttonClass: 'btn btn-download btn-steam',
+                coverImage: "../images/gamescover/CelestialDEUSGameCover.jpg",
+                iconImage: "../images/icons/SteamIcon.png",
+                showLinuxPlatform: false,
+                trailers: [
+                    { src: "https://www.youtube.com/embed/r-srIgCiOk8", title: "Trailer de Celestial DEUS" }
+                ],
+                letsPlays: [
+                    { src: "https://www.youtube.com/embed/uTgcjwGAPnM", title: "Let's Play 2 de Celestial DEUS" },
+                    { src: "https://www.youtube.com/embed/zeBbd09_D4Y", title: "Let's Play 1 de Celestial DEUS" }
+                ]
+            }
+        };
+
+        function createIframe(video) {
+            return `<iframe width="560" height="315" src="${video.src}"
+                            title="${video.title}" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>`;
+        }
+
+        function createVideoSlider(videos) {
+            if (!videos || videos.length === 0) return '';
+            const slidesHTML = videos.map(video => `<div class="video-slide">${createIframe(video)}</div>`).join('');
+            return `
+                <div class="video-slider-container">
+                    <div class="video-slider-track">${slidesHTML}</div>
+                    <button class="slider-btn prev-btn" aria-label="Précédent">&#10094;</button>
+                    <button class="slider-btn next-btn" aria-label="Suivant">&#10095;</button>
+                </div>`;
+        }
+
+        function updatePage(version) {
+            const data = versionData[version];
+            if (!data) return;
+
+            const downloadButton = document.getElementById('download-button');
+            
+            document.getElementById('game-title').innerHTML = data.title;
+            document.getElementById('game-description').innerHTML = data.description;
+            
+            downloadButton.className = data.buttonClass;
+            downloadButton.href = data.downloadLink;
+            downloadButton.innerHTML = `${data.buttonText} <img src="${data.iconImage}" alt="Platform Icon" class="platform-icon">`;
+
+            document.getElementById('game-cover-image').src = data.coverImage;
+            document.getElementById('game-cover-image').alt = `${data.title} Cover`;
+            
+            document.getElementById('linux-platform').style.display = data.showLinuxPlatform ? 'inline-block' : 'none';
+
+            const trailersContainer = document.getElementById('trailers-container');
+            trailersContainer.innerHTML = createVideoSlider(data.trailers);
+            if (data.trailers.length > 0) initializeSlider(trailersContainer.querySelector('.video-slider-container'));
+            
+            const letsPlayContainer = document.getElementById('lets-play-container');
+            if (data.letsPlays.length > 0) {
+                letsPlayContainer.innerHTML = createVideoSlider(data.letsPlays);
+                initializeSlider(letsPlayContainer.querySelector('.video-slider-container'));
+            } else {
+                letsPlayContainer.innerHTML = '<p>Arrive bientôt...</p>';
+            }
+
+            document.getElementById('trailer-section').style.display = data.trailers.length > 0 ? 'flex' : 'none';
+            document.getElementById('lets-play-section').style.display = 'flex'; // Toujours afficher la section
+
+            document.querySelectorAll('.changelog-version').forEach(details => {
+                details.style.display = details.dataset.version === version ? 'block' : 'none';
+                details.open = details.dataset.version === version;
             });
-        });
+        }
 
         function initializeSlider(container) {
             if (!container) return;
-            
-            const track = container.querySelector('.slider-track') || container.querySelector('.video-slider-track');
+            const track = container.querySelector('.video-slider-track');
             const prevButton = container.querySelector('.prev-btn');
             const nextButton = container.querySelector('.next-btn');
-            
             if (!track || !prevButton || !nextButton) return;
-
             const slides = Array.from(track.children);
             if (slides.length <= 1) {
                 container.classList.add('single-slide');
                 return;
             }
-
             let currentIndex = 0;
-
             const updateSlidePosition = (animate = true) => {
-                const slideWidth = slides.length > 0 ? slides[0].getBoundingClientRect().width : 0;
-                if (slideWidth > 0) {
-                    track.style.transition = animate ? 'transform 0.5s ease-in-out' : 'none';
-                    track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
-                }
+                const slideWidth = slides[0].getBoundingClientRect().width;
+                track.style.transition = animate ? 'transform 0.5s ease-in-out' : 'none';
+                track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
             };
-
             prevButton.addEventListener('click', () => {
-                currentIndex = currentIndex === 0 ? slides.length - 1 : currentIndex - 1;
+                currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
                 updateSlidePosition();
             });
-
             nextButton.addEventListener('click', () => {
-                currentIndex = currentIndex === slides.length - 1 ? 0 : currentIndex + 1;
+                currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
                 updateSlidePosition();
             });
-
-            new ResizeObserver(() => {
-                updateSlidePosition(false); // Update without animation on resize
-            }).observe(container);
+            new ResizeObserver(() => updateSlidePosition(false)).observe(container);
         }
 
-        document.querySelectorAll('.slider-container, .video-slider-container').forEach(initializeSlider);
+        const versionSelector = document.getElementById('version-selector');
+        versionSelector.addEventListener('change', (event) => updatePage(event.target.value));
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const latestVersion = versionSelector.value;
+            updatePage(latestVersion);
+        });
     </script>
 </body>
 </html>
