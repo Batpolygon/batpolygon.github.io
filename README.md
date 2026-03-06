@@ -9,10 +9,10 @@ Ce site me sert de vitrine pour partager mes créations. Depuis plusieurs année
 
 ## 🎮 Mes Jeux
 Sur le site, vous pouvez retrouver l'ensemble de mes jeux vidéo, parmi lesquels :
+- **All4Break** *(Jouable sur Windows & Linux)*
 - **ChillMounTAIN** *(Jouable sur Windows & Linux)*
 - **Polyhedron** *(Récemment mis à jour)*
-- **Celestial DEUS** *(Exclusivité Steam - Jouable sur Windows & Linux)*
-- Et plus de 8 autres jeux à découvrir !
+- Et plus de 9 autres jeux à découvrir !
 
 ## 🤖 Mes Projets
 En dehors du jeu vidéo, je documente et partage mes autres projets de programmation :
