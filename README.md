@@ -9,10 +9,10 @@ Ce site me sert de vitrine pour partager mes créations. Depuis plusieurs année
 
 ## 🎮 Mes Jeux
 Sur le site, vous pouvez retrouver l'ensemble de mes jeux vidéo, parmi lesquels :
+- **Woojy Land** *(Jouable sur Windows, Linux & Android)*
 - **All4Break** *(Jouable sur Windows & Linux)*
 - **ChillMounTAIN** *(Jouable sur Windows & Linux)*
-- **Polyhedron** *(Récemment mis à jour)*
-- Et plus de 9 autres jeux à découvrir !
+- Et plus de 10 autres jeux à découvrir !
 
 ## 🤖 Mes Projets
 En dehors du jeu vidéo, je documente et partage mes autres projets de programmation :
