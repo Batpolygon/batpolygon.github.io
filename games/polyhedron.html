@@ -1,3 +1,5 @@
+--- START OF FILE polyhedron.html ---
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -41,18 +43,25 @@
                     <div class="title-version-selector">
                         <h1>Polyhedron</h1>
                         <select id="version-selector">
-                            <option value="0.3" disabled>Version 0.4 (à venir)</option>
+                            <option value="none" disabled>Version 0.5 (à venir)</option>
+                            <option value="0.4-test" selected>Version TEST 0.4</option>
                             <option value="0.3-test">Version TEST 0.3</option>
                             <option value="0.2">Version 0.2</option>
                             <option value="0.1">Version 0.1</option>
                         </select>
                     </div>
-                    <p><span class="platform-windows">Windows</span></p>
+                    <!-- Plateformes mises à jour dynamiquement via JS -->
+                    <p id="platform-tags"></p>
+                    
                     <p id="game-description"></p>
                     <p class="note"><em>*Si vous trouvez un ou plusieurs bugs, n'hésitez pas à me les faire remonter sur mon Discord.</em></p>
                     <div class="game-buttons">
                         <a href="#" id="download-button" class="btn btn-download" target="_blank">
                             Télécharger <img src="../images/icons/WindowsIcon.png" alt="Windows Icon" class="platform-icon">
+                        </a>
+                        <!-- Bouton Linux -->
+                        <a href="#" id="download-button-linux" class="btn btn-download" target="_blank" style="display: none;">
+                            Télécharger <img src="../images/icons/LinuxIcon.png" alt="Linux Icon" class="platform-icon">
                         </a>
                         <a href="https://discord.gg/fTwdczkQ39" class="btn btn-discord" target="_blank">Discord</a>
                         <a href="../report_bug.html" class="btn btn-report-bug">Signaler un bug</a>
@@ -71,6 +80,24 @@
             <section class="game-changelog container">
                 <h2>Changelog :</h2>
                 <div class="changelog-accordion">
+                    
+                    <details class="changelog-version" data-version="0.4-test">
+                        <summary>Version TEST 0.4</summary>
+                        <div class="changelog-content">
+                            <h3>Nouveautés & Améliorations</h3>
+                            <ul>
+                                <li>Ajout du <strong>Mode Aventure</strong> avec les modes <em>Alien Invasion</em> et <em>Mnemo Infestation</em> (changement de génération de terrain et Polyhedrons uniques à chaque mode).</li>
+                                <li>Nouvelle commande <code>/referenceto</code> permettant d'exécuter une commande en tant qu'entité.</li>
+                                <li>Ajout des <strong>Addons customisables</strong> en phase expérimentale.</li>
+                                <li>Support initial de la version pour système d'exploitation <strong>Linux</strong>.</li>
+                            </ul>
+                            <h3>Corrections de bugs</h3>
+                            <ul>
+                                <li>Correction d'un bug majeur concernant l'apparition des ressources dans le monde.</li>
+                            </ul>
+                        </div>
+                    </details>
+
                     <details class="changelog-version" data-version="0.3-test">
                         <summary>Version TEST 0.3</summary>
                         <div class="changelog-content">
@@ -86,7 +113,8 @@
                             </ul>
                         </div>
                     </details>
-                    <details class="changelog-version" data-version="0.2" open>
+
+                    <details class="changelog-version" data-version="0.2">
                         <summary>Version 0.2 [20/12/2024]</summary>
                         <div class="changelog-content">
                             <h3>Nouveautés & Améliorations</h3>
@@ -123,6 +151,7 @@
                             </ul>
                         </div>
                     </details>
+
                     <details class="changelog-version" data-version="0.1">
                         <summary>Version 0.1 [01/09/2024]</summary>
                         <div class="changelog-content">
@@ -138,6 +167,7 @@
                             </ul>
                         </div>
                     </details>
+
                 </div>
             </section>
     </main>
@@ -145,21 +175,33 @@
     <div class="footer-message">
         <p>Créé par Batpolygon | <a href="../eula.html">EULA & Copyright</a></p>
     </div> 
+
     <script>
         const versionData = {
-            "0.3-test": {
-                description: `Découvrez la <strong>version TEST 0.3</strong> de Polyhedron ! Cette version introduit les fondations du partage communautaire, 
-                              vous permettant de <strong>partager vos créations</strong> (cartes, customisations de personnage) avec d'autres joueurs. Un nouveau mode de <strong>"pseudo-survie"</strong> fait son apparition avec 
-                              de nouveaux blocs et mécaniques, bien que la génération de ressources ne soit pas encore implémentée.`,
-                downloadLink: "https://www.mediafire.com/file/af6t86l3qijeovz/PolyhedronVT0.3Installer.exe/file",
-                coverImage: "../images/gamescover/PolyhedronVT0.3GameCover.jpg", // Nom d'image supposé, à adapter
+            "0.4-test": {
+                platforms: `<span class="platform-windows">Windows</span> <span class="platform-linux">Linux</span>`,
+                description: `Découvrez la <strong>version TEST 0.4</strong> ! Cette version corrige un bug majeur sur l'apparition des ressources et introduit le <strong>Mode Aventure</strong> avec <em>Alien Invasion</em> et <em>Mnemo Infestation</em>. Ces modes changent la génération du terrain et permettent d'obtenir des <strong>Polyhedrons uniques</strong>. Profitez aussi de la commande <code>/referenceto</code> et commencez à expérimenter avec les <strong>Addons customisables</strong> !`,
+                downloadLink: "https://www.mediafire.com/file/c24tsklhke94f86/PolyhedronVT0.4Installer.exe/file",
+                downloadLinkLinux: "https://www.mediafire.com/file/a4pfid6hmybhbsu/PolyhedronVT0.4_Linux.tar.gz/file",
+                coverImage: "../images/gamescover/PolyhedronVT0.4GameCover.jpg", // Adapté si l'image a changé, sinon remettre V0.2
                 trailers: [],
-                letsPlays: []
+                letsPlays: [
+                    { src: "https://www.youtube.com/embed/Bjnqy0iXIso", title: "Let's Play de Polyhedron V0.4" }
+                ]
+            },
+            "0.3-test": {
+                platforms: `<span class="platform-windows">Windows</span>`,
+                description: `Découvrez la <strong>version TEST 0.3</strong> de Polyhedron ! Cette version introduit les fondations du partage communautaire, vous permettant de <strong>partager vos créations</strong> (cartes, customisations de personnage) avec d'autres joueurs. Un nouveau mode de <strong>"pseudo-survie"</strong> fait son apparition avec de nouveaux blocs et mécaniques, bien que la génération de ressources ne soit pas encore implémentée.`,
+                downloadLink: "https://www.mediafire.com/file/af6t86l3qijeovz/PolyhedronVT0.3Installer.exe/file",
+                coverImage: "../images/gamescover/PolyhedronVT0.3GameCover.jpg",
+                trailers: [],
+                letsPlays: [
+                    { src: "https://www.youtube.com/embed/qmCpYe7JC88", title: "Let's Play de Polyhedron V0.3" }
+                ]
             },
             "0.2": {
-                description: `Voici <strong>Polyhedron</strong> ! Un <strong>sandbox</strong> où vous pouvez créer tout un tas de construction, machine et bien plus !
-                              De simple maison ou pixel art à création de robot ou véhicule, votre imagination est la seule limite !
-                              Le jeu est actuellement en <strong>version 0.2</strong> donc n'hésitez pas à me faire de retours sur des améliorations potentiels et nouveautés à ajouter !`,
+                platforms: `<span class="platform-windows">Windows</span>`,
+                description: `Voici <strong>Polyhedron</strong> ! Un <strong>sandbox</strong> où vous pouvez créer tout un tas de construction, machine et bien plus ! De simple maison ou pixel art à création de robot ou véhicule, votre imagination est la seule limite ! Le jeu est actuellement en <strong>version 0.2</strong> donc n'hésitez pas à me faire de retours sur des améliorations potentiels et nouveautés à ajouter !`,
                 downloadLink: "https://www.mediafire.com/file/ulhqjxvi54bhixr/Polyhedron_V0.2_Installer.exe/file",
                 coverImage: "../images/gamescover/PolyhedronV0.2GameCover.jpg",
                 trailers: [
@@ -172,9 +214,10 @@
                 ]
             },
             "0.1": {
+                platforms: `<span class="platform-windows">Windows</span>`,
                 description: `Découvrez la première version de <strong>Polyhedron</strong>. Une version fondamentale qui a posé les bases du jeu avec ses mécaniques de construction et de programmation initiales.`,
                 downloadLink: "https://www.mediafire.com/file/vh24v1342c8msx2/Polyhedron_V0.1_Installer.exe/file",
-                coverImage: "../images/gamescover/PolyhedronV0.1GameCover.jpg", // Nom d'image supposé, à adapter
+                coverImage: "../images/gamescover/PolyhedronV0.1GameCover.jpg",
                 trailers: [
                     { src: "https://www.youtube.com/embed/1tWfEh2HlS8", title: "Trailer de Polyhedron v0.1" }
                 ],
@@ -185,21 +228,15 @@
         };
 
         function createIframe(video) {
-            return `<iframe width="560" height="315" src="${video.src}"
-                            title="${video.title}" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            return `<iframe width="560" height="315" src="${video.src}" 
+                            title="${video.title}" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                             allowfullscreen></iframe>`;
         }
 
         function createVideoSlider(videos) {
             if (!videos || videos.length === 0) return '';
-
-            const slidesHTML = videos.map(video => `
-                <div class="video-slide">
-                    ${createIframe(video)}
-                </div>
-            `).join('');
-
+            const slidesHTML = videos.map(video => `<div class="video-slide">${createIframe(video)}</div>`).join('');
             return `
                 <div class="video-slider-container">
                     <div class="video-slider-track">${slidesHTML}</div>
@@ -212,36 +249,39 @@
             const data = versionData[version];
             if (!data) return;
 
-            // Mettre à jour les éléments de la page
+            document.getElementById('platform-tags').innerHTML = data.platforms;
             document.getElementById('game-description').innerHTML = data.description;
             document.getElementById('download-button').href = data.downloadLink;
             document.getElementById('game-cover-image').src = data.coverImage;
-            document.getElementById('game-cover-image').alt = `Polyhedron ${version} Cover`;
 
-            // Mettre à jour les trailers
+            const linuxBtn = document.getElementById('download-button-linux');
+            if (data.downloadLinkLinux) {
+                linuxBtn.href = data.downloadLinkLinux;
+                linuxBtn.style.display = 'inline-flex';
+            } else {
+                linuxBtn.style.display = 'none';
+            }
+
             const trailersContainer = document.getElementById('trailers-container');
             trailersContainer.innerHTML = createVideoSlider(data.trailers);
             if (data.trailers && data.trailers.length > 0) {
                 initializeSlider(trailersContainer.querySelector('.video-slider-container'));
             }
 
-            // Mettre à jour les Let's Plays
             const letsPlayContainer = document.getElementById('lets-play-container');
             letsPlayContainer.innerHTML = createVideoSlider(data.letsPlays);
             if (data.letsPlays && data.letsPlays.length > 0) {
                 initializeSlider(letsPlayContainer.querySelector('.video-slider-container'));
             }
 
-            // Gérer la visibilité des sections de vidéos
             trailersContainer.parentElement.style.display = data.trailers && data.trailers.length > 0 ? 'flex' : 'none';
             letsPlayContainer.parentElement.style.display = data.letsPlays && data.letsPlays.length > 0 ? 'flex' : 'none';
 
-            // Mettre à jour le changelog pour n'afficher que la version sélectionnée
             const allChangelogs = document.querySelectorAll('.changelog-version');
             allChangelogs.forEach(details => {
                 if (details.dataset.version === version) {
                     details.style.display = 'block';
-                    details.open = true; // Ouvre le changelog de la version sélectionnée
+                    details.open = true;
                 } else {
                     details.style.display = 'none';
                 }
@@ -250,58 +290,27 @@
 
         function initializeSlider(container) {
             if (!container) return;
-            
-            const track = container.querySelector('.slider-track') || container.querySelector('.video-slider-track');
+            const track = container.querySelector('.video-slider-track');
             const prevButton = container.querySelector('.prev-btn');
             const nextButton = container.querySelector('.next-btn');
-            
-            if (!track || !prevButton || !nextButton) return;
-
             const slides = Array.from(track.children);
-            if (slides.length <= 1) {
-                container.classList.add('single-slide');
-                return;
-            }
-
+            if (slides.length <= 1) { container.classList.add('single-slide'); return; }
             let currentIndex = 0;
-
             const updateSlidePosition = (animate = true) => {
-                const slideWidth = slides.length > 0 ? slides[0].getBoundingClientRect().width : 0;
+                const slideWidth = slides[0].getBoundingClientRect().width;
                 if (slideWidth > 0) {
                     track.style.transition = animate ? 'transform 0.5s ease-in-out' : 'none';
                     track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
                 }
             };
-
-            prevButton.addEventListener('click', () => {
-                currentIndex = currentIndex === 0 ? slides.length - 1 : currentIndex - 1;
-                updateSlidePosition();
-            });
-
-            nextButton.addEventListener('click', () => {
-                currentIndex = currentIndex === slides.length - 1 ? 0 : currentIndex + 1;
-                updateSlidePosition();
-            });
-
-            new ResizeObserver(() => {
-                updateSlidePosition(false); // Update without animation on resize
-            }).observe(container);
+            prevButton.addEventListener('click', () => { currentIndex = currentIndex === 0 ? slides.length - 1 : currentIndex - 1; updateSlidePosition(); });
+            nextButton.addEventListener('click', () => { currentIndex = currentIndex === slides.length - 1 ? 0 : currentIndex + 1; updateSlidePosition(); });
+            new ResizeObserver(() => updateSlidePosition(false)).observe(container);
         }
 
-        // Écouteur d'événement pour le sélecteur de version
         const versionSelector = document.getElementById('version-selector');
-        versionSelector.addEventListener('change', (event) => {
-            updatePage(event.target.value);
-        });
-
-        // Initialiser la page avec la version la plus récente
-        document.addEventListener('DOMContentLoaded', () => {
-            const latestVersion = versionSelector.value;
-            updatePage(latestVersion);
-        });
-
-        // Le script de l'accordéon n'est plus nécessaire car on gère l'affichage
-        // de manière exclusive dans la fonction updatePage.
+        versionSelector.addEventListener('change', (event) => updatePage(event.target.value));
+        document.addEventListener('DOMContentLoaded', () => updatePage(versionSelector.value));
     </script>
 </body>
 </html>
