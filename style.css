@@ -8,8 +8,8 @@
 @font-face {
     font-family: 'KidZone';
     src: url('fonts/Kidzone.woff2') format('woff2'),
-         url('fonts/Kidzone.woff') format('woff'),
-         url('fonts/Kidzone.ttf') format('truetype');
+    url('fonts/Kidzone.woff') format('woff'),
+    url('fonts/Kidzone.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -170,12 +170,14 @@ main {
     margin: 0 auto; /* Centre horizontalement */
 }
 
-/* Style pour la grille des jeux */
+/* --- CORRECTION: Style pour la grille des jeux (Évite les chevauchements) --- */
 .games-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Grille flexible */
-    gap: 1rem; /* Augmente l'espacement entre les cartes */
-    justify-items: center; /* Centre les cartes */
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Colonnes flexibles de min 220px */
+    gap: 2rem; /* Espacement uniforme entre les cartes */
+    justify-content: center;
+    align-items: stretch; /* Hauteur égale pour les cartes sur la même ligne */
+    padding: 1rem 0;
 }
 
 .gamesprime {
@@ -206,7 +208,7 @@ main {
     text-align: center;
     border-radius: 1.25rem; /* Coins arrondis */
     padding: 0.5rem; /* Marges internes */
-    width: 200px; /* Largeur fixe pour uniformité */
+    width: 200px; /* Largeur fixe pour uniformité (pour la version en ligne) */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation au survol */
     position: relative; /* Nécessaire pour positionner le bandeau "NOUVEAU" */
     overflow: hidden; /* Empêche le bandeau de déborder */
@@ -226,13 +228,17 @@ main {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre légère */
 }
 
+/* --- CORRECTION: Style des cartes de projets (Adapté à la grille) --- */
 .project-card {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 0.5rem; /* Marges internes */
-    width: 250px; /* Largeur fixe pour uniformité */
+    padding: 1rem; /* Marges internes un peu plus grandes */
+    width: 100%; /* Prend 100% de la largeur de sa cellule Grid */
+    height: 100%; /* S'étire pour remplir la hauteur de la rangée */
+    box-sizing: border-box; /* Inclut le padding dans la largeur */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation au survol */
     border: var(--box-border);
     border-radius: var(--box-border-radius);
@@ -241,16 +247,16 @@ main {
 
 .project-card:hover {
     transform: translateY(-5px); /* Effet de "saut" au survol */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Ombre amplifiée au survol */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4); /* Ombre amplifiée au survol */
 }
 
-/* Style des images des cartes */
+/* Style des images des cartes de projets */
 .project-card img {
-    width: 100%; /* Largeur de l'image adaptée à la carte */
-    height: auto; /* Maintient les proportions */
-    border-radius: 0.5rem; /* Coins légèrement arrondis */
-    object-fit: cover; /* S'assure que l'image s'adapte sans déformation */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre légère */
+    width: 100%;
+    max-height: 150px; /* Limite la hauteur pour éviter les logos démesurés */
+    height: auto;
+    border-radius: 0.5rem;
+    object-fit: contain; /* Assure que le logo PNG entier est visible sans être coupé */
 }
 
 /* Titre des cartes */
@@ -273,17 +279,17 @@ main {
     padding: 8px 0;
     background-color: #ff0707; /* Jaune vif */
     color: #ffffff; /* Texte sombre pour le contraste */
-    
+
     text-align: center;
     font-weight: bold;
     font-size: 1.1rem;
     text-transform: uppercase;
-    
+
     /* Positionnement et rotation */
     top: 22px;
     left: -40px;
     transform: rotate(-45deg);
-    
+
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     z-index: 2; /* S'assure qu'il est au-dessus de l'image */
     animation: pulse-animation 2.5s infinite ease-in-out;
@@ -328,8 +334,11 @@ main {
     }
 }
 
+/* --- CORRECTION: Lien cliquable des cartes --- */
 .game-card-link {
     text-decoration: none; /* Supprime le soulignement des liens */
+    display: block; /* Transforme le lien en bloc pour prendre toute la place */
+    height: 100%; /* S'étire à 100% du conteneur Grid */
 }
 
 /* Bouton blanc avec texte noir */
@@ -434,8 +443,8 @@ main {
 }
 
 /* Styles spécifiques pour les boutons Steam et Google Play.
-   On utilise un sélecteur plus spécifique (.btn-download.btn-steam) 
-   pour s'assurer qu'il surcharge toujours .btn-download. */
+ *  On utilise un sélecteur plus spécifique (.btn-download.btn-steam)
+ *  pour s'assurer qu'il surcharge toujours .btn-download. */
 
 /* Bouton bleu/gris pour Steam */
 .btn-download.btn-steam {
@@ -467,8 +476,8 @@ main {
     background: linear-gradient(
         to right,
         rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.3) 50%,
-        rgba(255, 255, 255, 0) 100%
+                                rgba(255, 255, 255, 0.3) 50%,
+                                rgba(255, 255, 255, 0) 100%
     );
     transform: skewX(-25deg);
     animation: shine 4s infinite linear; /* Animation de brillance */
@@ -533,8 +542,8 @@ main {
     background: linear-gradient(
         to right,
         rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.25) 50%,
-        rgba(255, 255, 255, 0) 100%
+                                rgba(255, 255, 255, 0.25) 50%,
+                                rgba(255, 255, 255, 0) 100%
     );
     transform: skewX(-25deg);
     /* L'animation dure 4.75s au total (1.75s d'effet + 3s de pause) et se répète à l'infini */
@@ -633,10 +642,10 @@ main {
 /* --- Form Styling (report_bug.html) --- */
 
 #bugReportForm {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin-top: 2rem;
+display: flex;
+flex-direction: column;
+gap: 1.5rem;
+margin-top: 2rem;
 }
 
 .form-group {
@@ -745,18 +754,18 @@ main {
 }
 
 #version-selector {
-    font-family: 'KidZone', sans-serif;
-    font-size: 1rem;
-    padding: 0.5rem;
-    background-color: #333;
-    color: #fff;
-    border: 1px solid #555;
-    border-radius: 0.5rem;
-    cursor: pointer;
+font-family: 'KidZone', sans-serif;
+font-size: 1rem;
+padding: 0.5rem;
+background-color: #333;
+color: #fff;
+border: 1px solid #555;
+border-radius: 0.5rem;
+cursor: pointer;
 }
 
 #version-selector:disabled {
-    color: #888;
+color: #888;
 }
 
 .game-page h1 {
