@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
+
+    <canvas id="bg-canvas"></canvas>
+
     <header>
         <div class="logo">
             <img src="../images/icons/MadeByBatpolygonColoredIcon.png" alt="Logo" class="logo-image">
@@ -24,71 +27,99 @@
             <ul>
                 <li><a href="../index.html">Accueil</a></li>
                 <li><a href="../games.html">Jeux</a></li>
-                <li><a href="../projects.html">Projets</a></li>
+                <li><a href="../webgames.html">Jeux Web</a></li>
+                <li><a href="../projects.html" class="active">Projets</a></li>
                 <li><a href="../about.html">À propos</a></li>
             </ul>
         </nav>
     </header>    
+
     <main>
-        <section class="welcome container">
-            <img src="../images/projectslogo/MadeByBatpolygonLogo.png" alt="MadeByBatpolygon Logo" class="project-image">
-            <p>Le <strong>MadeByBatpolygon Launcher</strong> est un lanceur de jeux pour Windows que j'ai développé sur mesure. Son but est simple : regrouper au même endroit toutes mes créations vidéoludiques.
-                Grâce à cette application, vous pouvez découvrir, télécharger et lancer mes jeux en toute simplicité, sans avoir à chercher les exécutables un par un. C'est l'écosystème central pour tout joueur souhaitant suivre et tester mes projets.
-            </p>
-            <!-- BOUTON DE TÉLÉCHARGEMENT -->
-            <div style="text-align: center; margin: 30px 0;">
-                <a href="https://www.mediafire.com/file/3nsplscw1s8bex2/MadeByBatpolygonLauncher.exe/file" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 15px 30px; background-color: #0078d7; color: white; text-decoration: none; font-size: 1.2rem; font-weight: bold; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 120, 215, 0.4); transition: transform 0.2s, box-shadow 0.2s;">
-                    📥 Télécharger le Launcher (Windows)
-                </a>
-            </div>
-        </section>
-
-        <!-- Nouvelle section adaptée pour montrer la capture d'écran du Launcher -->
-        <section class="launcher-preview container">
-            <h2>Aperçu de l'interface :</h2>
-            <div class="screenshot-box" style="text-align: center; margin-top: 20px;">
-                <img src="../images/screenshots/BatLauncher_Screenshot.png" alt="Capture d'écran du MadeByBatpolygon Launcher" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);">
-            </div>
+        <div class="container">
             
-            <h2 style="margin-top: 40px;">Fonctionnalités principales :</h2>
-            <ul>
-                <li><strong>Bibliothèque centralisée :</strong> Accès direct à tous les jeux de l'univers MadeByBatpolygon.</li>
-                <li><strong>Mises à jour automatiques :</strong> Le launcher détecte les nouvelles versions du launcher et propose de la télécharger.</li>
-                <li><strong>Interface fluide :</strong> Un design sobre et efficace pensé pour la meilleure expérience utilisateur possible sur Windows.</li>
-            </ul>
-        </section>
-
-        <section class="game-changelog container">
-            <h2>Changelog :</h2>
-            <div class="changelog-accordion">
-                <details class="changelog-version" open>
-                    <summary>Version 1.0.0 [17/03/2026]</summary>
-                    <div class="changelog-content">
-                        <h3>Lancement Initial</h3>
-                        <ul>
-                            <li>Déploiement de la toute première version stable du <strong>MadeByBatpolygon Launcher</strong>.</li>
-                            <li>Implémentation du système de connexion aux serveurs pour récupérer la liste des jeux disponibles.</li>
-                            <li>Ajout des fonctionnalités d'installation, de désinstallation et de lancement des jeux.</li>
-                            <li>Création de l'interface utilisateur visible sur la capture d'écran.</li>
-                            <li>Intégration d'une barre de progression pour les téléchargements.</li>
-                        </ul>
+            <!-- HEADER PROJET CENTRÉ -->
+            <section class="project-header-centered">
+                <div class="project-logo-large">
+                    <img src="../images/projectslogo/MadeByBatpolygonLogo.png" alt="MadeByBatpolygon Logo">
+                </div>
+                
+                <div class="project-info-box glass">
+                    <h1>Batlauncher</h1>
+                    <p style="font-size: 1.2rem; line-height: 1.7; color: #e0e0e0;">
+                        Le <strong>MadeByBatpolygon Launcher</strong> est une plateforme Windows sur mesure conçue pour centraliser toutes mes créations. 
+                        Découvrez, téléchargez et lancez mes jeux en un clic sans avoir à chercher les exécutables. 
+                        C'est l'outil indispensable pour suivre l'évolution de mon écosystème vidéoludique.
+                    </p>
+                    <div style="margin-top: 2rem;">
+                        <a href="https://www.mediafire.com/file/3nsplscw1s8bex2/MadeByBatpolygonLauncher.exe/file" class="btn-main" target="_blank" style="background: #0078d7; color: white;">
+                            📥 Télécharger le Launcher
+                        </a>
                     </div>
-                </details>
-            </div>
-        </section>       
+                </div>
+            </section>
+
+            <!-- APERÇU INTERFACE -->
+            <section class="section-preview">
+                <h2>Aperçu de l'interface</h2>
+                <div class="screenshot-container">
+                    <img src="../images/screenshots/BatLauncher_Screenshot.png" alt="Capture d'écran du Launcher">
+                </div>
+            </section>
+
+            <!-- FONCTIONNALITÉS -->
+            <section style="margin-top: 5rem;">
+                <h2 style="text-align: center;">Fonctionnalités principales</h2>
+                <div class="features-grid">
+                    <div class="feature-item glass">
+                        <strong>Bibliothèque centralisée</strong>
+                        <p>Accès direct et immédiat à l'intégralité du catalogue des jeux Batpolygon.</p>
+                    </div>
+                    <div class="feature-item glass">
+                        <strong>Mises à jour intelligentes</strong>
+                        <p>Le launcher détecte automatiquement les nouvelles versions et s'occupe du téléchargement.</p>
+                    </div>
+                    <div class="feature-item glass">
+                        <strong>Expérience native</strong>
+                        <p>Une interface fluide, sobre et optimisée pour l'environnement Windows.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CHANGELOG -->
+            <section class="game-changelog">
+                <h2 class="accent-left-title" style="margin-top: 5rem;">Changelog du projet</h2>
+                <div class="changelog-accordion">
+                    <details class="changelog-version glass" open>
+                        <summary>Version 1.0.0 [17/03/2026]</summary>
+                        <div class="changelog-content">
+                            <h3 style="color: var(--accent-blue);">Lancement Initial</h3>
+                            <ul>
+                                <li>Déploiement de la toute première version stable.</li>
+                                <li>Système de synchronisation serveur pour récupérer la liste des jeux.</li>
+                                <li>Gestion complète : installation, désinstallation et lancement.</li>
+                                <li>Intégration d'une barre de progression de téléchargement en temps réel.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+            </section>
+
+        </div>
     </main>    
-    <div class="footer-message">
+
+    <footer class="footer-message">
         <p>Créé par Batpolygon | <a href="../eula.html">EULA & Copyright</a></p>
-    </div>
+    </footer>
+
+    <!-- Script de fond externe -->
+    <script src="../background.js"></script>
+
     <script>
-        // Script for the accordion behavior of the changelog
+        // Script accordéon
         const allDetails = document.querySelectorAll('.changelog-version');
-    
         allDetails.forEach(details => {
             details.addEventListener('toggle', () => {
-                // We only want to run this when a details element is opened
                 if (details.open) {
-                    // Close all other details elements
                     allDetails.forEach(d => {
                         if (d !== details) d.open = false;
                     });

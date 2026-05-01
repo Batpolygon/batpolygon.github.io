@@ -1,5 +1,3 @@
---- START OF FILE polyhedron.html ---
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -17,6 +15,10 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
+
+    <!-- Fond interactif -->
+    <canvas id="bg-canvas"></canvas>
+
     <header>
         <div class="logo">
             <img src="../images/icons/MadeByBatpolygonColoredIcon.png" alt="Logo" class="logo-image">
@@ -25,7 +27,8 @@
         <nav>
             <ul>
                 <li><a href="../index.html">Accueil</a></li>
-                <li><a href="../games.html">Jeux</a></li>
+                <li><a href="../games.html" class="active">Jeux</a></li>
+                <li><a href="../webgames.html">Jeux Web</a></li>
                 <li><a href="../projects.html">Projets</a></li>
                 <li><a href="../about.html">À propos</a></li>
             </ul>
@@ -33,13 +36,15 @@
     </header>
 
     <main>
-        <section class="game-details container">
-            <div class="game-header">
-                <div class="game-card-trailer">
-                    <img src="../images/gamescover/PolyhedronV0.2GameCover.jpg" alt="Polyhedron Cover" class="game-card-trailer-image" id="game-cover-image">
+        <div class="container">
+            
+            <!-- HAUT : JAQUETTE & INFOS -->
+            <section class="game-top-layout">
+                <div class="game-cover-left">
+                    <img src="../images/gamescover/PolyhedronVT0.4GameCover.jpg" alt="Polyhedron Cover" id="game-cover-image">
                 </div>
-            </div>
-                <div class="game-page">
+                
+                <div class="game-info-right glass">
                     <div class="title-version-selector">
                         <h1>Polyhedron</h1>
                         <select id="version-selector">
@@ -50,267 +55,222 @@
                             <option value="0.1">Version 0.1</option>
                         </select>
                     </div>
-                    <!-- Plateformes mises à jour dynamiquement via JS -->
-                    <p id="platform-tags"></p>
                     
-                    <p id="game-description"></p>
-                    <p class="note"><em>*Si vous trouvez un ou plusieurs bugs, n'hésitez pas à me les faire remonter sur mon Discord.</em></p>
-                    <div class="game-buttons">
-                        <a href="#" id="download-button" class="btn btn-download" target="_blank">
-                            Télécharger <img src="../images/icons/WindowsIcon.png" alt="Windows Icon" class="platform-icon">
-                        </a>
-                        <!-- Bouton Linux -->
-                        <a href="#" id="download-button-linux" class="btn btn-download" target="_blank" style="display: none;">
-                            Télécharger <img src="../images/icons/LinuxIcon.png" alt="Linux Icon" class="platform-icon">
-                        </a>
-                        <a href="https://discord.gg/fTwdczkQ39" class="btn btn-discord" target="_blank">Discord</a>
-                        <a href="../report_bug.html" class="btn btn-report-bug">Signaler un bug</a>
+                    <p id="platform-tags" class="platform-tags"></p>
+                    <p id="game-description" class="game-description"></p>
+
+                    <div class="download-buttons-container" id="download-buttons-container">
+                        <!-- Injecté par le JS -->
+                    </div>
+
+                    <div class="game-actions-bottom">
+                        <p class="note">*Si vous trouvez un ou plusieurs bugs, n'hésitez pas à me les faire remonter sur mon Discord.</p>
+                        <div class="game-actions-buttons">
+                            <a href="https://discord.gg/fTwdczkQ39" class="btn-discord" target="_blank">Discord</a>
+                            <a href="../report_bug.html" class="btn-report-bug" target="_blank">Signaler un bug</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="game-trailer">
+            </section>
+
+            <!-- MILIEU : TRAILER & LET'S PLAY -->
+            <section id="trailers-section" class="section-media">
                 <h2>Trailer :</h2>
-                <div class="game-trailer-container" id="trailers-container"></div>
-            </div>
-            <div class="game-trailer">
-                <h2>Let's Play :</h2>
-                <div class="game-trailer-container" id="lets-play-container"></div>
-            </div>     
-        </section>
-            <section class="game-changelog container">
-                <h2>Changelog :</h2>
-                <div class="changelog-accordion">
-                    
-                    <details class="changelog-version" data-version="0.4-test">
-                        <summary>Version TEST 0.4</summary>
-                        <div class="changelog-content">
-                            <h3>Nouveautés & Améliorations</h3>
-                            <ul>
-                                <li>Ajout du <strong>Mode Aventure</strong> avec les modes <em>Alien Invasion</em> et <em>Mnemo Infestation</em> (changement de génération de terrain et Polyhedrons uniques à chaque mode).</li>
-                                <li>Nouvelle commande <code>/referenceto</code> permettant d'exécuter une commande en tant qu'entité.</li>
-                                <li>Ajout des <strong>Addons customisables</strong> en phase expérimentale.</li>
-                                <li>Support initial de la version pour système d'exploitation <strong>Linux</strong>.</li>
-                            </ul>
-                            <h3>Corrections de bugs</h3>
-                            <ul>
-                                <li>Correction d'un bug majeur concernant l'apparition des ressources dans le monde.</li>
-                            </ul>
-                        </div>
-                    </details>
-
-                    <details class="changelog-version" data-version="0.3-test">
-                        <summary>Version TEST 0.3</summary>
-                        <div class="changelog-content">
-                            <h3>Nouveautés & Améliorations</h3>
-                            <ul>
-                                <li>Ajout d'un système de partage communautaire pour les cartes (maps) et les customisations de personnage.</li>
-                                <li>Implémentation d'un premier mode de jeu "pseudo-survie".</li>
-                                <li>Ajout de nouveaux blocs et de nouvelles mécaniques spécifiques au mode survie.</li>
-                            </ul>
-                            <h3>Bugs Connus & Limitations</h3>
-                            <ul>
-                                <li>La génération procédurale des ressources pour le mode survie est absente de cette version test et sera ajoutée ultérieurement.</li>
-                            </ul>
-                        </div>
-                    </details>
-
-                    <details class="changelog-version" data-version="0.2">
-                        <summary>Version 0.2 [20/12/2024]</summary>
-                        <div class="changelog-content">
-                            <h3>Nouveautés & Améliorations</h3>
-                            <ul>
-                                <li>Customisation du personnage.</li>
-                                <li>Refonte des couleurs (24 Solides, 4 Métalliques, 6 Transparentes).</li>
-                                <li>Ajout de 4 textures et 4 nouveaux types de blocs (Stairs, Ramps et coins).</li>
-                                <li>Ajout de 5 nouvelles Machines (Emitter, Repulsor, Wagon, Receiver, Controller).</li>
-                                <li>Refonte de la lumière et de l'objet "Light" (configurable).</li>
-                                <li>Améliorations des machines existantes (Transmitter, Sensor, Commandor, Motor).</li>
-                                <li>Amélioration du placement des polyhedrons.</li>
-                                <li>Ajout de 20 nouvelles Commandes (gestion stats, monde, variables, entités...).</li>
-                                <li>Amélioration de la Console (autocomplétion, historique, sauvegarde de coordonnées).</li>
-                                <li>Refonte des catégories d'objets (Tools, Construction, Mechanical, Programming, Entities).</li>
-                                <li>Ajout de 6 Outils (Sword, Pickaxe, Gun, Brush, Wrench, RemoteControl).</li>
-                                <li>Refonte visuelle des câbles (Wires) et gestion des types de données (Float, String).</li>
-                                <li>Ajout de 10 nouvelles Entités avec des comportements uniques.</li>
-                                <li>Ajout d'un modèle 3D pour la vue FPS, d'une vue TPS et d'un inventaire.</li>
-                                <li>Optimisation majeure de la génération procédurale de monde (biomes, structures, etc.).</li>
-                                <li>Refonte du ciel, du cycle jour/nuit et ajout de règles de monde.</li>
-                                <li>Ajout de 10 Trophées et de presets clavier (AZERTY, QWERTY, QWERTZ).</li>
-                            </ul>
-                            <h3>Bugs Connus</h3>
-                            <ul>
-                                <li>Certains éléments du jeu sont affectés par les variations de FPS.</li>
-                                <li>Pics de lag possibles lors de la génération de nouveaux chunks.</li>
-                                <li>Le joueur peut passer à travers le sol si l'entité qu'il chevauche est tuée.</li>
-                                <li>Le temps et la position du joueur peuvent être incorrects au chargement d'un monde.</li>
-                                <li>Problèmes de collision et de physique avec les Movables et Motors.</li>
-                                <li>Le Terminal en mode Loop ne se réactive pas après un chargement.</li>
-                                <li>Risque infime de duplication d'ID pour les Polyhedrons.</li>
-                                <li>Prise en charge partielle de la manette (ne fonctionne pas dans les menus).</li>
-                                <li>Problèmes de configuration des touches (conflits, reset incomplet).</li>
-                            </ul>
-                        </div>
-                    </details>
-
-                    <details class="changelog-version" data-version="0.1">
-                        <summary>Version 0.1 [01/09/2024]</summary>
-                        <div class="changelog-content">
-                            <h3>Fonctionnalités Initiales</h3>
-                            <ul>
-                                <li>Mouvements de base du joueur (marcher, courir, sauter, etc.).</li>
-                                <li>3 modes de jeu : Hand, Construction, Engineering.</li>
-                                <li>Système de construction avec 5 types de blocs et 12 couleurs.</li>
-                                <li>Système de programmation visuelle avec 8 machines et des câbles (Wires).</li>
-                                <li>12 commandes de base disponibles.</li>
-                                <li>3 types d'IA pour les entités.</li>
-                                <li>Options graphiques et de jeu.</li>
-                            </ul>
-                        </div>
-                    </details>
-
+                <div class="game-trailer-container glass media-box" id="trailers-container">
+                    <!-- Injecté par JS -->
                 </div>
             </section>
+
+            <section id="letsplay-section" class="section-media">
+                <h2>Let's Play :</h2>
+                <div class="game-trailer-container glass media-box" id="letsplay-container">
+                    <!-- Injecté par JS -->
+                </div>
+            </section>
+
+            <!-- BAS : CHANGELOG -->
+            <section class="game-changelog">
+                <h2>Changelog :</h2>
+                <div class="changelog-accordion">
+                    <!-- Version 0.4 -->
+                    <details class="changelog-version glass" data-version="0.4-test">
+                        <summary>Version TEST 0.4</summary>
+                        <div class="changelog-content">
+                            <h3 style="color: var(--accent-blue);">Nouveautés & Améliorations</h3>
+                            <ul>
+                                <li>Ajout du <strong>Mode Aventure</strong> avec les modes <em>Alien Invasion</em> et <em>Mnemo Infestation</em>.</li>
+                                <li>Nouvelle commande <code>/referenceto</code>.</li>
+                                <li>Ajout des <strong>Addons customisables</strong> (expérimental).</li>
+                                <li>Support initial de <strong>Linux</strong>.</li>
+                            </ul>
+                            <h3 style="color: #ff4c4c;">Corrections de bugs</h3>
+                            <ul>
+                                <li>Correction de l'apparition des ressources dans le monde.</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <!-- Version 0.3 -->
+                    <details class="changelog-version glass" data-version="0.3-test">
+                        <summary>Version TEST 0.3</summary>
+                        <div class="changelog-content">
+                            <h3 style="color: var(--accent-blue);">Nouveautés & Améliorations</h3>
+                            <ul>
+                                <li>Système de partage communautaire (cartes et customisations).</li>
+                                <li>Premier mode de jeu "pseudo-survie".</li>
+                                <li>Nouveaux blocs et mécaniques de survie.</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <!-- Version 0.2 -->
+                    <details class="changelog-version glass" data-version="0.2">
+                        <summary>Version 0.2 [20/12/2024]</summary>
+                        <div class="changelog-content">
+                            <h3 style="color: var(--accent-blue);">Améliorations Majeures</h3>
+                            <ul>
+                                <li>Customisation complète du personnage.</li>
+                                <li>Refonte des couleurs et nouvelles textures de blocs.</li>
+                                <li>Ajout de 5 nouvelles Machines et refonte de la lumière.</li>
+                                <li>Optimisation majeure de la génération procédurale.</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <!-- Version 0.1 -->
+                    <details class="changelog-version glass" data-version="0.1">
+                        <summary>Version 0.1 [01/09/2024]</summary>
+                        <div class="changelog-content">
+                            <h3 style="color: var(--accent-blue);">Fonctionnalités Initiales</h3>
+                            <ul>
+                                <li>Mouvements de base et 3 modes de jeu.</li>
+                                <li>Système de construction et programmation visuelle (Wires).</li>
+                                <li>12 commandes de base et 3 types d'IA.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+            </section>
+        </div>
     </main>
     
-    <div class="footer-message">
+    <footer class="footer-message">
         <p>Créé par Batpolygon | <a href="../eula.html">EULA & Copyright</a></p>
-    </div> 
+    </footer>
 
+    <!-- SCRIPT DE GESTION DES VERSIONS -->
     <script>
         const versionData = {
             "0.4-test": {
-                platforms: `<span class="platform-windows">Windows</span> <span class="platform-linux">Linux</span>`,
-                description: `Découvrez la <strong>version TEST 0.4</strong> ! Cette version corrige un bug majeur sur l'apparition des ressources et introduit le <strong>Mode Aventure</strong> avec <em>Alien Invasion</em> et <em>Mnemo Infestation</em>. Ces modes changent la génération du terrain et permettent d'obtenir des <strong>Polyhedrons uniques</strong>. Profitez aussi de la commande <code>/referenceto</code> et commencez à expérimenter avec les <strong>Addons customisables</strong> !`,
-                downloadLink: "https://www.mediafire.com/file/c24tsklhke94f86/PolyhedronVT0.4Installer.exe/file",
-                downloadLinkLinux: "https://www.mediafire.com/file/a4pfid6hmybhbsu/PolyhedronVT0.4_Linux.tar.gz/file",
-                coverImage: "../images/gamescover/PolyhedronVT0.4GameCover.jpg", // Adapté si l'image a changé, sinon remettre V0.2
+                platforms: `<span style="color: #0088ff;">Windows</span> | <span style="color: #ffe600;">Linux</span>`,
+                description: `Découvrez la <strong>version TEST 0.4</strong> ! Cette version corrige un bug majeur sur l'apparition des ressources et introduit le <strong>Mode Aventure</strong>. Profitez de la commande <code>/referenceto</code> et expérimentez avec les <strong>Addons customisables</strong> !`,
+                downloads: [
+                    { name: "Télécharger", icon: "WindowsIcon.png", link: "https://www.mediafire.com/file/c24tsklhke94f86/PolyhedronVT0.4Installer.exe/file", class: "btn-download" },
+                    { name: "Télécharger", icon: "LinuxIcon.png", link: "https://www.mediafire.com/file/a4pfid6hmybhbsu/PolyhedronVT0.4_Linux.tar.gz/file", class: "btn-download" }
+                ],
+                coverImage: "../images/gamescover/PolyhedronVT0.4GameCover.jpg",
                 trailers: [],
-                letsPlays: [
-                    { src: "https://www.youtube.com/embed/Bjnqy0iXIso", title: "Let's Play de Polyhedron V0.4" }
-                ]
+                letsPlays: [{ src: "https://www.youtube.com/embed/Bjnqy0iXIso", title: "Let's Play V0.4" }]
             },
             "0.3-test": {
-                platforms: `<span class="platform-windows">Windows</span>`,
-                description: `Découvrez la <strong>version TEST 0.3</strong> de Polyhedron ! Cette version introduit les fondations du partage communautaire, vous permettant de <strong>partager vos créations</strong> (cartes, customisations de personnage) avec d'autres joueurs. Un nouveau mode de <strong>"pseudo-survie"</strong> fait son apparition avec de nouveaux blocs et mécaniques, bien que la génération de ressources ne soit pas encore implémentée.`,
-                downloadLink: "https://www.mediafire.com/file/af6t86l3qijeovz/PolyhedronVT0.3Installer.exe/file",
+                platforms: `<span style="color: #0088ff;">Windows</span>`,
+                description: `Découvrez la <strong>version TEST 0.3</strong> de Polyhedron ! Partagez vos créations avec la communauté et découvrez le premier mode "pseudo-survie".`,
+                downloads: [{ name: "Télécharger", icon: "WindowsIcon.png", link: "https://www.mediafire.com/file/af6t86l3qijeovz/PolyhedronVT0.3Installer.exe/file", class: "btn-download" }],
                 coverImage: "../images/gamescover/PolyhedronVT0.3GameCover.jpg",
                 trailers: [],
-                letsPlays: [
-                    { src: "https://www.youtube.com/embed/qmCpYe7JC88", title: "Let's Play de Polyhedron V0.3" }
-                ]
+                letsPlays: [{ src: "https://www.youtube.com/embed/qmCpYe7JC88", title: "Let's Play V0.3" }]
             },
             "0.2": {
-                platforms: `<span class="platform-windows">Windows</span>`,
-                description: `Voici <strong>Polyhedron</strong> ! Un <strong>sandbox</strong> où vous pouvez créer tout un tas de construction, machine et bien plus ! De simple maison ou pixel art à création de robot ou véhicule, votre imagination est la seule limite ! Le jeu est actuellement en <strong>version 0.2</strong> donc n'hésitez pas à me faire de retours sur des améliorations potentiels et nouveautés à ajouter !`,
-                downloadLink: "https://www.mediafire.com/file/ulhqjxvi54bhixr/Polyhedron_V0.2_Installer.exe/file",
+                platforms: `<span style="color: #0088ff;">Windows</span>`,
+                description: `<strong>Polyhedron V0.2</strong> : Un sandbox complet ! Créez des maisons, des robots ou des véhicules, votre imagination est la seule limite !`,
+                downloads: [{ name: "Télécharger", icon: "WindowsIcon.png", link: "https://www.mediafire.com/file/ulhqjxvi54bhixr/Polyhedron_V0.2_Installer.exe/file", class: "btn-download" }],
                 coverImage: "../images/gamescover/PolyhedronV0.2GameCover.jpg",
-                trailers: [
-                    { src: "https://www.youtube.com/embed/2uElYGDG9KE", title: "Trailer de Polyhedron V0.2" }
-                ],
-                letsPlays: [
-                    { src: "https://www.youtube.com/embed/16L48jPzMI4", title: "Let's Play 1 de Polyhedron V0.2" },
-                    { src: "https://www.youtube.com/embed/w3QRk77M9FE", title: "Let's Play 2 de Polyhedron V0.2" },
-                    { src: "https://www.youtube.com/embed/sUC6Ts8KEbQ", title: "Let's Play 3 de Polyhedron V0.2" }
-                ]
+                trailers: [{ src: "https://www.youtube.com/embed/2uElYGDG9KE", title: "Trailer V0.2" }],
+                letsPlays: [{ src: "https://www.youtube.com/embed/16L48jPzMI4", title: "Let's Play V0.2" }]
             },
             "0.1": {
-                platforms: `<span class="platform-windows">Windows</span>`,
-                description: `Découvrez la première version de <strong>Polyhedron</strong>. Une version fondamentale qui a posé les bases du jeu avec ses mécaniques de construction et de programmation initiales.`,
-                downloadLink: "https://www.mediafire.com/file/vh24v1342c8msx2/Polyhedron_V0.1_Installer.exe/file",
+                platforms: `<span style="color: #0088ff;">Windows</span>`,
+                description: `Découvrez la première version de <strong>Polyhedron</strong>. Une version fondamentale qui a posé les bases du jeu.`,
+                downloads: [{ name: "Télécharger", icon: "WindowsIcon.png", link: "https://www.mediafire.com/file/vh24v1342c8msx2/Polyhedron_V0.1_Installer.exe/file", class: "btn-download" }],
                 coverImage: "../images/gamescover/PolyhedronV0.1GameCover.jpg",
-                trailers: [
-                    { src: "https://www.youtube.com/embed/1tWfEh2HlS8", title: "Trailer de Polyhedron v0.1" }
-                ],
-                letsPlays: [
-                    { src: "https://www.youtube.com/embed/E2FOU37jhu0", title: "Let's Play de Polyhedron V0.1" }
-                ]
+                trailers: [{ src: "https://www.youtube.com/embed/1tWfEh2HlS8", title: "Trailer V0.1" }],
+                letsPlays: [{ src: "https://www.youtube.com/embed/E2FOU37jhu0", title: "Let's Play V0.1" }]
             }
         };
 
-        function createIframe(video) {
-            return `<iframe width="560" height="315" src="${video.src}" 
-                            title="${video.title}" frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen></iframe>`;
-        }
-
         function createVideoSlider(videos) {
             if (!videos || videos.length === 0) return '';
-            const slidesHTML = videos.map(video => `<div class="video-slide">${createIframe(video)}</div>`).join('');
-            return `
-                <div class="video-slider-container">
-                    <div class="video-slider-track">${slidesHTML}</div>
-                    <button class="slider-btn prev-btn" aria-label="Précédent">&#10094;</button>
-                    <button class="slider-btn next-btn" aria-label="Suivant">&#10095;</button>
-                </div>`;
+            const slidesHTML = videos.map(v => `<div class="slide"><iframe class="embed-16-9" src="${v.src}" title="${v.title}" frameborder="0" allowfullscreen></iframe></div>`).join('');
+            return `<div class="slider-container"><div class="slider-track">${slidesHTML}</div><button class="slider-btn prev-btn">&#10094;</button><button class="slider-btn next-btn">&#10095;</button></div>`;
         }
 
         function updatePage(version) {
             const data = versionData[version];
             if (!data) return;
-
             document.getElementById('platform-tags').innerHTML = data.platforms;
             document.getElementById('game-description').innerHTML = data.description;
-            document.getElementById('download-button').href = data.downloadLink;
             document.getElementById('game-cover-image').src = data.coverImage;
 
-            const linuxBtn = document.getElementById('download-button-linux');
-            if (data.downloadLinkLinux) {
-                linuxBtn.href = data.downloadLinkLinux;
-                linuxBtn.style.display = 'inline-flex';
-            } else {
-                linuxBtn.style.display = 'none';
-            }
+            const btnContainer = document.getElementById('download-buttons-container');
+            btnContainer.innerHTML = '';
+            data.downloads.forEach(btn => {
+                const a = document.createElement('a');
+                a.href = btn.link;
+                a.className = `btn ${btn.class}`;
+                a.target = "_blank";
+                a.innerHTML = `${btn.name} <img src="../images/icons/${btn.icon}" alt="Icon" class="btn-icon">`;
+                btnContainer.appendChild(a);
+            });
 
-            const trailersContainer = document.getElementById('trailers-container');
-            trailersContainer.innerHTML = createVideoSlider(data.trailers);
-            if (data.trailers && data.trailers.length > 0) {
-                initializeSlider(trailersContainer.querySelector('.video-slider-container'));
-            }
+            const tContainer = document.getElementById('trailers-container');
+            tContainer.innerHTML = createVideoSlider(data.trailers);
+            document.getElementById('trailers-section').style.display = data.trailers.length > 0 ? 'block' : 'none';
 
-            const letsPlayContainer = document.getElementById('lets-play-container');
-            letsPlayContainer.innerHTML = createVideoSlider(data.letsPlays);
-            if (data.letsPlays && data.letsPlays.length > 0) {
-                initializeSlider(letsPlayContainer.querySelector('.video-slider-container'));
-            }
+            const lpContainer = document.getElementById('letsplay-container');
+            lpContainer.innerHTML = createVideoSlider(data.letsPlays);
+            document.getElementById('letsplay-section').style.display = data.letsPlays.length > 0 ? 'block' : 'none';
 
-            trailersContainer.parentElement.style.display = data.trailers && data.trailers.length > 0 ? 'flex' : 'none';
-            letsPlayContainer.parentElement.style.display = data.letsPlays && data.letsPlays.length > 0 ? 'flex' : 'none';
+            document.querySelectorAll('.slider-container').forEach(initializeSlider);
 
             const allChangelogs = document.querySelectorAll('.changelog-version');
             allChangelogs.forEach(details => {
-                if (details.dataset.version === version) {
-                    details.style.display = 'block';
-                    details.open = true;
-                } else {
-                    details.style.display = 'none';
-                }
+                details.style.display = (details.dataset.version === version) ? 'block' : 'none';
+                details.open = (details.dataset.version === version);
             });
         }
 
         function initializeSlider(container) {
             if (!container) return;
-            const track = container.querySelector('.video-slider-track');
-            const prevButton = container.querySelector('.prev-btn');
-            const nextButton = container.querySelector('.next-btn');
+            const track = container.querySelector('.slider-track');
+            let prevButton = container.querySelector('.prev-btn');
+            let nextButton = container.querySelector('.next-btn');
+            if (!track) return;
             const slides = Array.from(track.children);
-            if (slides.length <= 1) { container.classList.add('single-slide'); return; }
+            if (slides.length <= 1) { 
+                if (prevButton) prevButton.style.display = 'none';
+                if (nextButton) nextButton.style.display = 'none';
+                return; 
+            }
             let currentIndex = 0;
             const updateSlidePosition = (animate = true) => {
-                const slideWidth = slides[0].getBoundingClientRect().width;
-                if (slideWidth > 0) {
-                    track.style.transition = animate ? 'transform 0.5s ease-in-out' : 'none';
-                    track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
-                }
+                const slideWidth = container.getBoundingClientRect().width;
+                track.style.transition = animate ? 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)' : 'none';
+                track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
             };
-            prevButton.addEventListener('click', () => { currentIndex = currentIndex === 0 ? slides.length - 1 : currentIndex - 1; updateSlidePosition(); });
-            nextButton.addEventListener('click', () => { currentIndex = currentIndex === slides.length - 1 ? 0 : currentIndex + 1; updateSlidePosition(); });
-            new ResizeObserver(() => updateSlidePosition(false)).observe(container);
+            if (prevButton && nextButton) {
+                prevButton.onclick = () => { currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1; updateSlidePosition(); };
+                nextButton.onclick = () => { currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1; updateSlidePosition(); };
+            }
+            window.addEventListener('resize', () => updateSlidePosition(false));
+            updateSlidePosition(false);
         }
 
-        const versionSelector = document.getElementById('version-selector');
-        versionSelector.addEventListener('change', (event) => updatePage(event.target.value));
-        document.addEventListener('DOMContentLoaded', () => updatePage(versionSelector.value));
+        const selector = document.getElementById('version-selector');
+        selector.addEventListener('change', (e) => updatePage(e.target.value));
+        document.addEventListener('DOMContentLoaded', () => updatePage(selector.value));
     </script>
+
+    <!-- SCRIPT BACKGROUND -->
+    <script src="../background.js"></script>
 </body>
 </html>

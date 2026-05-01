@@ -15,6 +15,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- Fond interactif -->
+    <canvas id="bg-canvas"></canvas>
+
     <header>
         <div class="logo">
             <img src="images/icons/MadeByBatpolygonColoredIcon.png" alt="Logo" class="logo-image">
@@ -24,17 +28,21 @@
             <ul>
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="games.html">Jeux</a></li>
+                <li><a href="webgames.html">Jeux Web</a></li>
                 <li><a href="projects.html">Projets</a></li>
                 <li><a href="about.html" class="active">À propos</a></li>
             </ul>
         </nav>
     </header>    
+
     <main>
         <div class="about-page-container container">
+            
+            <!-- Contenu Principal (BIO) -->
             <div class="about-content">
-                <section class="welcome">
+                <section class="welcome glass">
                     <img src="images/icons/LogoBatpolygon.jpg" alt="Photo de Profile" class="profile-image">
-                    <p>Hey c’est moi Batpolygon !</p>
+                    <h2 class="page-title">Hey c’est moi Batpolygon !</h2>
                     <p>
                         Je suis passionné de programmation depuis la classe de 3ᵉ, où tout a commencé grâce à Scratch. 
                         À l’époque, je n’avais pas de PC facilement accessible, donc je me suis débrouillé avec mon téléphone et ma tablette sous Android pour apprendre et créer des petits jeux.
@@ -43,26 +51,27 @@
                         Petit à petit, je me suis attaqué à des langages comme Python, Lua, ou encore <strong>HTML</strong>. En parallèle, j’explorais aussi les commandes blocs sur Minecraft Pocket/Bedrock Edition, histoire de continuer à découvrir de nouvelles façons de coder.
                     </p>
                     <p>
-                        Et pendant plusieurs années, j’ai passé un temps fou à coder des machines complexes sur Minecraft Pocket/Bedrock Edition avec les commandes blocs. 
-                        Ça a été une étape super importante pour moi : j’y ai fait parler ma créativité, appris à résoudre des problèmes, et petit à petit, j’ai commencé à imaginer et construire tout un univers. 
-                        Cette expérience m’a énormément appris et a joué un rôle clé dans ce que je fais aujourd’hui.
+                        Pendant plusieurs années, j’ai passé un temps fou à coder des machines complexes sur Minecraft. 
+                        Ça a été une étape super importante : j’y ai fait parler ma créativité, appris à résoudre des problèmes, et petit à petit, j’ai commencé à imaginer et construire tout un univers.
                     </p>
                     <p>
-                        Quand j’ai enfin eu un PC à l’université, tout s’est accéléré. Je me suis lancé dans la création de jeux vidéo avec Unreal Engine 4, et depuis, je n’ai jamais arrêté ! 
-                        Aujourd’hui, je continue à développer des jeux par pure passion, et ce n’est pas près de s’arrêter.
+                        Quand j’ai enfin eu un PC à l’université, tout s’est accéléré. Je me suis lancé dans la création de jeux vidéo avec <strong>Unreal Engine</strong>, et depuis, je n’ai jamais arrêté !
                     </p>
                     <p>
-                        En plus des jeux, je code souvent des projets en Python, notamment autour des IA, et je commence depuis peu à explorer le monde de la robotique. 
-                        Bref, l’aventure ne fait que commencer, et j’ai hâte de voir où ça me mènera !
+                        En plus des jeux, je code souvent des projets en Python, notamment autour des IA, et j'explore maintenant le monde de la robotique. L’aventure ne fait que commencer !
                     </p>
                 </section>
-                <section class="social-links">
+
+                <!-- Boutons de Soutien -->
+                <section class="social-links-box">
                     <div class="social-buttons">
-                        <a href="https://patreon.com/MadeByBatpolygon?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" class="btn-patreon" target="_blank">Patreon</a>
-                        <a href="https://fr.tipeee.com/madebybatpolygon" class="btn-patreon" target="_blank">Tipeee</a>
+                        <a href="https://patreon.com/MadeByBatpolygon" class="btn-discord" target="_blank" style="background: #f96854;">Patreon</a>
+                        <a href="https://fr.tipeee.com/madebybatpolygon" class="btn-discord" target="_blank" style="background: #ff5e5e;">Tipeee</a>
                     </div>
                 </section>
-                <section class="social-links">
+
+                <!-- Réseaux Sociaux -->
+                <section class="social-links-box">
                     <div class="social-buttons">
                         <a href="https://batpolygon.itch.io/" class="btn-view-all" target="_blank">Itch.io</a>
                         <a href="https://x.com/MadeByBat" class="btn-view-all" target="_blank">X/Twitter</a>
@@ -71,35 +80,39 @@
                     </div>
                 </section>     
             </div>
+
+            <!-- Barre Latérale (WIDGETS) -->
             <aside class="sidebar-widgets">
-                <div class="widget-container">
-                    <h2>Rejoins-nous sur Discord</h2>
+                <div class="widget-container glass">
+                    <h2>Communauté</h2>
                     <iframe src="https://discord.com/widget?id=1096853380636344364&theme=dark" height="400" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
                 </div>
-                <div class="widget-container">
-                    <h2>Ma Chaîne YouTube</h2>
+
+                <div class="widget-container glass">
+                    <h2>YouTube</h2>
                     <div class="youtube-subscribe-widget">
                         <div class="g-ytsubscribe" data-channelid="UCy4oJ4c6xmsrkUpJ9aoNI6A" data-layout="full" data-count="default"></div>
-
-                    <h2 class="latest-video-title">Dernière Vidéo</h2>
-
-                    <!-- Lecteur de la dernière vidéo -->
-                    <iframe 
-                        src="https://www.youtube.com/embed/videoseries?list=UUy4oJ4c6xmsrkUpJ9aoNI6A" 
-                        title="Dernière vidéo YouTube" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>
+                        <h3 class="latest-video-title">Dernière Vidéo</h3>
+                        <iframe 
+                            src="https://www.youtube.com/embed/videoseries?list=UUy4oJ4c6xmsrkUpJ9aoNI6A" 
+                            title="Dernière vidéo YouTube" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
                 </div>
-
-    
             </aside>
+
         </div>
     </main>    
-    <div class="footer-message">
+
+    <footer class="footer-message">
         <p>Créé par Batpolygon | <a href="eula.html">EULA & Copyright</a></p>
-    </div>
+    </footer>
+
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+    <script src="background.js"></script>
 </body>
 </html>

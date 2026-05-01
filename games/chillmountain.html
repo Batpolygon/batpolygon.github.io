@@ -11,10 +11,13 @@
     <meta property="og:image" content="https://batpolygon.github.io/images/gamescover/ChillMountainGameCover.jpg">
     <meta property="og:url" content="https://batpolygon.github.io/games/chillmountain.html">
     <link rel="canonical" href="https://batpolygon.github.io/games/chillmountain.html">
-    <title>ChillMounTAIN - Made by Batpolygon</title>
+    <title>ChillMountain - Made by Batpolygon</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
+
+    <canvas id="bg-canvas"></canvas>
+
     <header>
         <div class="logo">
             <img src="../images/icons/MadeByBatpolygonColoredIcon.png" alt="Logo" class="logo-image">
@@ -23,7 +26,8 @@
         <nav>
             <ul>
                 <li><a href="../index.html">Accueil</a></li>
-                <li><a href="../games.html">Jeux</a></li>
+                <li><a href="../games.html" class="active">Jeux</a></li>
+                <li><a href="../webgames.html">Jeux Web</a></li>
                 <li><a href="../projects.html">Projets</a></li>
                 <li><a href="../about.html">À propos</a></li>
             </ul>
@@ -31,127 +35,116 @@
     </header>
 
     <main>
-        <section class="game-details container">
-            <div class="game-header">
-                <div class="game-card-trailer">
-                    <img src="../images/gamescover/ChillMountainGameCover.jpg" alt="ChillMountain Cover" class="game-card-trailer-image">
-                </div>
-            </div>
-            <div class="game-page">
-                <h1>ChillMounTAIN</h1>
-                <p><span class="platform-windows">Windows</span> <span class="platform-linux">Linux</span></p>
-                <p>
-                    Voici <strong>ChillMounTAIN</strong> ! Un jeu aux deux visages qui saura tester votre zénitude autant que votre patience.<br><br>
-                    <strong>Mode Chill</strong> : Détendez-vous ! C'est un mode de jeu relaxant où votre objectif est d'augmenter votre <em>ChillOMètre</em> en construisant de charmantes maisons dans un environnement paisible.<br><br>
-                    <strong>Mode Rageant</strong> : Envie de défi ? Changez d'ambiance et affrontez la montagne ! Il vous faudra réussir à grimper tout en haut d'un parcours d'obstacles redoutable sans tomber, sous peine de devoir tout recommencer.
-                </p>
-                <p class="note"><em>*Si vous trouvez un ou plusieurs bugs, n'hésitez pas à me les faire remonter sur mon Discord.</em></p>
-                <div class="game-buttons">
-                        <a href="https://www.mediafire.com/file/f43sy9opyiu08c3/ChillMountain_Installer.exe/file" class="btn btn-download" target="_blank">
-                            Télécharger <img src="../images/icons/WindowsIcon.png" alt="Windows Icon" class="platform-icon">
-                        </a>
-                        <a href="https://www.mediafire.com/file/w4vc9z14epz7z7y/ChillMountain_Linux.tar.gz/file" class="btn btn-download" target="_blank">
-                            Télécharger <img src="../images/icons/LinuxIcon.png" alt="Linux Icon" class="platform-icon">
-                        </a>
-                    <a href="https://discord.gg/fTwdczkQ39" class="btn btn-discord" target="_blank">Discord</a>
-                    <a href="../report_bug.html" class="btn btn-report-bug">Signaler un bug</a>
-                </div>
-            </div>
+        <div class="container">
             
-            <div class="game-trailer">
-                <h2>Trailer :</h2>
-                <div class="game-trailer-container">
-                    <div class="video-slider-container">
-                        <div class="video-slider-track">
-                            <div class="video-slide">
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/6eZ3kyHhJKc" title="Trailer de Cardygon" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
+            <!-- SECTION HAUTE : INFOS JEU -->
+            <section class="game-top-layout">
+                <div class="game-cover-left">
+                    <img src="../images/gamescover/ChillMountainGameCover.jpg" alt="ChillMountain Cover">
+                </div>
+                
+                <div class="game-info-right glass">
+                    <div class="title-area">
+                        <h1>ChillMounTAIN</h1>
+                    </div>
+                    
+                    <p class="platform-tags" style="font-weight: bold; font-size: 1.3rem; margin-top: 0;">
+                        <span style="color: #0088ff;">Windows</span> | <span style="color: #ffe600;">Linux</span>
+                    </p>
+                    
+                    <p class="game-description" style="font-size: 1.1rem; line-height: 1.6; color: #e0e0e0; margin-bottom: 1rem;">
+                        Voici <strong>ChillMounTAIN</strong> ! Un jeu aux deux visages qui saura tester votre zénitude autant que votre patience.<br><br>
+                        <strong>Mode Chill</strong> : Détendez-vous ! C'est un mode de jeu relaxant où votre objectif est d'augmenter votre <em>ChillOMètre</em> en construisant de charmantes maisons dans un environnement paisible.<br><br>
+                        <strong>Mode Rageant</strong> : Envie de défi ? Changez d'ambiance et affrontez la montagne ! Grimper tout en haut d'un parcours d'obstacles redoutable sans tomber, sous peine de devoir tout recommencer.
+                    </p>
+
+                    <div class="download-buttons-container">
+                        <a href="https://www.mediafire.com/file/f43sy9opyiu08c3/ChillMountain_Installer.exe/file" class="btn-download" target="_blank">
+                            Télécharger <img src="../images/icons/WindowsIcon.png" alt="Win" class="btn-icon">
+                        </a>
+                        <a href="https://www.mediafire.com/file/w4vc9z14epz7z7y/ChillMountain_Linux.tar.gz/file" class="btn-download" target="_blank">
+                            Télécharger <img src="../images/icons/LinuxIcon.png" alt="Lin" class="btn-icon">
+                        </a>
+                    </div>
+
+                    <div class="game-actions-bottom">
+                        <p class="note">*Si vous trouvez un ou plusieurs bugs, n'hésitez pas à me les faire remonter sur mon Discord.</p>
+                        <div class="game-actions-buttons">
+                            <a href="https://discord.gg/fTwdczkQ39" class="btn-discord" target="_blank">Discord</a>
+                            <a href="../report_bug.html" class="btn-report-bug">Signaler un bug</a>
                         </div>
-                        <button class="slider-btn prev-btn" aria-label="Précédent">&#10094;</button>
-                        <button class="slider-btn next-btn" aria-label="Suivant">&#10095;</button>
                     </div>
                 </div>
-            </div>         
-        </section>
-        
-        <section class="game-changelog container">
-            <h2>Changelog :</h2>
-            <div class="changelog-accordion">
-                <details class="changelog-version" open>
-                    <summary>Version 1.0 [26/02/2026]</summary>
-                    <div class="changelog-content">
-                        <h3>Lancement du jeu</h3>
-                        <ul>
-                            <li>Ajout du système de construction de maisons.</li>
-                            <li>Ajout de la jauge "ChillOMètre".</li>
-                            <li>Ajout du mode parcours difficile sur la montagne.</li>
-                        </ul>
+            </section>
+
+            <!-- MEDIA SECTIONS -->
+            <section class="section-media">
+                <h2>Trailer :</h2>
+                <div class="slider-container glass media-box">
+                    <div class="slider-track">
+                        <div class="slide">
+                            <iframe class="embed-16-9" src="https://www.youtube.com/embed/6eZ3kyHhJKc" title="Trailer ChillMountain" frameborder="0" allowfullscreen></iframe>
+                        </div>
                     </div>
-                </details>
-            </div>
-        </section>
+                </div>
+            </section>
+
+            <!-- CHANGELOG -->
+            <section class="game-changelog">
+                <h2>Changelog :</h2>
+                <div class="changelog-accordion">
+                    <details class="changelog-version glass" open>
+                        <summary>Version 1.0 [26/02/2026]</summary>
+                        <div class="changelog-content">
+                            <h3 style="color: var(--accent-blue);">Lancement du jeu</h3>
+                            <ul>
+                                <li>Ajout du système de construction de maisons.</li>
+                                <li>Ajout de la jauge "ChillOMètre".</li>
+                                <li>Ajout du mode parcours difficile sur la montagne.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+            </section>
+        </div>
     </main>
     
-    <div class="footer-message">
+    <footer class="footer-message">
         <p>Créé par Batpolygon | <a href="../eula.html">EULA & Copyright</a></p>
-    </div> 
-    <script>
-        // Script for the accordion behavior of the changelog
-        const allDetails = document.querySelectorAll('.changelog-version');
-    
-        allDetails.forEach(details => {
-            details.addEventListener('toggle', () => {
-                // We only want to run this when a details element is opened
-                if (details.open) {
-                    // Close all other details elements
-                    allDetails.forEach(d => {
-                        if (d !== details) d.open = false;
-                    });
-                }
-            });
-        });
+    </footer>
 
+    <!-- SCRIPT SLIDERS -->
+    <script>
         function initializeSlider(container) {
             if (!container) return;
-            
-            const track = container.querySelector('.slider-track') || container.querySelector('.video-slider-track');
-            const prevButton = container.querySelector('.prev-btn');
-            const nextButton = container.querySelector('.next-btn');
-
-            if (!track || !prevButton || !nextButton) return;
-
+            const track = container.querySelector('.slider-track');
+            let prevButton = container.querySelector('.prev-btn');
+            let nextButton = container.querySelector('.next-btn');
+            if (!track) return;
             const slides = Array.from(track.children);
-            if (slides.length <= 1) {
-                container.classList.add('single-slide');
-                return;
+            if (slides.length <= 1) { 
+                if (prevButton) prevButton.style.display = 'none';
+                if (nextButton) nextButton.style.display = 'none';
+                return; 
             }
-
             let currentIndex = 0;
-
             const updateSlidePosition = (animate = true) => {
-                const slideWidth = slides.length > 0 ? slides[0].getBoundingClientRect().width : 0;
-                if (slideWidth > 0) {
-                    track.style.transition = animate ? 'transform 0.5s ease-in-out' : 'none';
-                    track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
-                }
+                const slideWidth = container.getBoundingClientRect().width;
+                track.style.transition = animate ? 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)' : 'none';
+                track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
             };
-
-            prevButton.addEventListener('click', () => {
-                currentIndex = currentIndex === 0 ? slides.length - 1 : currentIndex - 1;
-                updateSlidePosition();
-            });
-
-            nextButton.addEventListener('click', () => {
-                currentIndex = currentIndex === slides.length - 1 ? 0 : currentIndex + 1;
-                updateSlidePosition();
-            });
-
-            new ResizeObserver(() => {
-                updateSlidePosition(false); // Update without animation on resize
-            }).observe(container);
+            if (prevButton && nextButton) {
+                prevButton.onclick = () => { currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1; updateSlidePosition(); };
+                nextButton.onclick = () => { currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1; updateSlidePosition(); };
+            }
+            window.addEventListener('resize', () => updateSlidePosition(false));
+            updateSlidePosition(false);
         }
-
-        document.querySelectorAll('.slider-container, .video-slider-container').forEach(initializeSlider);
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.slider-container').forEach(initializeSlider);
+        });
     </script>
+
+    <script src="../background.js"></script>
 </body>
 </html>

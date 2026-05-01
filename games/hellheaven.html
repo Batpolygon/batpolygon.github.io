@@ -13,8 +13,13 @@
     <link rel="canonical" href="https://madebybatpolygon.github.io/games/hellheaven.html">
     <title>HellHeaven - Made by Batpolygon</title>
     <link rel="stylesheet" href="../style.css">
+
+
 </head>
 <body>
+
+    <canvas id="bg-canvas"></canvas>
+
     <header>
         <div class="logo">
             <img src="../images/icons/MadeByBatpolygonColoredIcon.png" alt="Logo" class="logo-image">
@@ -23,7 +28,8 @@
         <nav>
             <ul>
                 <li><a href="../index.html">Accueil</a></li>
-                <li><a href="../games.html">Jeux</a></li>
+                <li><a href="../games.html" class="active">Jeux</a></li>
+                <li><a href="../webgames.html">Jeux Web</a></li>
                 <li><a href="../projects.html">Projets</a></li>
                 <li><a href="../about.html">À propos</a></li>
             </ul>
@@ -31,142 +37,138 @@
     </header>
 
     <main>
-        <section class="game-details container">
-            <div class="game-header">
-                <div class="game-card-trailer">
-                    <img src="../images/gamescover/HellHeavenGameCover.jpg" alt="HellHeaven Cover" class="game-card-trailer-image">
+        <div class="container">
+            
+            <!-- SECTION HAUTE : INFOS JEU -->
+            <section class="game-top-layout">
+                <div class="game-cover-left">
+                    <img src="../images/gamescover/HellHeavenGameCover.jpg" alt="HellHeaven Cover">
                 </div>
-            </div>
-                <div class="game-page">
-                    <h1>HellHeaven</h1>
-                    <p><span class="platform-windows">Windows</span></p>
-                    <p>
-                        Voici <strong>HellHeaven</strong>! Un jeu d'adventure enigme où l'on va devoir sauver des Humains perdu dans le Paradis et l'Enfer !<br>
-                        Aufait ! Vous avez la possiblitié de jouer en Multijouer local ! Un avec le clavier l'autre avec une manette :)<br>
-
-                        Ce jeu à été developpé en moins de 2 semaines pour <strong>l'Adventure Jam 2023</strong>
+                
+                <div class="game-info-right glass">
+                    <div class="title-area">
+                        <h1>HellHeaven</h1>
+                    </div>
+                    
+                    <p class="platform-tags" style="color: #0088ff; font-weight: bold; font-size: 1.3rem; margin-top: 0;">Windows</p>
+                    
+                    <p class="game-description" style="font-size: 1.1rem; line-height: 1.6; color: #e0e0e0; margin-bottom: 1rem;">
+                        Voici <strong>HellHeaven</strong> ! Un jeu d'aventure et d'énigmes où vous devrez sauver des humains perdus entre le Paradis et l'Enfer !<br><br>
+                        Le jeu offre la possibilité de jouer en <strong>Multijoueur local</strong> (un joueur au clavier, l'autre à la manette). Ce projet a été développé en moins de 2 semaines pour l'<strong>Adventure Jam 2023</strong>.
                     </p>
-                    <p class="note"><em>*Si vous trouvez un ou plusieurs bugs, n'hésitez pas à me les faire remonter sur mon Discord.</em></p>
-                    <div class="game-buttons">
-                        <a href="https://www.mediafire.com/file/2huc6uq1834dbn2/HellHeaven_Installer.exe/file" class="btn btn-download" target="_blank">
-                            Télécharger <img src="../images/icons/WindowsIcon.png" alt="Windows Icon" class="platform-icon">
+
+                    <div class="download-buttons-container">
+                        <a href="https://www.mediafire.com/file/2huc6uq1834dbn2/HellHeaven_Installer.exe/file" class="btn-download" target="_blank">
+                            Télécharger <img src="../images/icons/WindowsIcon.png" alt="Win" class="btn-icon">
                         </a>
-                        <a href="https://discord.gg/fTwdczkQ39" class="btn btn-discord" target="_blank">Discord</a>
-                        <a href="../report_bug.html" class="btn btn-report-bug">Signaler un bug</a>
+                    </div>
+
+                    <div class="game-actions-bottom">
+                        <p class="note">*Si vous trouvez un ou plusieurs bugs, n'hésitez pas à me les faire remonter sur mon Discord.</p>
+                        <div class="game-actions-buttons">
+                            <a href="https://discord.gg/fTwdczkQ39" class="btn-discord" target="_blank">Discord</a>
+                            <a href="../report_bug.html" class="btn-report-bug">Signaler un bug</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="game-trailer">
+            </section>
+
+            <!-- MEDIA SECTIONS -->
+            <section class="section-media">
                 <h2>Trailer :</h2>
-                <div class="game-trailer-container">
-                    <div class="video-slider-container">
-                        <div class="video-slider-track">
-                            <div class="video-slide">
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/7h5quR3q3d4" title="Trailer de HellHeaven" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
+                <div class="slider-container glass media-box">
+                    <div class="slider-track">
+                        <div class="slide">
+                            <iframe class="embed-16-9" src="https://www.youtube.com/embed/7h5quR3q3d4" title="Trailer" frameborder="0" allowfullscreen></iframe>
                         </div>
-                        <button class="slider-btn prev-btn" aria-label="Précédent">&#10094;</button>
-                        <button class="slider-btn next-btn" aria-label="Suivant">&#10095;</button>
                     </div>
                 </div>
-            </div>
-            <div class="game-trailer">
+            </section>
+
+            <!-- NOUVELLE SECTION DEVLOG -->
+            <section class="section-media">
+                <h2>Devlog :</h2>
+                <div class="slider-container glass media-box">
+                    <div class="slider-track">
+                        <div class="slide">
+                            <iframe class="embed-16-9" src="https://www.youtube.com/embed/rsAy8KLDCbo" title="Devlog HellHeaven" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-media">
                 <h2>Let's Play :</h2>
-                <div class="game-trailer-container">
-                    <div class="video-slider-container">
-                        <div class="video-slider-track">
-                            <div class="video-slide">
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/V9JSc-BtU38" title="Let's Play de HellHeaven" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
+                <div class="slider-container glass media-box">
+                    <div class="slider-track">
+                        <div class="slide">
+                            <iframe class="embed-16-9" src="https://www.youtube.com/embed/V9JSc-BtU38" title="Let's Play" frameborder="0" allowfullscreen></iframe>
                         </div>
-                        <button class="slider-btn prev-btn" aria-label="Précédent">&#10094;</button>
-                        <button class="slider-btn next-btn" aria-label="Suivant">&#10095;</button>
                     </div>
                 </div>
-            </div>          
-        </section>
-            <section class="game-changelog container">
+            </section>
+
+            <!-- CHANGELOG -->
+            <section class="game-changelog">
                 <h2>Changelog :</h2>
                 <div class="changelog-accordion">
-                    <details class="changelog-version" open>
+                    <details class="changelog-version glass" open>
                         <summary>Version 1.0 [07/06/2023]</summary>
                         <div class="changelog-content">
-                            <h3>Fonctionnalités Initiales</h3>
+                            <h3 style="color: var(--accent-blue);">Lancement Officiel</h3>
                             <ul>
-                                <li>Mise en place du gameplay de base.</li>
-                                <li>10 énigmes dans le Paradis et 10 énigmes dans l'Enfer.</li>
+                                <li>Mise en place du gameplay de base d'aventure/énigme.</li>
+                                <li>10 énigmes uniques dans le Paradis et 10 énigmes en Enfer.</li>
+                                <li>Support du multijoueur local (Clavier + Manette).</li>
                             </ul>
-                            <h3>Bugs Connus</h3>
+                            <h3 style="color: #ff4c4c;">Bugs Connus</h3>
                             <ul>
-                                <li>L'écran de fin n'apparaît pas toujours lorsque les 20 humains sont sauvés.</li>
-                                <li>Le multijoueur peut bugger à la première connexion (redémarrage du jeu obligatoire).</li>
+                                <li>L'écran de fin peut ne pas se déclencher systématiquement après les 20 sauvetages.</li>
+                                <li>Instabilité possible du multijoueur au premier lancement.</li>
                             </ul>
                         </div>
                     </details>
                 </div>
             </section>
+        </div>
     </main>
     
-    <div class="footer-message">
+    <footer class="footer-message">
         <p>Créé par Batpolygon | <a href="../eula.html">EULA & Copyright</a></p>
-    </div> 
-    <script>
-        // Script for the accordion behavior of the changelog
-        const allDetails = document.querySelectorAll('.changelog-version');
-    
-        allDetails.forEach(details => {
-            details.addEventListener('toggle', () => {
-                // We only want to run this when a details element is opened
-                if (details.open) {
-                    // Close all other details elements
-                    allDetails.forEach(d => {
-                        if (d !== details) d.open = false;
-                    });
-                }
-            });
-        });
+    </footer>
 
+    <!-- SCRIPT SLIDERS -->
+    <script>
         function initializeSlider(container) {
             if (!container) return;
-            
-            const track = container.querySelector('.slider-track') || container.querySelector('.video-slider-track');
-            const prevButton = container.querySelector('.prev-btn');
-            const nextButton = container.querySelector('.next-btn');
-
-            if (!track || !prevButton || !nextButton) return;
-
+            const track = container.querySelector('.slider-track');
+            let prevButton = container.querySelector('.prev-btn');
+            let nextButton = container.querySelector('.next-btn');
+            if (!track) return;
             const slides = Array.from(track.children);
-            if (slides.length <= 1) {
-                container.classList.add('single-slide');
-                return;
+            if (slides.length <= 1) { 
+                if (prevButton) prevButton.style.display = 'none';
+                if (nextButton) nextButton.style.display = 'none';
+                return; 
             }
-
             let currentIndex = 0;
-
             const updateSlidePosition = (animate = true) => {
-                const slideWidth = slides.length > 0 ? slides[0].getBoundingClientRect().width : 0;
-                if (slideWidth > 0) {
-                    track.style.transition = animate ? 'transform 0.5s ease-in-out' : 'none';
-                    track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
-                }
+                const slideWidth = container.getBoundingClientRect().width;
+                track.style.transition = animate ? 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)' : 'none';
+                track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
             };
-
-            prevButton.addEventListener('click', () => {
-                currentIndex = currentIndex === 0 ? slides.length - 1 : currentIndex - 1;
-                updateSlidePosition();
-            });
-
-            nextButton.addEventListener('click', () => {
-                currentIndex = currentIndex === slides.length - 1 ? 0 : currentIndex + 1;
-                updateSlidePosition();
-            });
-
-            new ResizeObserver(() => {
-                updateSlidePosition(false); // Update without animation on resize
-            }).observe(container);
+            if (prevButton && nextButton) {
+                prevButton.onclick = () => { currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1; updateSlidePosition(); };
+                nextButton.onclick = () => { currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1; updateSlidePosition(); };
+            }
+            window.addEventListener('resize', () => updateSlidePosition(false));
+            updateSlidePosition(false);
         }
-
-        document.querySelectorAll('.slider-container, .video-slider-container').forEach(initializeSlider);
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.slider-container').forEach(initializeSlider);
+        });
     </script>
+
+    <script src="../background.js"></script>
 </body>
 </html>

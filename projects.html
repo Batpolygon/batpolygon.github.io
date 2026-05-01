@@ -15,6 +15,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- Fond interactif -->
+    <canvas id="bg-canvas"></canvas>
+
     <header>
         <div class="logo">
             <img src="images/icons/MadeByBatpolygonColoredIcon.png" alt="Logo" class="logo-image">
@@ -24,47 +28,59 @@
             <ul>
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="games.html">Jeux</a></li>
+                <li><a href="webgames.html">Jeux Web</a></li>
                 <li><a href="projects.html" class="active">Projets</a></li>
                 <li><a href="about.html">À propos</a></li>
             </ul>
         </nav>
     </header>
+
     <main>
         <section class="games container">
-            <h2>Tous mes projets :</h2>
+            <h2 class="page-title">Tous mes projets :</h2>
             <div class="games-grid">
 
-                <a href="projects/plushntoy.html" class="game-card-link">
-                    <div class="project-card">
-                        <img src="images/projectslogo/PlushNToyLogo.png" alt="PlushNToy">
-                    </div>
-                </a>
-
-                <a href="https://plyia.github.io" class="game-card-link">
-                    <div class="project-card">
-                        <img src="images/projectslogo/PLYIA_Icon.png" alt="PLYIA">
-                    </div>
-                </a>
-
-                <a href="projects/batlauncher.html" class="game-card-link">
-                    <div class="project-card">
-                        <img src="images/projectslogo/MadeByBatpolygonLogo.png" alt="MadeByBatpolygon Launcher">
-                    </div>
-                </a>
-
-                <!-- AJOUT DU PROJET ENDER AI -->
+                <!-- ENDER AI (MIS EN AVANT) -->
                 <a href="projects/ender.html" class="game-card-link">
-                    <div class="project-card">
-                        <!-- Assure-toi d'avoir cette image dans ton dossier -->
+                    <div class="project-card glass">
+                        <div class="new-banner">NOUVEAU</div>
                         <img src="images/projectslogo/EnderLogo.png" alt="Ender AI">
+                        <div class="game-title">Ender AI</div>
+                    </div>
+                </a>
+
+                <!-- BATLAUNCHER -->
+                <a href="projects/batlauncher.html" class="game-card-link">
+                    <div class="project-card glass">
+                        <img src="images/projectslogo/MadeByBatpolygonLogo.png" alt="Launcher">
+                        <div class="game-title">Batlauncher</div>
+                    </div>
+                </a>
+
+                <!-- PLYIA -->
+                <a href="https://plyia.github.io" class="game-card-link" target="_blank">
+                    <div class="project-card glass">
+                        <img src="images/projectslogo/PLYIA_Icon.png" alt="PLYIA">
+                        <div class="game-title">PLYIA</div>
+                    </div>
+                </a>
+
+                <!-- PLUSHNTOY -->
+                <a href="projects/plushntoy.html" class="game-card-link">
+                    <div class="project-card glass">
+                        <img src="images/projectslogo/PlushNToyLogo.png" alt="PlushNToy">
+                        <div class="game-title">PlushNToy</div>
                     </div>
                 </a>
 
             </div>
         </section>
     </main>
-    <div class="footer-message">
+
+    <footer class="footer-message">
         <p>Créé par Batpolygon | <a href="eula.html">EULA & Copyright</a></p>
-    </div>
+    </footer>
+
+    <script src="background.js"></script>
 </body>
 </html>

@@ -1,1095 +1,732 @@
-:root {
-    --base-font-size: 20px; /* Taille de base modifiable ici */
-    --box-border: 1px solid #444; /* Bordure */
-    --box-border-radius: 0.5rem; /* Rayon des coins arrondis */
-    --box-bg-color: #222; /* Couleur de fond */
-}
-
+/* ============================================================
+   1. POLICES, VARIABLES & BASE
+   ============================================================ */
 @font-face {
     font-family: 'KidZone';
     src: url('fonts/Kidzone.woff2') format('woff2'),
-    url('fonts/Kidzone.woff') format('woff'),
-    url('fonts/Kidzone.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+         url('fonts/Kidzone.woff') format('woff'),
+         url('fonts/Kidzone.ttf') format('truetype');
 }
 
-strong {
-    color: inherit; /* Hérite de la couleur du parent */
-    font-weight: bold; /* Conserve la mise en gras */
+:root {
+    --base-font-size: 20px;
+    --bg-dark: #08080a;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --accent-blue: #3b82f6;
+    --accent-gold: #ffd700;
+    --accent-hot: #ff8c00;
+    --accent-pop: #ffae00;
+    --box-border-radius: 1.2rem;
 }
 
-/* Style du titre "Tout mes jeux" */
-.games h2 {
-    font-size: 2rem; /* Taille du texte */
-    text-align: center; /* Centre le titre */
-    margin-top: 0; /* L'espacement est maintenant géré par le padding de <main> */
-    margin-bottom: 1rem; /* Espace en-dessous */
-}
+* { box-sizing: border-box; }
 
 body {
     margin: 0;
     font-family: 'KidZone', sans-serif;
-    font-size: var(--base-font-size); /* Taille de base */
-    line-height: 1.5; /* Espacement vertical */
-    background-color: #1e1e1e;
+    font-size: var(--base-font-size);
+    background-color: var(--bg-dark);
     color: #fff;
-    display: flex; /* Permet d'aligner les sections verticalement */
-    flex-direction: column; /* Organisation en colonne */
-    min-height: 100vh; /* Assure une hauteur minimale de 100% de la fenêtre */
-}
-
-/* Header styling */
-header {
-    position: fixed; /* Reste visible en scrollant */
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    background-color: rgba(0, 0, 0, 0.5); /* Noir avec 50% d'opacité */
-    border-radius: 20px; /* Coins arrondis */
-    padding: 1rem 1.25rem; /* Espacement intérieur */
-    display: flex; /* Alignement en ligne */
-    justify-content: space-between; /* Espace entre logo et menu */
-    align-items: center; /* Centré verticalement */
-    z-index: 1000; /* Toujours au-dessus des autres éléments */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Ombre subtile */
-    backdrop-filter: blur(10px); /* Ajoute un effet de flou derrière */
-}
-
-/* Logo container styling */
-.logo {
-    display: flex;
-    align-items: center; /* Aligne verticalement le logo et le texte */
-    gap: 0.625rem; /* Espace entre le logo et le texte */
-}
-
-.logo-image {
-    width: 2.5rem; /* Taille du logo */
-    height: 2.5rem;
-    object-fit: contain; /* Garde les proportions de l'image */
-}
-
-.logo span {
-    color: #ffffff;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.project-image {
-    width: 100rem; /* Taille du logo */
-    height: 10rem;
-    object-fit: contain; /* Garde les proportions de l'image */
-}
-
-/* Navigation menu */
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1.25rem;
-    margin: 0;
-    padding: 0;
-}
-
-nav a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 1.25rem;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-nav a:hover {
-    color: #649ee0; /* Couleur de survol */
-}
-
-/* Adaptation pour les petits écrans */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column; /* Empile le logo et le menu */
-        padding: 0.625rem;
-        gap: 1rem; /* Ajoute un espace entre le logo et la navigation */
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem; /* Réduit l'espace entre les liens pour un menu plus compact */
-    }
-
-    main {
-        padding-top: 14rem; /* Augmente le décalage pour le header mobile qui est plus haut */
-    }
-}
-
-/* Main section */
-main {
-    flex: 1; /* Permet à cette section de prendre tout l'espace disponible */
-    padding: 7rem 1.25rem 1.25rem; /* Ajoute un padding-top pour décaler le contenu sous le header */
-    transition: padding-top 0.3s ease; /* Transition douce lors du changement de taille */
-}
-
-.container {
-    max-width: 900px; /* Largeur maximale, ajustez selon vos besoins */
-    margin: 0 auto; /* Centré horizontalement */
-    padding: 0 1.25rem; /* Ajoute un espace sur les côtés pour éviter le bord */
-}
-
-/* Applique la largeur harmonisée à la section welcome */
-.welcome {
-    padding: 1rem;
-    border: var(--box-border);
-    border-radius: var(--box-border-radius);
-    background-color: var(--box-bg-color);
-    display: flex; /* Active Flexbox */
-    flex-direction: column; /* Aligne les éléments verticalement */
-    align-items: center; /* Centre horizontalement */
-    text-align: center; /* Centre le texte */
-}
-
-/* La marge est maintenant gérée par le conteneur de la page "À propos" */
-.welcome {
-    margin-top: 0;
-    margin-bottom: 0.25rem;
-}
-
-.profile-image {
-    width: 150px; /* Taille de l'image */
-    height: auto; /* Maintient les proportions */
-    border-radius: 50%; /* Rend l'image ronde */
-    margin-bottom: 1rem; /* Ajoute un espace entre l'image et le texte */
-}
-
-.welcome p:first-of-type {
-    margin-top: 0; /* Supprime la marge supérieure du premier paragraphe */
-}
-
-.games {
-    text-align: center;
-    margin-top: 25px; /* Ajoute un espacement sous l'introduction */
-    max-width: 1000px; /* Limite la largeur du conteneur */
-    margin: 0 auto; /* Centre horizontalement */
-}
-
-/* --- CORRECTION: Style pour la grille des jeux (Évite les chevauchements) --- */
-.games-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Colonnes flexibles de min 220px */
-    gap: 2rem; /* Espacement uniforme entre les cartes */
-    justify-content: center;
-    align-items: stretch; /* Hauteur égale pour les cartes sur la même ligne */
-    padding: 1rem 0;
-}
-
-.gamesprime {
+    line-height: 1.5;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    max-width: 1200px;
-    margin: 0 auto;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
-.games-box {
-    display: flex; /* Active une disposition en ligne */
-    flex-direction: row; /* Aligne les cartes horizontalement */
-    justify-content: flex-start; /* Les cartes commencent à gauche */
-    gap: 1rem; /* Espacement entre les cartes */
-    max-width: 900px; /* Limite la largeur visible */
-    overflow-x: auto; /* Active le défilement horizontal */
-    padding: 1rem 0; /* Espacement intérieur vertical */
-    scroll-behavior: smooth; /* Optionnel : animation fluide pour le défilement */
-}
-
-/* Style des cartes de jeux */
-.game-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    border-radius: 1.25rem; /* Coins arrondis */
-    padding: 0.5rem; /* Marges internes */
-    width: 200px; /* Largeur fixe pour uniformité (pour la version en ligne) */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation au survol */
-    position: relative; /* Nécessaire pour positionner le bandeau "NOUVEAU" */
-    overflow: hidden; /* Empêche le bandeau de déborder */
-}
-
-.game-card:hover {
-    transform: translateY(-5px); /* Effet de "saut" au survol */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Ombre amplifiée au survol */
-}
-
-/* Style des images des cartes */
-.game-card img {
-    width: 100%; /* Largeur de l'image adaptée à la carte */
-    height: auto; /* Maintient les proportions */
-    border-radius: 0.5rem; /* Coins légèrement arrondis */
-    object-fit: cover; /* S'assure que l'image s'adapte sans déformation */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre légère */
-}
-
-/* --- CORRECTION: Style des cartes de projets (Adapté à la grille) --- */
-.project-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 1rem; /* Marges internes un peu plus grandes */
-    width: 100%; /* Prend 100% de la largeur de sa cellule Grid */
-    height: 100%; /* S'étire pour remplir la hauteur de la rangée */
-    box-sizing: border-box; /* Inclut le padding dans la largeur */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation au survol */
-    border: var(--box-border);
-    border-radius: var(--box-border-radius);
-    background-color: var(--box-bg-color);
-}
-
-.project-card:hover {
-    transform: translateY(-5px); /* Effet de "saut" au survol */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4); /* Ombre amplifiée au survol */
-}
-
-/* Style des images des cartes de projets */
-.project-card img {
-    width: 100%;
-    max-height: 150px; /* Limite la hauteur pour éviter les logos démesurés */
-    height: auto;
-    border-radius: 0.5rem;
-    object-fit: contain; /* Assure que le logo PNG entier est visible sans être coupé */
-}
-
-/* Titre des cartes */
-.game-title {
-    margin-top: 0.5rem; /* Espacement avec l'image */
-    font-size: 1rem; /* Taille du texte ajustée */
-    color: #fff; /* Couleur du texte */
-    border: var(--box-border);
-    border-radius: var(--box-border-radius);
-    background-color: var(--box-bg-color);
-    padding: 5px 10px; /* Espacement intérieur */
-    text-align: center; /* Centre le texte */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Ombre subtile */
-    white-space: nowrap; /* Empêche le texte de sauter à la ligne */
-}
-
-.new-banner {
-    position: absolute;
-    width: 160px;
-    padding: 8px 0;
-    background-color: #ff0707; /* Jaune vif */
-    color: #ffffff; /* Texte sombre pour le contraste */
-
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-
-    /* Positionnement et rotation */
-    top: 22px;
-    left: -40px;
-    transform: rotate(-45deg);
-
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    z-index: 2; /* S'assure qu'il est au-dessus de l'image */
-    animation: pulse-animation 2.5s infinite ease-in-out;
-}
-
-/* Crée les "plis" du ruban */
-.new-banner::before,
-.new-banner::after {
-    content: "";
-    position: absolute;
+/* Fond Interactif Canvas */
+#bg-canvas {
+    position: fixed;
+    top: 0; left: 0;
     z-index: -1;
-    border: 5px solid #ad8c00; /* Jaune plus foncé pour l'effet d'ombre */
 }
 
-.new-banner::before {
-    top: 0;
-    left: -10px;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-}
-
-.new-banner::after {
-    bottom: 0;
-    right: -10px;
-    border-top-color: transparent;
-    border-left-color: transparent;
-}
-
-/* Animation de pulsation pour le bandeau */
-@keyframes pulse-animation {
-    0% {
-        transform: rotate(-45deg) scale(1);
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    }
-    50% {
-        transform: rotate(-45deg) scale(1.05);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    }
-    100% {
-        transform: rotate(-45deg) scale(1);
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    }
-}
-
-/* --- CORRECTION: Lien cliquable des cartes --- */
-.game-card-link {
-    text-decoration: none; /* Supprime le soulignement des liens */
-    display: block; /* Transforme le lien en bloc pour prendre toute la place */
-    height: 100%; /* S'étire à 100% du conteneur Grid */
-}
-
-/* Bouton blanc avec texte noir */
-.btn-view-all {
-    display: inline-block; /* Permet de donner une taille au bouton */
-    background-color: #fff; /* Fond blanc */
-    color: #000; /* Texte noir */
-    text-decoration: none; /* Supprime le soulignement */
-    font-size: 1rem; /* Suit la taille de base */
-    font-weight: bold; /* Texte en gras */
-    padding: 0.625rem 1.25rem; /* Espacement intérieur */
-    border: 2px solid #000; /* Bordure noire */
-    border-radius: 1.25rem; /* Coins arrondis */
-    transition: all 0.3s ease; /* Animation fluide pour les interactions */
-    text-align: center; /* Centre le texte */
-    margin-top: 0.5rem;
-}
-
-.btn-view-all:hover {
-    background-color: #000; /* Fond noir au survol */
-    color: #fff; /* Texte blanc au survol */
-    border-color: #fff; /* Bordure blanche au survol */
-}
-
-/* Section "Retrouve-moi ici" */
-.social-links {
-    display: flex; /* Active Flexbox */
-    flex-direction: column; /* Aligne les éléments verticalement */
-    align-items: center; /* Centre horizontalement */
-    text-align: center; /* Centre le texte */
-    margin-top: 1rem; /* Ajoute un espace au-dessus */
-    gap: 1rem; /* Espace entre le titre et les boutons */
-}
-
-.social-buttons {
-    display: flex; /* Active Flexbox pour les boutons */
-    gap: 1rem; /* Espace entre les boutons */
-    justify-content: center; /* Centre horizontalement */
-}
-
-/* Bouton rouge pour YouTube */
-.btn-youtube {
-    display: inline-block; /* Permet de donner une taille au bouton */
-    background-color: #FF0000; /* Fond rouge (YouTube) */
-    color: #FFF; /* Texte blanc */
-    text-decoration: none; /* Supprime le soulignement */
-    font-size: 1rem; /* Suit la taille de base */
-    font-weight: bold; /* Texte en gras */
-    padding: 0.625rem 1.25rem; /* Espacement intérieur */
-    border: 2px solid #FF0000; /* Bordure rouge */
-    border-radius: 1.25rem; /* Coins arrondis */
-    transition: all 0.3s ease; /* Animation fluide pour les interactions */
-    text-align: center; /* Centre le texte */
-}
-
-.btn-youtube:hover {
-    background-color: #FFF; /* Fond blanc au survol */
-    color: #FF0000; /* Texte rouge au survol */
-    border-color: #FF0000; /* Bordure rouge */
-}
-
-/* Bouton violet pour Discord */
-.btn-discord {
-    display: inline-block; /* Permet de donner une taille au bouton */
-    background-color: #5865F2; /* Fond violet (Discord) */
-    color: #FFF; /* Texte blanc */
-    text-decoration: none; /* Supprime le soulignement */
-    font-size: 1rem; /* Suit la taille de base */
-    font-weight: bold; /* Texte en gras */
-    padding: 0.625rem 1.25rem; /* Espacement intérieur */
-    border: 2px solid #5865F2; /* Bordure violette */
-    border-radius: 1.25rem; /* Coins arrondis */
-    transition: all 0.3s ease; /* Animation fluide pour les interactions */
-    text-align: center; /* Centre le texte */
-}
-
-.btn-discord:hover {
-    background-color: #FFF; /* Fond blanc au survol */
-    color: #5865F2; /* Texte violet au survol */
-    border-color: #5865F2; /* Bordure violette */
-}
-
-/* Bouton jaune foncé pour Télécharger */
-.btn-download {
-    display: inline-block; /* Permet de donner une taille au bouton */
-    background-color: #8d862b; /* Fond jaune foncé */
-    color: #FFF; /* Texte blanc */
-    text-decoration: none; /* Supprime le soulignement */
-    font-size: 1rem; /* Suit la taille de base */
-    font-weight: bold; /* Texte en gras */
-    padding: 0.625rem 1.25rem; /* Espacement intérieur */
-    border: 2px solid #8d862b; /* Bordure jaune foncé */
-    border-radius: 1.25rem; /* Coins arrondis */
-    transition: all 0.3s ease; /* Animation fluide pour les interactions */
-    text-align: center; /* Centre le texte */
-}
-
-.btn-download:hover {
-    background-color: #FFF; /* Fond blanc au survol */
-    color: #8d862b; /* Texte jaune foncé au survol */
-    border-color: #8d862b; /* Bordure jaune foncé */
-}
-
-/* Styles spécifiques pour les boutons Steam et Google Play.
- *  On utilise un sélecteur plus spécifique (.btn-download.btn-steam)
- *  pour s'assurer qu'il surcharge toujours .btn-download. */
-
-/* Bouton bleu/gris pour Steam */
-.btn-download.btn-steam {
-    background-color: #1b2838; /* Bleu/gris foncé de Steam */
-    color: #c7d5e0; /* Texte clair de Steam */
-    border-color: #1b2838;
-}
-
-.btn-download.btn-steam:hover {
-    background-color: #2a475e; /* Un peu plus clair au survol */
-    color: #ffffff;
-    border-color: #2a475e;
-}
-
-/* NOUVEAU: Bouton animé pour exclusivité Steam */
-.btn-steam-exclusive {
-    position: relative; /* Nécessaire pour le pseudo-élément */
-    overflow: hidden;  /* Cache le dégradé qui dépasse */
-    animation: pulse-border 2.5s infinite ease-in-out; /* NOUVELLE animation */
-}
-
-.btn-steam-exclusive::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -75%;
-    width: 50%;
-    height: 200%;
-    background: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0) 0%,
-                                rgba(255, 255, 255, 0.3) 50%,
-                                rgba(255, 255, 255, 0) 100%
-    );
-    transform: skewX(-25deg);
-    animation: shine 4s infinite linear; /* Animation de brillance */
-    animation-delay: 1s; /* Petit délai avant le début */
-}
-
-/* Keyframes pour l'animation de brillance */
-@keyframes shine {
-    from {
-        left: -75%;
-    }
-    to {
-        left: 125%;
-    }
-}
-
-/* MODIFIÉ: Keyframes pour l'animation de la bordure */
-@keyframes pulse-border {
-    0% {
-        border-color: #66c0f4; /* Bleu clair Steam */
-        box-shadow: 0 0 5px rgba(102, 192, 244, 0.3);
-    }
-    50% {
-        border-color: #ffffff; /* Blanc éclatant */
-        box-shadow: 0 0 15px rgba(102, 192, 244, 0.7);
-    }
-    100% {
-        border-color: #66c0f4; /* Retour au bleu */
-        box-shadow: 0 0 5px rgba(102, 192, 244, 0.3);
-    }
-}
-
-/* MODIFIÉ: Style pour le badge Steam en bas à droite avec reflet et pause */
-.exclusive-steam-logo {
-    position: absolute;
-    bottom: 60px;   /* Positionné en bas */
-    right: 12px;    /* Avec l'offset depuis la droite */
-    width: 38px;
-    height: 38px;
-    z-index: 3;
+/* ============================================================
+   2. HEADER (NAVIGATION PILULE MODERNE)
+   ============================================================ */
+header {
+    position: fixed;
+    top: 15px; left: 15px; right: 15px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 100px;
+    padding: 0.6rem 2rem;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    overflow: hidden;
+    z-index: 1000;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-.exclusive-steam-logo img {
-    width: 85%;
-    height: auto;
-    filter: none;
+.logo { display: flex; align-items: center; gap: 12px; }
+.logo-image { 
+    width: 45px; height: 45px; 
+    object-fit: contain; 
 }
+.logo span { font-size: 1.3rem; font-weight: bold; letter-spacing: 1px; }
 
-/* Le reflet qui traverse le badge */
-.exclusive-steam-logo::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -150%;
-    width: 75%;
-    height: 200%;
-    background: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0) 0%,
-                                rgba(255, 255, 255, 0.25) 50%,
-                                rgba(255, 255, 255, 0) 100%
-    );
-    transform: skewX(-25deg);
-    /* L'animation dure 4.75s au total (1.75s d'effet + 3s de pause) et se répète à l'infini */
-    animation: shine-badge 4.75s linear infinite;
-}
+nav ul { display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0; }
+nav a { text-decoration: none; color: #fff; font-weight: bold; transition: 0.3s; }
+nav a:hover, nav a.active { color: var(--accent-blue); }
 
-/* MODIFIÉ: Keyframes pour intégrer la pause de 3 secondes */
-@keyframes shine-badge {
-    /* L'effet de balayage se produit sur les premiers 37% de l'animation (soit ~1.75s) */
-    0% {
-        left: -150%;
-    }
-    37% {
-        left: 150%;
-    }
-    /* Le reflet reste en dehors du badge pour le reste du temps (soit ~3s), créant la pause */
-    100% {
-        left: 150%;
-    }
-}
-
-/* Bouton blanc pour Google Play */
-.btn-download.btn-google-play {
-    background-color: #ffffff; /* Fond blanc */
-    color: #3c4043; /* Texte gris foncé */
-    border-color: #dadce0; /* Bordure grise claire */
-}
-
-.btn-download.btn-google-play:hover {
-    background-color: #e0e0e0; /* Léger gris au survol */
-}
-
-/* Bouton bleu pour PlushNToy */
-.btn-plushntoy {
-    display: inline-block; /* Permet de donner une taille au bouton */
-    background-color: #0059ff; /* Fond violet (Discord) */
-    color: #FFF; /* Texte blanc */
-    text-decoration: none; /* Supprime le soulignement */
-    font-size: 1rem; /* Suit la taille de base */
-    font-weight: bold; /* Texte en gras */
-    padding: 0.625rem 1.25rem; /* Espacement intérieur */
-    border: 2px solid #0059ff; /* Bordure violette */
-    border-radius: 1.25rem; /* Coins arrondis */
-    transition: all 0.3s ease; /* Animation fluide pour les interactions */
-    text-align: center; /* Centre le texte */
-}
-
-.btn-plushntoy:hover {
-    background-color: #FFF; /* Fond blanc au survol */
-    color: #0059ff; /* Texte violet au survol */
-    border-color: #0059ff; /* Bordure violette */
-}
-
-/* Bouton blanc avec texte noir */
-.btn-patreon {
-    display: inline-block; /* Permet de donner une taille au bouton */
-    background-color: #000000; /* Fond blanc */
-    color: #ffffff; /* Texte noir */
-    text-decoration: none; /* Supprime le soulignement */
-    font-size: 1rem; /* Suit la taille de base */
-    font-weight: bold; /* Texte en gras */
-    padding: 0.625rem 1.25rem; /* Espacement intérieur */
-    border: 2px solid #ffffff; /* Bordure noire */
-    border-radius: 1.25rem; /* Coins arrondis */
-    transition: all 0.3s ease; /* Animation fluide pour les interactions */
-    text-align: center; /* Centre le texte */
-    margin-top: 0.5rem;
-}
-
-.btn-patreon:hover {
-    background-color: #ffffff; /* Fond noir au survol */
-    color: #000000; /* Texte blanc au survol */
-    border-color: #000000; /* Bordure blanche au survol */
-}
-
-/* Bouton rouge pour "Signaler un bug" */
-.btn-report-bug {
-    display: inline-block;
-    background-color: #e74c3c; /* Un rouge un peu moins agressif */
-    color: #fff;
+/* ============================================================
+   3. POP-UP "LE PLUS POPULAIRE" (OR FLAMBOYANT A DROITE)
+   ============================================================ */
+.popular-popup {
+    position: fixed;
+    right: 20px; top: 50%;
+    transform: translateY(-50%);
+    width: 210px;
+    z-index: 999;
+    padding: 18px !important;
+    text-align: center;
     text-decoration: none;
-    font-size: 1rem;
-    font-weight: bold;
-    padding: 0.625rem 1.25rem;
-    border: 2px solid #e74c3c;
-    border-radius: 1.25rem;
-    transition: all 0.3s ease;
-    text-align: center;
-}
-
-.btn-report-bug:hover {
-    background-color: #fff;
-    color: #e74c3c;
-}
-
-/* --- Form Styling (report_bug.html) --- */
-
-#bugReportForm {
-display: flex;
-flex-direction: column;
-gap: 1.5rem;
-margin-top: 2rem;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.form-group label {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #e0e0e0;
-}
-
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 0.75rem;
-    font-family: 'KidZone', sans-serif;
-    font-size: 1rem;
-    background-color: #333;
     color: #fff;
-    border: 2px solid #555;
-    border-radius: 0.75rem; /* 12px */
-    box-sizing: border-box; /* Important for padding and width */
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid var(--accent-gold) !important;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(10, 10, 10, 0.9)) !important;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    animation: gold-pulse-popup 2.5s infinite ease-in-out;
 }
 
-.form-group input[type="text"]:focus,
-.form-group input[type="email"]:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: #649ee0;
-    box-shadow: 0 0 8px rgba(100, 158, 224, 0.5);
+@keyframes gold-pulse-popup {
+    0% { transform: translateY(-50%) scale(1); box-shadow: 0 0 15px rgba(255, 215, 0, 0.3); }
+    50% { transform: translateY(-50%) scale(1.05); box-shadow: 0 0 35px rgba(255, 215, 0, 0.6); border-color: #fff !important; }
+    100% { transform: translateY(-50%) scale(1); box-shadow: 0 0 15px rgba(255, 215, 0, 0.3); }
 }
 
-.form-group textarea {
-    resize: vertical;
-    min-height: 150px;
+.popular-popup .hot-badge.gold-pulse {
+    position: absolute;
+    top: -12px; left: 50%; transform: translateX(-50%);
+    background: linear-gradient(90deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+    color: #000;
+    font-size: 0.7rem; padding: 4px 12px; border-radius: 6px; font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    white-space: nowrap;
 }
 
-.form-group button[type="submit"] {
-    font-family: 'KidZone', sans-serif;
-    background-color: #649ee0; /* A nice blue */
-    color: #fff;
-    font-size: 1.1rem;
-    font-weight: bold;
-    padding: 0.75rem 1.5rem;
-    border: 2px solid #649ee0;
-    border-radius: 1.25rem;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    align-self: center; /* Center the button */
-    margin-top: 1rem;
+.popup-content img { 
+    width: 100%; border-radius: 10px; margin-bottom: 12px; 
+    border: 1px solid rgba(255,215,0,0.3); 
+}
+.popup-text h3 { font-size: 1.1rem; margin: 0; color: var(--accent-gold); }
+.popup-text p { font-size: 0.75rem; color: #fff; margin: 8px 0; font-weight: bold; }
+
+.btn-mini-gold {
+    display: inline-block; background: var(--accent-gold); color: #000;
+    font-size: 0.75rem; padding: 6px 15px; border-radius: 50px;
+    font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-.form-group button[type="submit"]:hover {
-    background-color: #fff;
-    color: #649ee0;
+/* ============================================================
+   4. LAYOUT GLOBAL & NAVIGATION OFFSET
+   ============================================================ */
+main {
+    flex: 1;
+    padding-top: 130px; /* Évite que le contenu soit caché par la navigation */
+    padding-bottom: 4rem;
 }
 
-.form-note {
-    text-align: center;
-    margin-top: 1.5rem;
-    font-size: 0.9rem;
-    color: #aaa;
-}
+/* Sur l'Index, la bannière vidéo commence tout en haut */
+.home-page main { padding-top: 0; }
 
-/* Footer section */
-.footer-message {
-    text-align: center; /* Centre le texte horizontalement */
-    padding: 1.25rem 0; /* Espacement vertical */
-    background-color: #181818; /* Fond noir */
-    color: #fff; /* Texte blanc */
-    font-size: 1.125rem; /* 18px = taille de base * 1.125 */
-    margin-top: auto; /* Place cette section tout en bas */
-}
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-.game-details {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    align-items: flex-start;
-}
-
-.game-page {
-    flex: 2; /* Occupe deux fois plus d'espace que la carte */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 1rem;
-    border: var(--box-border);
+/* Classe Glassmorphism Unifiée */
+.glass, .welcome-modern, .game-card, .project-card, .popular-popup, .game-page, .game-changelog, .welcome, .widget-container {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
     border-radius: var(--box-border-radius);
-    background-color: var(--box-bg-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    transition: 0.4s ease;
 }
 
-.title-version-selector {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap; /* Permet de passer à la ligne sur petits écrans */
-    margin-bottom: 1rem;
-}
-
-#version-selector {
-font-family: 'KidZone', sans-serif;
-font-size: 1rem;
-padding: 0.5rem;
-background-color: #333;
-color: #fff;
-border: 1px solid #555;
-border-radius: 0.5rem;
-cursor: pointer;
-}
-
-#version-selector:disabled {
-color: #888;
-}
-
-.game-page h1 {
-    font-size: 2.5rem;
-    margin: 0;
-}
-
-.platform-windows {
-    color: #0088ff;
-}
-
-.platform-linux {
-    color: #ffe600;
-}
-
-.platform-android {
-    color: #59ff00;
-}
-
-.platform-icon {
-    width: 25px !important; /* Ajustez la largeur selon vos besoins */
-    height: 25px !important; /* Assurez une taille cohérente */
-    vertical-align: middle; /* Aligne l'icône avec le texte */
-    margin-left: 8px; /* Ajoute un espace entre le texte et l'icône */
-    margin-bottom: 1px;
-}
-
-.game-trailer {
-    flex: 2; /* Occupe deux fois plus d'espace que la carte */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-.game-card-trailer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    border-radius: 1.25rem; /* Coins arrondis */
-    width: 300px; /* Largeur fixe pour uniformité */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation au survol */
-}
-
-/* Style des images des cartes */
-.game-card-trailer img {
-    width: 100%; /* Largeur de l'image adaptée à la carte */
-    height: auto; /* Maintient les proportions */
-    border-radius: 0.5rem; /* Coins légèrement arrondis */
-    object-fit: cover; /* S'assure que l'image s'adapte sans déformation */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre légère */
-}
-
-.game-trailer-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start; /* Aligne le slider à gauche */
-    align-items: center;
-    min-height: 315px; /* Hauteur d'une vidéo pour éviter le saut de page */
-}
-
-/* Les iframes ne doivent pas se réduire et doivent rester à leur taille d'origine */
-.game-trailer-container iframe {
-    flex-shrink: 0;  /* Empêche l'iframe de se réduire */
-}
-
-/* --- Video Slider --- */
-.video-slider-container {
+/* ============================================================
+   5. HERO BANNER (VIDEO - INDEX)
+   ============================================================ */
+.hero-section {
     position: relative;
-    width: 560px; /* Largeur d'une vidéo standard */
-    max-width: 100%; /* S'adapte aux écrans plus petits */
-    margin: 0; /* Aligne le conteneur à gauche au lieu de le centrer */
-    overflow: hidden;
+    height: 75vh; width: 100%;
+    overflow: hidden; background: #000;
+}
+.video-background iframe {
+    width: 100vw; height: 56.25vw;
+    min-height: 100vh; min-width: 177.77vh;
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.55; pointer-events: none;
+}
+.hero-overlay {
+    position: absolute; bottom: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to top, var(--bg-dark) 8%, transparent 70%);
+    display: flex; align-items: flex-end; padding: 0 8% 60px 8%;
+}
+.hero-content h1 { font-size: 4rem; margin: 0; text-shadow: 0 5px 20px rgba(0,0,0,0.6); }
+.tag { background: var(--accent-blue); padding: 5px 15px; border-radius: 5px; font-size: 0.8rem; margin-bottom: 15px; display: inline-block; }
+
+/* ============================================================
+   6. GRILLES CLASSIQUES (JEUX & PROJETS)
+   ============================================================ */
+.gamesprime, .games { text-align: center; margin-top: 4rem; }
+.games-grid, .games-box {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 1.8rem; margin-top: 2rem;
 }
 
-.video-slider-track {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
+.game-card-link { text-decoration: none; color: inherit; }
+
+/* Cartes de Jeu & Projet */
+.game-card, .project-card {
+    width: 240px; padding: 12px; position: relative;
+    overflow: hidden; /* Important pour masquer le débordement des bannières */
+    display: flex; flex-direction: column; gap: 12px;
 }
 
-.video-slide {
-    flex: 0 0 100%;
-    box-sizing: border-box;
+.game-card:hover, .project-card:hover { transform: translateY(-10px); border-color: var(--accent-blue); }
+
+.game-card img, .project-card img { width: 100%; border-radius: 12px; display: block; }
+
+/* Correction Logos Projets */
+.project-card img {
+    height: 140px; object-fit: contain;
+    background: rgba(255,255,255,0.02); padding: 10px;
 }
 
-.video-slide iframe {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9; /* Maintient le ratio 16:9 de la vidéo */
-    display: block;
+.game-title {
+    padding: 10px; background: rgba(0,0,0,0.4); border-radius: 10px;
+    font-size: 0.85rem; display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%;
+}
+.platform-icon { width: 22px !important; height: 22px !important; }
+
+/* ============================================================
+   7. BANNÈRES (NEW & POPULAIRE)
+   ============================================================ */
+/* Structure commune pour les bannières en coin */
+.new-banner, .pop-banner {
+    position: absolute; top: 18px; left: -38px;
+    padding: 6px 38px; transform: rotate(-45deg);
+    font-size: 0.75rem; font-weight: bold; z-index: 5;
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 
-/* Cache les boutons de navigation s'il n'y a qu'un seul élément */
-.slider-container.single-slide .slider-btn,
-.video-slider-container.single-slide .slider-btn {
-    display: none;
+/* Bannière "Mis à jour" (Rouge pulsant) */
+.new-banner {
+    background: #ff0707;
+    animation: pulse-new-banner 2.5s infinite ease-in-out;
+}
+@keyframes pulse-new-banner {
+    0% { transform: rotate(-45deg) scale(1); box-shadow: 0 2px 5px rgba(0,0,0,0.5); }
+    50% { transform: rotate(-45deg) scale(1.05); box-shadow: 0 6px 15px rgba(255, 7, 7, 0.6); }
+    100% { transform: rotate(-45deg) scale(1); box-shadow: 0 2px 5px rgba(0,0,0,0.5); }
 }
 
-.game-screenshots {
-    flex-basis: 100%; /* Prend toute la largeur disponible */
-    margin-top: 1rem;
+/* Bannière "Populaire" (Orange pulsant - pour games.html) */
+.pop-banner {
+    background: var(--accent-hot);
+    animation: pulse-pop-banner 2.5s infinite ease-in-out;
+}
+@keyframes pulse-pop-banner {
+    0% { transform: rotate(-45deg) scale(1); background-color: var(--accent-hot); box-shadow: 0 2px 5px rgba(0,0,0,0.5); }
+    50% { transform: rotate(-45deg) scale(1.05); background-color: var(--accent-pop); box-shadow: 0 6px 15px rgba(255, 140, 0, 0.6); }
+    100% { transform: rotate(-45deg) scale(1); background-color: var(--accent-hot); box-shadow: 0 2px 5px rgba(0,0,0,0.5); }
 }
 
+/* ============================================================
+   8. STEAM BADGE ANIMÉ
+   ============================================================ */
+.exclusive-steam-logo {
+    position: absolute; bottom: 60px; right: 12px; width: 38px; height: 38px;
+    z-index: 3; display: flex; align-items: center; justify-content: center;
+    border-radius: 50%; overflow: hidden;
+    background: rgba(0, 0, 0, 0.6); border: 1px solid rgba(102, 192, 244, 0.5);
+    animation: pulse-steam-border 2.5s infinite ease-in-out;
+}
+.exclusive-steam-logo::after {
+    content: ''; position: absolute; top: -50%; left: -150%; width: 75%; height: 200%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transform: skewX(-25deg); animation: shine-badge 4.75s linear infinite;
+}
+@keyframes shine-badge { 0% { left: -150%; } 37% { left: 150%; } 100% { left: 150%; } }
+@keyframes pulse-steam-border { 0%, 100% { border-color: rgba(102, 192, 244, 0.5); } 50% { border-color: #fff; } }
+
+/* ============================================================
+   9. BOUTONS & RÉSEAUX
+   ============================================================ */
+.btn-main, .btn-view-all, .btn-download, .btn-youtube, .btn-discord, .btn-patreon {
+    display: inline-block; padding: 12px 30px; border-radius: 50px;
+    text-decoration: none; font-weight: bold; transition: 0.3s; text-align: center;
+}
+.btn-main { background: #fff; color: #000; margin-top: 20px; }
+.btn-main:hover { background: var(--accent-blue); color: #fff; transform: translateY(-3px); }
+
+.btn-view-all { background: transparent; color: #fff; border: 2px solid #fff; margin-top: 20px; }
+.btn-view-all:hover { background: #fff; color: #000; }
+
+.btn-youtube { background: #ff0000; color: #fff; }
+.btn-discord { background: #5865f2; color: #fff; }
+.btn-patreon { background: #f96854; color: #fff; }
+
+/* ============================================================
+   10. PAGES SPÉCIFIQUES (ABOUT & DETAILS)
+   ============================================================ */
+.about-page-container { display: flex; flex-wrap: wrap; gap: 2.5rem; align-items: flex-start; }
+.about-content { flex: 2; min-width: 300px; }
+.sidebar-widgets { flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 2rem; }
+.profile-image { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent-blue); margin-bottom: 1.5rem; }
+
+/* Détails des Jeux */
+.game-details { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.5rem; }
+.game-trailer { flex: 2; min-width: 320px; }
+.game-trailer iframe { width: 100%; aspect-ratio: 16/9; border-radius: 15px; }
+
+/* ============================================================
+   12. CAROUSEL / SLIDER (SCREENSHOTS & VIDEOS)
+   ============================================================ */
 .slider-container {
-    position: relative;
     width: 100%;
-    margin: auto;
-    overflow: hidden; /* Cache les images qui dépassent */
-    border: var(--box-border);
+    position: relative;
+    overflow: hidden;
+    margin: 2rem 0;
     border-radius: var(--box-border-radius);
-    background-color: var(--box-bg-color);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    background: #000; /* Fond noir pour éviter les flashs entre les images */
 }
 
 .slider-track {
     display: flex;
-    transition: transform 0.5s ease-in-out; /* Animation de glissement */
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); /* Animation ultra fluide */
 }
 
 .slide {
-    min-width: 100%;
+    min-width: 100%; /* Chaque image prend 100% de la largeur du slider */
     box-sizing: border-box;
 }
 
 .slide img {
     width: 100%;
-    display: block; /* Supprime l'espace sous l'image */
+    height: auto;
+    display: block;
+    object-fit: cover;
     border-radius: var(--box-border-radius);
 }
 
+/* Boutons Précédent / Suivant */
 .slider-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    border: none;
-    padding: 10px 15px;
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
     cursor: pointer;
-    border-radius: 5px;
-    font-size: 1.5rem;
     z-index: 10;
-    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
 }
 
 .slider-btn:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+    background: var(--accent-blue);
+    border-color: #fff;
+    transform: translateY(-50%) scale(1.15); /* Effet de zoom au survol */
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
 }
 
-.prev-btn {
-    left: 10px;
-}
-
-.next-btn {
-    right: 10px;
-}
-
-.game-buttons {
-    display: flex;
-    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne */
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 1rem;
-}
-
-.flex-break {
-    flex-basis: 100%;
-    height: 0;
-}
-
+/* Positionnement des boutons */
+.prev-btn { left: 15px; }
+.next-btn { right: 15px; }
+/* ============================================================
+   15. CHANGELOG & ACCORDÉON
+   ============================================================ */
 .game-changelog {
-    border: var(--box-border);
-    border-radius: var(--box-border-radius);
-    background-color: var(--box-bg-color);
-    padding: 1rem;
-    margin-top: 2rem;
-    max-width: 1000px;
-    text-align: left;
+    margin-top: 3rem;
 }
 
-.game-changelog h2:first-of-type {
-    margin-top: 0; /* Supprime la marge supérieure du premier paragraphe */
+.game-changelog h2 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    padding-left: 10px;
+    border-left: 5px solid var(--accent-blue);
 }
 
-/* Styles for the changelog accordion */
 .changelog-accordion {
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espace entre les différentes versions */
 }
 
+/* Chaque bloc de version devient un élément "Glass" indépendant */
 .changelog-version {
-    border: 1px solid #444;
     border-radius: var(--box-border-radius);
-    margin-bottom: 10px;
-    background-color: #2a2a2a;
     overflow: hidden;
-    transition: background-color 0.2s ease-in-out;
 }
 
-.changelog-version[open] {
-    background-color: #333;
-}
-
+/* La barre cliquable */
 .changelog-version summary {
-    padding: 15px;
-    font-weight: bold;
+    padding: 1.5rem;
     cursor: pointer;
-    list-style: none; /* Remove default arrow */
+    background: rgba(255, 255, 255, 0.02);
+    font-size: 1.2rem;
+    font-weight: bold;
+    outline: none;
+    transition: background 0.3s ease;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 1.1rem;
 }
 
+.changelog-version summary:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Retire la flèche native moche sur certains navigateurs */
+.changelog-version summary::marker,
 .changelog-version summary::-webkit-details-marker {
-    display: none; /* Remove default arrow on Chrome/Safari */
+    display: none;
+    content: "";
 }
 
+/* Ajoute un bel indicateur d'ouverture (+ / -) */
 .changelog-version summary::after {
     content: '+';
-    font-size: 1.5em;
-    transition: transform 0.2s;
+    font-size: 1.8rem;
+    color: var(--accent-blue);
+    line-height: 1;
+    transition: transform 0.3s ease;
 }
 
 .changelog-version[open] summary::after {
-    content: '−';
+    content: '−'; /* Signe moins quand c'est ouvert */
+    transform: rotate(180deg);
 }
 
+/* Le contenu une fois ouvert */
 .changelog-content {
-    padding: 0 15px 15px 30px; /* Add left padding for indentation */
-    border-top: 1px solid #444;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid var(--glass-border);
+    font-size: 1.05rem;
 }
 
-/* --- Page Load Animations --- */
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.changelog-content ul {
+    margin: 10px 0 20px 0;
+    padding-left: 20px;
 }
 
-@keyframes slideInFromRight {
-    from {
-        opacity: 0;
-        transform: translateX(100px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+.changelog-content li {
+    margin-bottom: 8px;
+    color: #e0e0e0;
+}
+/* ============================================================
+   11. FOOTER & RESPONSIVE
+   ============================================================ */
+.footer-message {
+    padding: 4rem 2rem; text-align: center;
+    background: rgba(0, 0, 0, 0.4); border-top: 1px solid var(--glass-border);
+    margin-top: auto; color: #666; font-size: 0.95rem;
+}
+.footer-message a { color: var(--accent-blue); text-decoration: none; }
+
+/* Responsive Mobile */
+@media (max-width: 1200px) {
+    .popular-popup { display: none; } /* Cache le pop-up flottant sur tablette/mobile */
 }
 
-/* General animations for all sub-pages */
-body:not(.home-page) main {
-    opacity: 0;
-    animation-fill-mode: forwards;
+@media (max-width: 768px) {
+    header { border-radius: 0; top: 0; left: 0; right: 0; padding: 1rem; }
+    main { padding-top: 180px; } /* Augmente l'espace du header sur mobile */
+    .home-page main { padding-top: 0; }
+    .hero-content h1 { font-size: 2.2rem; }
+    .game-card, .project-card { width: 165px; }
+    .project-card img { height: 100px; }
 }
 
-body:not(.home-page) main {
-    animation: fadeInUp 0.7s ease-out 0.3s forwards; /* 0.3s delay */
-}
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-dark); }
+::-webkit-scrollbar-thumb { background: #222; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-blue); }
 
-/* Home page specific, more complex animations */
-.home-page .welcome,
-.home-page .gamesprime {
-    opacity: 0;
-    animation-fill-mode: forwards;
-}
-
-.home-page .welcome {
-    animation: fadeInUp 0.8s ease-in-out 0.4s forwards; /* 0.4s delay */
-}
-
-.home-page .welcome + .gamesprime {
-    animation: slideInFromRight 0.7s ease-out 0.6s forwards; /* 0.6s delay */
-}
-
-.home-page .welcome + .gamesprime + .gamesprime {
-    animation: slideInFromRight 0.7s ease-out 0.8s forwards; /* 0.8s delay */
-}
-
-/* About Page Layout */
-.about-page-container {
+/* ============================================================
+   13. DÉTAILS DU JEU (HAUT DE PAGE : JAQUETTE & INFOS)
+   ============================================================ */
+.game-top-layout {
     display: flex;
-    flex-wrap: wrap; /* Allows sidebar to wrap on smaller screens */
-    gap: 2rem;
-    align-items: flex-start; /* Align items to the top */
+    gap: 3rem;
+    align-items: flex-start; /* FIX: Aligne en haut au lieu d'étirer */
+    margin-bottom: 4rem;
 }
 
-.about-content {
-    flex: 2; /* Takes up 2/3 of the space */
-    min-width: 300px; /* Ensures content is readable on smaller flex layouts */
+/* Colonne Gauche (Jaquette) */
+.game-cover-left {
+    flex: 0 0 350px; /* Largeur fixe de la jaquette */
 }
 
-.sidebar-widgets {
-    flex: 1; /* Takes up 1/3 of the space */
-    min-width: 300px; /* Minimum width before wrapping */
+.game-cover-left img {
+    width: 100%;
+    height: auto; /* FIX: Laisse la hauteur s'adapter au ratio de l'image */
+    display: block;
+    border-radius: var(--box-border-radius);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    border: 1px solid var(--glass-border);
+}
+
+/* Colonne Droite (Infos) */
+.game-info-right {
+    flex: 1;
+    padding: 2.5rem !important; /* Marges intérieures généreuses */
     display: flex;
     flex-direction: column;
+}
+
+/* Titre et Sélecteur */
+.title-version-selector {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.title-version-selector h1 {
+    margin: 0;
+    font-size: 3.5rem;
+    line-height: 1;
+    text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+#version-selector {
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border: 1px solid var(--glass-border);
+    padding: 10px 20px;
+    border-radius: 50px; /* Style pilule */
+    font-family: 'KidZone', sans-serif;
+    font-size: 1.1rem;
+    cursor: pointer;
+    outline: none;
+    transition: 0.3s;
+}
+
+#version-selector:hover {
+    border-color: var(--accent-blue);
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Textes de description */
+.platform-tags {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.game-description {
+    font-size: 1.15rem;
+    color: #e0e0e0;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+}
+
+/* ============================================================
+   14. BOUTONS D'ACTION (TELECHARGER, DISCORD, BUG)
+   ============================================================ */
+.download-buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 2rem;
+}
+
+.game-actions-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Style forcé pour tous les boutons de cette zone */
+.btn-download, .btn-steam, .btn-google-play, .btn-report-bug {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none !important; /* Force la suppression du soulignement */
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn-download { background: #8d862b; color: #fff !important; }
+.btn-download:hover { background: #a8a033; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(141, 134, 43, 0.4); }
+
+.btn-steam { background: #1b2838; color: #fff !important; border: 1px solid #66c0f4; }
+.btn-steam:hover { background: #2a475e; box-shadow: 0 0 15px rgba(102, 192, 244, 0.4); transform: translateY(-3px); }
+
+.btn-google-play { background: #ffffff; color: #000 !important; border: 1px solid #ddd; }
+.btn-google-play:hover { background: #eee; transform: translateY(-3px); }
+
+.btn-report-bug { background: #e74c3c; color: #fff !important; }
+.btn-report-bug:hover { background: #c0392b; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4); }
+
+/* Zone du bas (Discord & Bug) */
+.game-actions-bottom {
+    border-top: 1px solid var(--glass-border);
+    padding-top: 1.5rem;
+    margin-top: auto; /* Pousse cette zone tout en bas de la boîte de droite */
+}
+
+.game-actions-bottom .note {
+    font-size: 0.95rem;
+    color: #aaa;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+/* --- RESPONSIVE JEU --- */
+@media (max-width: 950px) {
+    .game-top-layout { flex-direction: column; align-items: center; }
+    .game-cover-left { width: 100%; max-width: 350px; }
+    .game-info-right { padding: 1.5rem !important; width: 100%; }
+    .title-version-selector { flex-direction: column; gap: 15px; text-align: center; }
+    .title-version-selector h1 { font-size: 3rem; }
+    .platform-tags { text-align: center; }
+    .download-buttons-container, .game-actions-buttons { justify-content: center; }
+}
+
+/* ============================================================
+   16. VARIANTES / TEMPLATES RÉUTILISÉS (JEUX & PROJETS)
+   ============================================================ */
+
+/* Variante titre simple (certaines pages jeu) */
+.title-area {
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.title-area h1 {
+    margin: 0;
+    font-size: 3.5rem;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+/* Sections média (trailer / let's play) */
+.section-media { margin-bottom: 3rem; }
+.section-media h2 { margin-bottom: 1.5rem; }
+
+/* Utilitaire: icône dans un bouton */
+.btn-icon {
+    width: 20px;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+/* Utilitaire: boîte média avec padding/fond */
+.media-box {
+    padding: 1.5rem;
+    background: rgba(0,0,0,0.3);
+}
+
+/* Utilitaire: iframe responsive 16/9 */
+.embed-16-9 {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 10px;
+}
+
+/* Titre avec barre verticale (souvent utilisé sur les pages détails) */
+.accent-left-title {
+    text-align: left;
+    padding-left: 1rem;
+    border-left: 5px solid var(--accent-blue);
+}
+
+@media (max-width: 950px) {
+    .title-area h1 { font-size: 2.5rem; text-align: center; }
+}
+
+/* Layout pages projet centrées (ender / batlauncher / plushntoy, etc.) */
+.project-header-centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 4rem;
     gap: 2rem;
 }
 
-.widget-container h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+.project-logo-large {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+}
+.project-logo-large img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.project-info-box {
+    width: 100%;
+    max-width: 950px;
+    padding: 3rem !important;
+}
+
+.project-info-box h1 {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.section-preview {
+    margin-top: 5rem;
     text-align: center;
 }
 
-.widget-container iframe {
+.screenshot-container img {
     width: 100%;
-    border-radius: var(--box-border-radius);
-    border: none; /* Discord widget looks better without a border */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 950px;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.7);
+    margin-top: 2rem;
 }
 
-/* Specific iframe styling */
-.widget-container iframe[src*="youtube.com"] {
-    aspect-ratio: 16 / 9; /* Maintain video aspect ratio */
-    height: auto;
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 3rem;
+    text-align: left;
+}
+.feature-item { padding: 2rem; }
+.feature-item strong {
+    color: var(--accent-blue);
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.25rem;
 }
 
-.widget-container iframe[src*="discord.com"] {
-    height: 400px; /* Fixed height for discord widget */
+@media (max-width: 768px) {
+    .project-info-box h1 { font-size: 2.5rem; }
+    .project-logo-large { max-width: 300px; }
+    .project-info-box { padding: 1.5rem !important; }
 }

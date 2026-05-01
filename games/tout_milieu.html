@@ -13,8 +13,14 @@
     <link rel="canonical" href="https://madebybatpolygon.github.io/games/tout_milieu.html">
     <title>Tout Milieu - Made by Batpolygon</title>
     <link rel="stylesheet" href="../style.css">
+
+
 </head>
 <body>
+
+    <!-- Fond interactif -->
+    <canvas id="bg-canvas"></canvas>
+
     <header>
         <div class="logo">
             <img src="../images/icons/MadeByBatpolygonColoredIcon.png" alt="Logo" class="logo-image">
@@ -23,7 +29,8 @@
         <nav>
             <ul>
                 <li><a href="../index.html">Accueil</a></li>
-                <li><a href="../games.html">Jeux</a></li>
+                <li><a href="../games.html" class="active">Jeux</a></li>
+                <li><a href="../webgames.html">Jeux Web</a></li>
                 <li><a href="../projects.html">Projets</a></li>
                 <li><a href="../about.html">À propos</a></li>
             </ul>
@@ -31,147 +38,131 @@
     </header>
 
     <main>
-        <section class="game-details container">
-            <div class="game-header">
-                <div class="game-card-trailer">
-                    <img src="../images/gamescover/ToutMilieuGameCover.jpg" alt="Tout Milieu Cover" class="game-card-trailer-image">
+        <div class="container">
+            
+            <!-- HAUT : JAQUETTE & INFOS -->
+            <section class="game-top-layout">
+                <div class="game-cover-left">
+                    <img src="../images/gamescover/ToutMilieuGameCover.jpg" alt="Tout Milieu Cover">
                 </div>
-            </div>
-                <div class="game-page">
-                    <h1>Tout Milieu</h1>
-                    <p><span class="platform-windows">Windows</span> <span class="platform-android">Android</span></p>
-                    <p>
-                        Voici <strong>Tout Milieu</strong> ! Le but est simple, mettre TOMI au milieu de votre écran ! 
-                        Aide TOMI à rejoindre le "Tout Milieu" de ton écran ! Fais-le rebondir à travers 
+                
+                <div class="game-info-right glass">
+                    <div class="title-area">
+                        <h1>Tout Milieu</h1>
+                    </div>
+                    
+                    <p class="platform-tags" style="font-weight: bold; font-size: 1.3rem; margin-top: 0;">
+                        <span style="color: #0088ff;">Windows</span> | <span style="color: #59ff00;">Android</span>
+                    </p>
+                    
+                    <p class="game-description" style="font-size: 1.1rem; line-height: 1.6; color: #e0e0e0; margin-bottom: 1rem;">
+                        Voici <strong>Tout Milieu</strong> ! Le but est simple : mettre TOMI au milieu de votre écran ! <br><br>
+                        Aidez TOMI à rejoindre le "Tout Milieu" de votre écran. Faites-le rebondir avec précision à travers 
                         <strong>30 niveaux différents</strong>, mais attention aux obstacles !
                     </p>
-                    <div class="game-buttons">
-                        <a href="https://www.mediafire.com/file/x6dmh3iz05z909c/ToutMilieu_Installer.exe/file" class="btn btn-download" target="_blank">
-                            Télécharger <img src="../images/icons/WindowsIcon.png" alt="Windows Icon" class="platform-icon">
+
+                    <div class="download-buttons-container">
+                        <!-- Boutons avec noms simplifiés -->
+                        <a href="https://www.mediafire.com/file/x6dmh3iz05z909c/ToutMilieu_Installer.exe/file" class="btn-download" target="_blank">
+                            Télécharger <img src="../images/icons/WindowsIcon.png" alt="Win" class="btn-icon">
                         </a>
-                        <a href="https://www.mediafire.com/file/3qbc83b9yae0v4r/ToutMilieu-Android-Shipping_universal.apk/file" class="btn btn-download" target="_blank">
-                            Télécharger <img src="../images/icons/AndroidIcon.png" alt="Android Icon" class="platform-icon">
+                        <a href="https://www.mediafire.com/file/3qbc83b9yae0v4r/ToutMilieu-Android-Shipping_universal.apk/file" class="btn-download" target="_blank">
+                            Télécharger <img src="../images/icons/AndroidIcon.png" alt="And" class="btn-icon">
                         </a>
-                        <div class="flex-break"></div>
-                        <a href="https://play.google.com/store/apps/details?id=com.batpolygon.toutmilieu&hl=fr" class="btn btn-download btn-google-play" target="_blank">
-                            Télécharger Google Play Store <img src="../images/icons/GooglePlayIcon.png" alt="Google Play Store Icon" class="platform-icon">
+                        <a href="https://play.google.com/store/apps/details?id=com.batpolygon.toutmilieu&hl=fr" class="btn-google-play" target="_blank">
+                            Télécharger Google Play <img src="../images/icons/GooglePlayIcon.png" alt="GP" class="btn-icon">
                         </a>
-                        <p class="note"><em>*Si vous trouvez un ou plusieurs bugs, n'hésitez pas à me les faire remonter sur mon Discord.</em></p>
-                        <a href="https://discord.gg/fTwdczkQ39" class="btn btn-discord" target="_blank">Discord</a>
-                        <a href="../report_bug.html" class="btn btn-report-bug">Signaler un bug</a>
+                    </div>
+
+                    <div class="game-actions-bottom">
+                        <p class="note">*Si vous trouvez un ou plusieurs bugs, n'hésitez pas à me les faire remonter sur mon Discord.</p>
+                        <div class="game-actions-buttons">
+                            <a href="https://discord.gg/fTwdczkQ39" class="btn-discord" target="_blank">Discord</a>
+                            <a href="../report_bug.html" class="btn-report-bug" target="_blank">Signaler un bug</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="game-trailer">
+            </section>
+
+            <!-- MILIEU : TRAILER & LET'S PLAY -->
+            <section class="section-media">
                 <h2>Trailer :</h2>
-                <div class="game-trailer-container">
-                    <div class="video-slider-container">
-                        <div class="video-slider-track">
-                            <div class="video-slide">
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/iGHq880jcm0" title="Trailer de Tout Milieu" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
+                <div class="slider-container glass media-box">
+                    <div class="slider-track">
+                        <div class="slide">
+                            <iframe class="embed-16-9" src="https://www.youtube.com/embed/iGHq880jcm0" title="Trailer" frameborder="0" allowfullscreen></iframe>
                         </div>
-                        <button class="slider-btn prev-btn" aria-label="Précédent">&#10094;</button>
-                        <button class="slider-btn next-btn" aria-label="Suivant">&#10095;</button>
                     </div>
                 </div>
-            </div> 
-            <div class="game-trailer">
+            </section>
+
+            <section class="section-media">
                 <h2>Let's Play :</h2>
-                <div class="game-trailer-container">
-                    <div class="video-slider-container">
-                        <div class="video-slider-track">
-                            <div class="video-slide">
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/BbEwfu-hkM4" title="Let's Play de Tout Milieu" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
+                <div class="slider-container glass media-box">
+                    <div class="slider-track">
+                        <div class="slide">
+                            <iframe class="embed-16-9" src="https://www.youtube.com/embed/BbEwfu-hkM4" title="Let's Play" frameborder="0" allowfullscreen></iframe>
                         </div>
-                        <button class="slider-btn prev-btn" aria-label="Précédent">&#10094;</button>
-                        <button class="slider-btn next-btn" aria-label="Suivant">&#10095;</button>
                     </div>
                 </div>
-            </div>  
-        </section>
-            <section class="game-changelog container">
+            </section>
+
+            <!-- BAS : CHANGELOG -->
+            <section class="game-changelog">
                 <h2>Changelog :</h2>
                 <div class="changelog-accordion">
-                    <details class="changelog-version" open>
+                    <details class="changelog-version glass" open>
                         <summary>Version 1.0 [20/05/2023]</summary>
                         <div class="changelog-content">
-                            <h3>Fonctionnalités Initiales</h3>
+                            <h3 style="color: var(--accent-blue);">Lancement</h3>
                             <ul>
-                                <li>Mise en place du gameplay de base.</li>
+                                <li>Mise en place du gameplay de base et de la physique.</li>
                                 <li>30 niveaux disponibles.</li>
-                            </ul>
-                            <h3>Bugs Connus</h3>
-                            <ul>
-                                <li>Aucun bug connu.</li>
                             </ul>
                         </div>
                     </details>
                 </div>
             </section>
+        </div>
     </main>
     
-    <div class="footer-message">
+    <footer class="footer-message">
         <p>Créé par Batpolygon | <a href="../eula.html">EULA & Copyright</a></p>
-    </div> 
-    <script>
-        // Script for the accordion behavior of the changelog
-        const allDetails = document.querySelectorAll('.changelog-version');
-    
-        allDetails.forEach(details => {
-            details.addEventListener('toggle', () => {
-                // We only want to run this when a details element is opened
-                if (details.open) {
-                    // Close all other details elements
-                    allDetails.forEach(d => {
-                        if (d !== details) d.open = false;
-                    });
-                }
-            });
-        });
+    </footer>
 
+    <!-- SCRIPT SLIDERS -->
+    <script>
         function initializeSlider(container) {
             if (!container) return;
-            
-            const track = container.querySelector('.slider-track') || container.querySelector('.video-slider-track');
-            const prevButton = container.querySelector('.prev-btn');
-            const nextButton = container.querySelector('.next-btn');
-
-            if (!track || !prevButton || !nextButton) return;
-
+            const track = container.querySelector('.slider-track');
+            let prevButton = container.querySelector('.prev-btn');
+            let nextButton = container.querySelector('.next-btn');
+            if (!track) return;
             const slides = Array.from(track.children);
-            if (slides.length <= 1) {
-                container.classList.add('single-slide');
-                return;
+            if (slides.length <= 1) { 
+                if (prevButton) prevButton.style.display = 'none';
+                if (nextButton) nextButton.style.display = 'none';
+                return; 
             }
-
             let currentIndex = 0;
-
             const updateSlidePosition = (animate = true) => {
-                const slideWidth = slides.length > 0 ? slides[0].getBoundingClientRect().width : 0;
-                if (slideWidth > 0) {
-                    track.style.transition = animate ? 'transform 0.5s ease-in-out' : 'none';
-                    track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
-                }
+                const slideWidth = container.getBoundingClientRect().width;
+                track.style.transition = animate ? 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)' : 'none';
+                track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
             };
-
-            prevButton.addEventListener('click', () => {
-                currentIndex = currentIndex === 0 ? slides.length - 1 : currentIndex - 1;
-                updateSlidePosition();
-            });
-
-            nextButton.addEventListener('click', () => {
-                currentIndex = currentIndex === slides.length - 1 ? 0 : currentIndex + 1;
-                updateSlidePosition();
-            });
-
-            new ResizeObserver(() => {
-                updateSlidePosition(false); // Update without animation on resize
-            }).observe(container);
+            if (prevButton && nextButton) {
+                prevButton.onclick = () => { currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1; updateSlidePosition(); };
+                nextButton.onclick = () => { currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1; updateSlidePosition(); };
+            }
+            window.addEventListener('resize', () => updateSlidePosition(false));
+            updateSlidePosition(false);
         }
-
-        document.querySelectorAll('.slider-container, .video-slider-container').forEach(initializeSlider);
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.slider-container').forEach(initializeSlider);
+        });
     </script>
+
+    <!-- APPEL EXTERNE AU SCRIPT DE FOND -->
+    <script src="../background.js"></script>
 </body>
 </html>

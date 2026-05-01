@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
+
+    <canvas id="bg-canvas"></canvas>
+
     <header>
         <div class="logo">
             <img src="../images/icons/MadeByBatpolygonColoredIcon.png" alt="Logo" class="logo-image">
@@ -24,75 +27,111 @@
             <ul>
                 <li><a href="../index.html">Accueil</a></li>
                 <li><a href="../games.html">Jeux</a></li>
-                <li><a href="../projects.html">Projets</a></li>
+                <li><a href="../webgames.html">Jeux Web</a></li>
+                <li><a href="../projects.html" class="active">Projets</a></li>
                 <li><a href="../about.html">À propos</a></li>
             </ul>
         </nav>
     </header>    
+
     <main>
-        <section class="welcome container">
-            <!-- Pense à ajouter un logo EnderLogo.png dans ton dossier images -->
-            <img src="../images/projectslogo/EnderLogo.png" alt="Ender AI Logo" class="project-image" onerror="this.style.display='none'">
-            <p><strong>Ender AI</strong> est un assistant de bureau (Desktop App) 100 % local, multimodal et autonome développé en Python. <br><br>
-                Conçu pour tourner nativement sur Linux (Manjaro) et Windows, il utilise une architecture <strong>"Triple Engine"</strong> innovante pour analyser vos sentiments, observer vos images et raisonner sur vos documents. Ender est totalement non censuré, garantit une confidentialité absolue, et prend vie grâce à une interface dynamique aux expressions faciales synchronisées avec une voix générée en temps réel.
-            </p>
-            <!-- BOUTON GITHUB -->
-            <div style="text-align: center; margin: 30px 0;">
-                <a href="https://github.com/Batpolygon/Ender" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 15px 30px; background-color: #0084ff; color: white; text-decoration: none; font-size: 1.2rem; font-weight: bold; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 132, 255, 0.4); transition: transform 0.2s, box-shadow 0.2s;">
-                    🔗 Voir le code source sur GitHub
-                </a>
-            </div>
-            <p style="text-align: center; font-size: 0.9em; color: #666; margin-top: -15px;">
-                <em>Co-créé avec l'assistance de Gemini 3 Flash. Optimisé pour Python 3.12.</em>
-            </p>
-        </section>
-
-        <section class="launcher-preview container">
-            <h2>Aperçu de l'interface :</h2>
-            <div class="screenshot-box" style="text-align: center; margin-top: 20px;">
-                <!-- Pense à ajouter un screenshot d'Ender en action -->
-                <img src="../images/screenshots/Ender_Screenshot.png" alt="Capture d'écran de Ender AI" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);" onerror="this.style.display='none'">
-            </div>
+        <div class="container">
             
-            <h2 style="margin-top: 40px;">Fonctionnalités principales :</h2>
-            <ul style="line-height: 1.8;">
-                <li><strong>🧠 Architecture Triple-Engine :</strong> Combine <em>DeepSeek-R1</em> (Raisonnement avancé/CoT), <em>JoyCaption</em> (Analyse visuelle experte) et <em>Llama 3 Instruct</em> (Détection d'émotions).</li>
-                <li><strong>📚 RAG Natif & Web Scraping :</strong> Glissez un PDF sur le visage d'Ender ou envoyez-lui une URL. Il lira le contenu et l'indexera en mémoire pour vous répondre précisément.</li>
-                <li><strong>🎭 Moteur Émotionnel :</strong> Ender analyse votre attitude (Gentil, Neutre, Méchant) et adapte dynamiquement ses expressions faciales, sa jauge d'humeur et le ton de ses réponses.</li>
-                <li><strong>🗣️ Synthèse "Animalese" :</strong> Un moteur audio génère des sons rétro en temps réel, parfaitement synchronisés avec les mouvements de sa bouche, inspiré d'Animal Crossing.</li>
-                <li><strong>⏰ IA Proactive :</strong> Au bout de 5 minutes d'inactivité, Ender puise dans son historique pour relancer la conversation de lui-même.</li>
-                <li><strong> liberdade Liberté totale :</strong> Utilisation de modèles "Uncensored" et de jailbreaks logiciels pour une IA sans aucune limitation éthique ou morale.</li>
-            </ul>
-        </section>
-
-        <section class="game-changelog container">
-            <h2>Changelog :</h2>
-            <div class="changelog-accordion">
-                <details class="changelog-version" open>
-                    <summary>Version 1.0.0 [Mars 2026]</summary>
-                    <div class="changelog-content">
-                        <h3>Lancement Initial (Studio Edition)</h3>
-                        <ul>
-                            <li>Déploiement de l'architecture Backend FastAPI et Frontend PyWebView.</li>
-                            <li>Intégration du système de Drag n Drop pour les images et documents PDF/TXT.</li>
-                            <li>Création du moteur de recherche sémantique natif (RAG) sans dépendance PyTorch pour une stabilité maximale sur Linux.</li>
-                            <li>Implémentation du Web Scraper (BeautifulSoup) avec analyse de profondeur des liens affiliés.</li>
-                            <li>Développement du HUD dynamique avec jauge d'humeur, boîte de pensée "Chain of Thought" et animations CSS pures du visage.</li>
-                            <li>Mise en place du gestionnaire de VRAM intelligent (Hot-Reload) pour cartes graphiques 16GB (optimisé RTX 4060 Ti).</li>
-                            <li>Publication du code source en Open Source sur GitHub.</li>
-                        </ul>
+            <!-- HEADER PROJET CENTRÉ -->
+            <section class="project-header-centered">
+                <div class="project-logo-large">
+                    <img src="../images/projectslogo/EnderLogo.png" alt="Ender AI Logo">
+                </div>
+                
+                <div class="project-info-box glass">
+                    <h1>Ender AI</h1>
+                    <p style="font-size: 1.25rem; line-height: 1.8; color: #e0e0e0;">
+                        <strong>Ender AI</strong> est un assistant de bureau 100% local, multimodal et autonome. 
+                        Conçu pour garantir une confidentialité absolue, il utilise une architecture <strong>"Triple Engine"</strong> pour voir, raisonner et ressentir. Ender prend vie via une interface dynamique aux expressions faciales synchronisées en temps réel.
+                    </p>
+                    <div style="margin-top: 2.5rem;">
+                        <a href="https://github.com/Batpolygon/Ender" class="btn-discord" target="_blank">
+                            🔗 Voir le code source sur GitHub
+                        </a>
                     </div>
-                </details>
-            </div>
-        </section>       
+                    <p style="font-size: 0.85rem; color: #666; margin-top: 1.5rem; font-style: italic;">
+                        Optimisé pour Python 3.12 & GPU RTX (VRAM 16GB).
+                    </p>
+                </div>
+            </section>
+
+            <!-- APERÇU INTERFACE -->
+            <section class="section-preview">
+                <h2>Aperçu de l'interface</h2>
+                <div class="screenshot-container">
+                    <img src="../images/screenshots/Ender_Screenshot.png" alt="Capture d'écran Ender AI">
+                </div>
+            </section>
+
+            <!-- GRILLE DE FONCTIONNALITÉS -->
+            <section style="margin-top: 6rem;">
+                <h2 style="text-align: center; font-size: 2.5rem;">Capacités Neurales</h2>
+                <div class="features-grid">
+                    <div class="feature-item glass">
+                        <strong>🧠 Triple-Engine</strong>
+                        <p>Combine DeepSeek-R1 (Raisonnement), JoyCaption (Vision) et Llama 3 (Émotions) pour une intelligence complète.</p>
+                    </div>
+                    <div class="feature-item glass">
+                        <strong>📚 RAG & Web Scraping</strong>
+                        <p>Indexation locale de PDF/TXT par simple Drag & Drop et analyse de contenu web en temps réel.</p>
+                    </div>
+                    <div class="feature-item glass">
+                        <strong>🎭 Moteur Émotionnel</strong>
+                        <p>Analyse de sentiment intégrée : Ender adapte son visage, son humeur et son ton selon vos interactions.</p>
+                    </div>
+                    <div class="feature-item glass">
+                        <strong>🗣️ Synthèse Animalese</strong>
+                        <p>Génération audio rétro synchronisée avec les mouvements de bouche, inspirée de l'esthétique Nintendo.</p>
+                    </div>
+                    <div class="feature-item glass">
+                        <strong>⏰ IA Proactive</strong>
+                        <p>Ender n'attend pas toujours vos ordres. Il peut relancer la conversation de lui-même après une inactivité.</p>
+                    </div>
+                    <div class="feature-item glass">
+                        <strong>🔓 Liberté Totale</strong>
+                        <p>Utilisation de modèles non censurés pour une IA sans limitations morales ou éthiques imposées.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CHANGELOG -->
+            <section class="game-changelog">
+                <h2 class="accent-left-title" style="margin-top: 6rem;">Changelog du projet</h2>
+                <div class="changelog-accordion">
+                    <details class="changelog-version glass" open>
+                        <summary>Version 1.0.0 [Mars 2026]</summary>
+                        <div class="changelog-content">
+                            <h3 style="color: var(--accent-blue);">Lancement Initial (Studio Edition)</h3>
+                            <ul>
+                                <li>Architecture Backend FastAPI et Frontend PyWebView.</li>
+                                <li>Système de recherche sémantique (RAG) natif sans dépendance lourde.</li>
+                                <li>Web Scraper (BeautifulSoup) avec analyse de profondeur.</li>
+                                <li>Gestionnaire de VRAM intelligent (Hot-Reload) pour cartes graphiques.</li>
+                                <li>HUD dynamique avec boîte de pensée "Chain of Thought" visible.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+            </section>
+
+        </div>
     </main>    
-    <div class="footer-message">
+
+    <footer class="footer-message">
         <p>Créé par Batpolygon | <a href="../eula.html">EULA & Copyright</a></p>
-    </div>
+    </footer>
+
+    <!-- Appel externe au script de fond -->
+    <script src="../background.js"></script>
+
     <script>
-        // Script pour le comportement en accordéon du changelog
+        // Script accordéon
         const allDetails = document.querySelectorAll('.changelog-version');
-    
         allDetails.forEach(details => {
             details.addEventListener('toggle', () => {
                 if (details.open) {
