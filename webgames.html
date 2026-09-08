@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" href="images/icons/MadeByBatpolygonFavIcon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jouez aux jeux web gratuits de Batpolygon directement dans votre navigateur. Découvrez Tout Milieu HTML, Moutonmon Fast Fight et plus encore.">
+    <meta name="description" content="Jouez aux jeux web gratuits de Batpolygon directement dans votre navigateur.">
     <title>Jeux Web - Made By Batpolygon</title>
     <link rel="stylesheet" href="style.css">
     <style>
@@ -28,7 +28,7 @@
             position: relative;
             width: 100%;
             max-width: 1100px;
-            height: 90vh;
+            height: 80vh;
             border: 1px solid var(--glass-border);
             border-radius: 20px;
             overflow: hidden;
@@ -105,10 +105,15 @@
             <h2 class="page-title">Jeux par navigateur (HTML) :</h2>
             <div class="games-grid">
 
-                <!-- MOUTONMON FAST FIGHT -->
-                <div class="game-card glass clickable" onclick="openGame('webgames/MoutonmonFastFight/index.html')">
-                    <!-- On utilise un badge pour montrer que c'est du nouveau contenu web -->
+                <!-- CYBER MUTANT IDLE -->
+                <div class="game-card glass clickable" onclick="openGame('https://batpolygon.github.io/CyberMutantIdle/')">
                     <div class="new-banner">NOUVEAU</div>
+                    <img src="images/webgameslogo/CyberMutantIdleLogo.png" alt="Cyber Mutant Idle">
+                    <div class="game-title">Cyber Mutant Idle</div>
+                </div>
+
+                <!-- MOUTONMON FAST FIGHT -->
+                <div class="game-card glass clickable" onclick="openGame('https://batpolygon.github.io/MoutonmonFastFight/')">
                     <img src="images/webgameslogo/MoutonmonFastFightLogo.png" alt="Moutonmon Fast Fight">
                     <div class="game-title">Moutonmon Fast Fight</div>
                 </div>
@@ -158,7 +163,6 @@
             document.body.style.overflow = "auto"; // Rend le scroll
         }
 
-        // Fermer au clic sur le fond
         window.onclick = function(event) {
             const modal = document.getElementById('gameModal');
             if (event.target == modal) {
@@ -167,7 +171,6 @@
         }
     </script>
 
-    <!-- Appel au background externe -->
     <script src="background.js"></script>
 </body>
 </html>
