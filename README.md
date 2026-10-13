@@ -10,9 +10,9 @@ Ce site me sert de vitrine pour partager mes créations. Depuis plusieurs année
 
 ## 🎮 Mes Jeux
 Sur le site, vous pouvez retrouver l'ensemble de mes jeux vidéo, parmi lesquels :
+- **PlushNToy** *(Jouable sur Windows & Linux)*
 - **Woojy Land** *(Jouable sur Windows, Linux & Android)*
 - **All4Break** *(Jouable sur Windows & Linux)*
-- **ChillMounTAIN** *(Jouable sur Windows & Linux)*
 - Et plus de 10 autres jeux à découvrir !
 
 *💡 **Astuce :** Vous pouvez facilement télécharger, et jouer a tous mes jeux Windows en utilisant le [MadeByBatpolygon Launcher](https://batpolygon.github.io/projects/batlauncher.html).*
