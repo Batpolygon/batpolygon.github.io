@@ -13,9 +13,134 @@
     <link rel="canonical" href="https://batpolygon.github.io/report_bug.html">
     <title>Signaler un Bug - Made by Batpolygon</title>
     <link rel="stylesheet" href="style.css">
+
+    <!-- Styles spécifiques pour le formulaire de rapport de bug -->
+    <style>
+        .bug-form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem !important;
+        }
+
+        .bug-form-container h1 {
+            font-size: 3.5rem;
+            margin-top: 0;
+            margin-bottom: 2rem;
+            text-align: center;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .form-group label {
+            font-size: 1.15rem;
+            font-weight: bold;
+            color: #e0e0e0;
+            letter-spacing: 0.5px;
+        }
+
+        /* Style commun pour input, select et textarea */
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 20px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            color: #fff;
+            font-family: 'KidZone', sans-serif;
+            font-size: 1.05rem;
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* Style spécifique pour la combobox (select) */
+        .form-group select {
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233b82f6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1.2rem center;
+            background-size: 1.2em;
+            padding-right: 3rem;
+        }
+
+        .form-group select option {
+            background: #111;
+            color: #fff;
+        }
+
+        /* Effet au focus (sélection) */
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+            background: rgba(0, 0, 0, 0.85);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 140px;
+            line-height: 1.5;
+        }
+
+        /* Bouton Soumettre */
+        .btn-submit {
+            display: inline-block;
+            width: 100%;
+            padding: 15px 30px;
+            background: var(--accent-blue);
+            color: #fff;
+            font-family: 'KidZone', sans-serif;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+            margin-top: 1rem;
+        }
+
+        .btn-submit:hover {
+            background: #fff;
+            color: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+        }
+
+        .form-note {
+            text-align: center;
+            color: #888;
+            font-size: 0.95rem;
+            margin-top: 1.5rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .bug-form-container {
+                padding: 1.5rem !important;
+            }
+            .bug-form-container h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
+
+    <!-- Fond interactif -->
     <canvas id="bg-canvas"></canvas>
+
     <header>
         <div class="logo">
             <img src="images/icons/MadeByBatpolygonColoredIcon.png" alt="Logo" class="logo-image">
@@ -33,58 +158,71 @@
     </header>
 
     <main>
-        <section class="container">
-            <h1>Signaler un Bug</h1>
-            <form id="bugReportForm">
-                <div class="form-group">
-                    <label for="game_select">Jeu concerné :</label>
-                    <select id="game_select" name="Jeu" required>
-                        <option value="" disabled selected>-- Sélectionner un jeu --</option>
-                        <option value="Batpolygon Home">Batpolygon Home</option>
-                        <option value="Batpolygon Head Rush">Batpolygon Head Rush</option>
-                        <option value="Platroomer">Platroomer</option>
-                        <option value="Polygons">Polygons</option>
-                        <option value="Tout Milieu">Tout Milieu</option>
-                        <option value="HellHeaven">HellHeaven</option>
-                        <option value="Cloud Trials">Cloud Trials</option>
-                        <option value="Polyhedron">Polyhedron</option>
-                        <option value="Celestial DEUS">Celestial DEUS</option>
-                        <option value="Cardygon">Cardygon</option>
-                        <option value="Autre">Autre</option>
-                    </select>
-                </div>
+        <div class="container">
+            <!-- Formulaire dans une carte Glassmorphism -->
+            <section class="bug-form-container glass">
+                <h1>Signaler un Bug</h1>
+                
+                <form id="bugReportForm">
+                    <div class="form-group">
+                        <label for="game_select">Jeu concerné :</label>
+                        <select id="game_select" name="Jeu" required>
+                            <option value="" disabled selected>-- Sélectionner un jeu --</option>
+                            <option value="PlushNToy">PlushNToy</option>
+                            <option value="Cardygon">Cardygon</option>
+                            <option value="Polyhedron">Polyhedron</option>
+                            <option value="Woojy Land">Woojy Land</option>
+                            <option value="All4Break">All4Break</option>
+                            <option value="ChillMountain">ChillMountain</option>
+                            <option value="Celestial DEUS">Celestial DEUS</option>
+                            <option value="Cloud Trials">Cloud Trials</option>
+                            <option value="HellHeaven">HellHeaven</option>
+                            <option value="Tout Milieu">Tout Milieu</option>
+                            <option value="Polygons">Polygons</option>
+                            <option value="Platroomer">Platroomer</option>
+                            <option value="Batpolygon Head Rush">Batpolygon Head Rush</option>
+                            <option value="Batpolygon Home">Batpolygon Home</option>
+                            <option value="Cyber Mutant Idle">Cyber Mutant Idle (Web)</option>
+                            <option value="Moutonmon Fast Fight">Moutonmon Fast Fight (Web)</option>
+                            <option value="Batlauncher">Batlauncher (Projet)</option>
+                            <option value="Ender AI">Ender AI (Projet)</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+                    </div>
 
-                <div class="form-group">
-                    <label for="pseudo">Votre Pseudo :</label>
-                    <input type="text" id="pseudo" name="Pseudo" required>
-                </div>
+                    <div class="form-group">
+                        <label for="pseudo">Votre Pseudo :</label>
+                        <input type="text" id="pseudo" name="Pseudo" placeholder="Ex: Joueur42" required autocomplete="name">
+                    </div>
 
-                <div class="form-group">
-                    <label for="email">Votre Email (pour suivi) :</label>
-                    <input type="email" id="email" name="Email" required>
-                </div>
+                    <div class="form-group">
+                        <label for="email">Votre Email (pour le suivi) :</label>
+                        <input type="email" id="email" name="Email" placeholder="nom@exemple.com" required autocomplete="email">
+                    </div>
 
-                <div class="form-group">
-                    <label for="bug_description">Description du Bug :</label>
-                    <textarea id="bug_description" name="Description_du_Bug" rows="8" required placeholder="Veuillez décrire le bug le plus précisément possible, incluant les étapes pour le reproduire si possible. Version du jeu, configuration si pertinente, etc."></textarea>
-                </div>
+                    <div class="form-group">
+                        <label for="bug_description">Description du Bug :</label>
+                        <textarea id="bug_description" name="Description_du_Bug" rows="6" required placeholder="Décrivez le bug le plus précisément possible : que s'est-il passé ? Comment le reproduire ? Sur quel système jouez-vous (Windows/Linux/Android) ?"></textarea>
+                    </div>
 
-                <div class="form-group">
-                    <button type="submit">Préparer l'Email de Rapport</button>
-                </div>
-            </form>
-            <!-- Paragraphe mis en italique -->
-            <p class="form-note">
-                <em>En cliquant sur "Préparer l'Email de Rapport", votre client de messagerie par défaut s'ouvrira avec les informations pré-remplies.
-                Merci pour votre aide !</em>
-            </p>
-        </section>
+                    <div class="form-group">
+                        <button type="submit" class="btn-submit">Préparer l'Email de Rapport ✉️</button>
+                    </div>
+                </form>
+
+                <p class="form-note">
+                    <em>En cliquant sur "Préparer l'Email de Rapport", votre client de messagerie par défaut s'ouvrira avec les informations pré-remplies.<br>
+                    Merci de contribuer à l'amélioration de nos jeux !</em>
+                </p>
+            </section>
+        </div>
     </main>
 
     <footer class="footer-message">
-        <p>Merci de contribuer à l'amélioration de nos jeux !</p>
+        <p>Créé par Batpolygon | <a href="eula.html">EULA & Copyright</a></p>
     </footer>
 
+    <!-- SCRIPT DE GÉNÉRATION D'EMAIL -->
     <script>
         document.getElementById('bugReportForm').addEventListener('submit', function(event) {
             event.preventDefault();
@@ -99,13 +237,12 @@
                 subject += ` - par ${pseudo}`;
             }
 
-            let body = `Bonjour,\n\nVoici un rapport de bug concernant le jeu "${game}" :\n\n`;
+            let body = `Bonjour,\n\nVoici un rapport de bug concernant "${game}" :\n\n`;
             body += `Pseudo du joueur : ${pseudo}\n`;
             body += `Email du joueur : ${email}\n\n`;
             body += `Description du bug :\n----------------------\n${description}\n\n`;
             body += `----------------------\n`;
-            // Texte entre guillemets
-            body += `"Veuillez joindre une capture d'écran si nécessaire."\n\n`;
+            body += `"Pensez à joindre une capture d'écran si nécessaire."\n\n`;
             body += `Cordialement,\n${pseudo}`;
 
             const mailtoLink = `mailto:batpolygoncontact@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -113,6 +250,8 @@
             window.location.href = mailtoLink;
         });
     </script>
+
+    <!-- Script de fond externe -->
     <script src="background.js"></script>
 </body>
 </html>

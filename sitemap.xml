@@ -35,6 +35,12 @@
 
     <!-- ==================== PAGES DE JEUX ==================== -->
     <url>
+        <loc>https://batpolygon.github.io/games/plushntoy.html</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://batpolygon.github.io/games/cardygon.html</loc>
         <lastmod>2026-03-30</lastmod>
         <changefreq>monthly</changefreq>
@@ -115,6 +121,12 @@
 
     <!-- ==================== PAGES DE PROJETS ==================== -->
     <url>
+        <loc>https://batpolygon.github.io/projects/plushntoy.html</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://batpolygon.github.io/projects/ender.html</loc>
         <lastmod>2026-03-30</lastmod>
         <changefreq>monthly</changefreq>
@@ -122,12 +134,6 @@
     </url>
     <url>
         <loc>https://batpolygon.github.io/projects/batlauncher.html</loc>
-        <lastmod>2026-03-30</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://batpolygon.github.io/projects/plushntoy.html</loc>
         <lastmod>2026-03-30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>

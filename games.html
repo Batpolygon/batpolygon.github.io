@@ -6,6 +6,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeux - Made By Batpolygon</title>
     <link rel="stylesheet" href="style.css">
+
+    <!-- Styles spécifiques pour la recherche et les filtres -->
+    <style>
+        .filter-search-container {
+            max-width: 1000px;
+            margin: 0 auto 3rem auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .search-box {
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 24px;
+            border-radius: 50px;
+            border: 1px solid var(--glass-border);
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            font-family: 'KidZone', sans-serif;
+            font-size: 1.1rem;
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .search-box input:focus {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+            background: rgba(0, 0, 0, 0.85);
+        }
+
+        .filter-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            color: #bbb;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-family: 'KidZone', sans-serif;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: var(--accent-blue);
+            color: #fff;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        }
+
+        /* Style distinctif pour le tag PlushNToy */
+        .filter-btn[data-filter="plushntoy"] {
+            border-color: #0059ff;
+        }
+        .filter-btn[data-filter="plushntoy"].active {
+            background: #0059ff;
+            border-color: #0059ff;
+            box-shadow: 0 0 15px rgba(0, 89, 255, 0.6);
+        }
+
+        .no-results {
+            display: none;
+            text-align: center;
+            font-size: 1.3rem;
+            color: #888;
+            padding: 3rem 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
 
@@ -30,12 +120,43 @@
     <main>
         <section class="games container">
             <h2 class="page-title">Tous mes jeux :</h2>
-            <div class="games-grid">
+
+            <!-- BARRE DE RECHERCHE ET NOUVEAUX FILTRES -->
+            <div class="filter-search-container glass">
+                <div class="search-box">
+                    <input type="text" id="gameSearch" placeholder="Rechercher un jeu..." autocomplete="off">
+                </div>
+                <div class="filter-tags" id="filterTags">
+                    <button class="filter-btn active" data-filter="all">Tous</button>
+                    <button class="filter-btn" data-filter="plushntoy">🎮 PlushNToy</button>
+                    <button class="filter-btn" data-filter="survie">Survie</button>
+                    <button class="filter-btn" data-filter="aventure">Aventure</button>
+                    <button class="filter-btn" data-filter="strategie">Stratégie</button>
+                    <button class="filter-btn" data-filter="arcade">Arcade</button>
+                    <button class="filter-btn" data-filter="plateforme">Plateforme</button>
+                    <button class="filter-btn" data-filter="enigme">Énigmes & Puzzle</button>
+                    <button class="filter-btn" data-filter="action">Action & Combat</button>
+                    <button class="filter-btn" data-filter="sandbox">Sandbox</button>
+                </div>
+            </div>
+
+            <div class="games-grid" id="gamesGrid">
                 
-                <!-- CARDYGON (MIS À JOUR) -->
-                <a href="games/cardygon.html" class="game-card-link">
+                <!-- PLUSHNTOY (PlushNToy + Survie + Aventure) -->
+                <a href="games/plushntoy.html" class="game-card-link" data-type="plushntoy survie aventure">
                     <div class="game-card glass">
-                        <div class="new-banner">MIS À JOUR !</div>
+                        <div class="new-banner">NOUVEAU !</div>
+                        <img src="images/gamescover/PlushNToyGameCover.jpg" alt="PlushNToy (Le Jeu)" onerror="this.src='images/projectslogo/PlushNToyLogo.png'">
+                        <div class="game-title">PlushNToy
+                            <img src="images/icons/WindowsIcon.png" alt="Win" class="platform-icon">
+                            <img src="images/icons/LinuxIcon.png" alt="Lin" class="platform-icon">
+                        </div>
+                    </div>
+                </a>
+
+                <!-- CARDYGON (Stratégie uniquement) -->
+                <a href="games/cardygon.html" class="game-card-link" data-type="strategie arcade">
+                    <div class="game-card glass">
                         <img src="images/gamescover/CardygonGameCover.jpg" alt="Cardygon">
                         <div class="game-title">Cardygon
                             <img src="images/icons/WindowsIcon.png" alt="Win" class="platform-icon">
@@ -45,8 +166,8 @@
                     </div>
                 </a>
 
-                <!-- POLYHEDRON (POPULAIRE) -->
-                <a href="games/polyhedron.html" class="game-card-link">
+                <!-- POLYHEDRON (Sandbox) -->
+                <a href="games/polyhedron.html" class="game-card-link" data-type="sandbox">
                     <div class="game-card glass">
                         <div class="pop-banner">POPULAIRE</div>
                         <img src="images/gamescover/PolyhedronVT0.4GameCover.jpg" alt="Polyhedron">
@@ -57,8 +178,8 @@
                     </div>
                 </a>
 
-                <!-- WOOJY LAND -->
-                <a href="games/woojyland.html" class="game-card-link">
+                <!-- WOOJY LAND (Aventure) -->
+                <a href="games/woojyland.html" class="game-card-link" data-type="aventure">
                     <div class="game-card glass">
                         <img src="images/gamescover/WoojyLandGameCover.jpg" alt="Woojy Land">
                         <div class="game-title">Woojy Land
@@ -69,8 +190,8 @@
                     </div>
                 </a>
 
-                <!-- ALL4BREAK -->
-                <a href="games/all4break.html" class="game-card-link">
+                <!-- ALL4BREAK (Action & Combat) -->
+                <a href="games/all4break.html" class="game-card-link" data-type="action">
                     <div class="game-card glass">
                         <img src="images/gamescover/All4BreakGameCover.jpg" alt="All4Break">
                         <div class="game-title">All4Break
@@ -80,8 +201,8 @@
                     </div>
                 </a>
 
-                <!-- CHILLMOUNTAIN -->
-                <a href="games/chillmountain.html" class="game-card-link">
+                <!-- CHILLMOUNTAIN (Plateforme) -->
+                <a href="games/chillmountain.html" class="game-card-link" data-type="plateforme">
                     <div class="game-card glass">
                         <img src="images/gamescover/ChillMountainGameCover.jpg" alt="ChillMountain">
                         <div class="game-title">ChillMountain
@@ -91,8 +212,8 @@
                     </div>
                 </a>
 
-                <!-- CELESTIAL DEUS -->
-                <a href="games/celestial_deus.html" class="game-card-link">
+                <!-- CELESTIAL DEUS (Action & Combat) -->
+                <a href="games/celestial_deus.html" class="game-card-link" data-type="action">
                     <div class="game-card glass">
                         <div class="exclusive-steam-logo">
                             <img src="images/icons/SteamIcon.png" alt="Exclusivité Steam">
@@ -105,29 +226,73 @@
                     </div> 
                 </a>
 
-                <!-- Reste des jeux (identique à ton fichier original mais avec la classe glass) -->
-                <a href="games/cloud_trials.html" class="game-card-link">
-                    <div class="game-card glass"><img src="images/gamescover/CloudTrialsGameCover.jpg" alt="Cloud Trials"><div class="game-title">Cloud Trials <img src="images/icons/WindowsIcon.png" alt="Win" class="platform-icon"></div></div>
-                </a>
-                <a href="games/hellheaven.html" class="game-card-link">
-                    <div class="game-card glass"><img src="images/gamescover/HellHeavenGameCover.jpg" alt="Hell Heaven"><div class="game-title">Hell Heaven <img src="images/icons/WindowsIcon.png" alt="Win" class="platform-icon"></div></div>
-                </a>
-                <a href="games/tout_milieu.html" class="game-card-link">
-                    <div class="game-card glass"><img src="images/gamescover/ToutMilieuGameCover.jpg" alt="Tout Milieu"><div class="game-title">Tout Milieu <img src="images/icons/WindowsIcon.png" alt="Win" class="platform-icon"> <img src="images/icons/AndroidIcon.png" alt="And" class="platform-icon"></div></div>
-                </a>
-                <a href="games/polygons.html" class="game-card-link">
-                    <div class="game-card glass"><img src="images/gamescover/PolygonsGameCover.jpg" alt="Polygons"><div class="game-title">Polygons <img src="images/icons/WindowsIcon.png" alt="Win" class="platform-icon"></div></div>
-                </a>
-                <a href="games/platroomer.html" class="game-card-link">
-                    <div class="game-card glass"><img src="images/gamescover/PlatroomerGameCover.jpg" alt="Platroomer"><div class="game-title">Platroomer <img src="images/icons/WindowsIcon.png" alt="Win" class="platform-icon"></div></div>
-                </a>
-                <a href="games/batpolygon_head_rush.html" class="game-card-link">
-                    <div class="game-card glass"><img src="images/gamescover/BatpolygonHeadRushGameCover.jpg" alt="Head Rush"><div class="game-title">Head Rush <img src="images/icons/WindowsIcon.png" alt="Win" class="platform-icon"> <img src="images/icons/AndroidIcon.png" alt="And" class="platform-icon"></div></div>
-                </a>
-                <a href="games/batpolygon_home.html" class="game-card-link">
-                    <div class="game-card glass"><img src="images/gamescover/BatpolygonHomeGameCover.jpg" alt="Home"><div class="game-title">Batpolygon Home <img src="images/icons/WindowsIcon.png" alt="Win" class="platform-icon"></div></div>
+                <!-- CLOUD TRIALS (PlushNToy + Plateforme + Énigme) -->
+                <a href="games/cloud_trials.html" class="game-card-link" data-type="plushntoy plateforme enigme">
+                    <div class="game-card glass">
+                        <img src="images/gamescover/CloudTrialsGameCover.jpg" alt="Cloud Trials">
+                        <div class="game-title">Cloud Trials <img src="images/icons/WindowsIcon.png" alt="Win" class="platform-icon"></div>
+                    </div>
                 </a>
 
+                <!-- HELLHEAVEN (Énigmes + Aventure) -->
+                <a href="games/hellheaven.html" class="game-card-link" data-type="enigme aventure">
+                    <div class="game-card glass">
+                        <img src="images/gamescover/HellHeavenGameCover.jpg" alt="Hell Heaven">
+                        <div class="game-title">Hell Heaven <img src="images/icons/WindowsIcon.png" alt="Win" class="platform-icon"></div>
+                    </div>
+                </a>
+
+                <!-- TOUT MILIEU (Énigme + Arcade) -->
+                <a href="games/tout_milieu.html" class="game-card-link" data-type="enigme arcade">
+                    <div class="game-card glass">
+                        <img src="images/gamescover/ToutMilieuGameCover.jpg" alt="Tout Milieu">
+                        <div class="game-title">Tout Milieu 
+                            <img src="images/icons/WindowsIcon.png" alt="Win" class="platform-icon"> 
+                            <img src="images/icons/AndroidIcon.png" alt="And" class="platform-icon">
+                        </div>
+                    </div>
+                </a>
+
+                <!-- POLYGONS (Sandbox) -->
+                <a href="games/polygons.html" class="game-card-link" data-type="sandbox">
+                    <div class="game-card glass">
+                        <img src="images/gamescover/PolygonsGameCover.jpg" alt="Polygons">
+                        <div class="game-title">Polygons <img src="images/icons/WindowsIcon.png" alt="Win" class="platform-icon"></div>
+                    </div>
+                </a>
+
+                <!-- PLATROOMER (PlushNToy + Plateforme) -->
+                <a href="games/platroomer.html" class="game-card-link" data-type="plushntoy plateforme">
+                    <div class="game-card glass">
+                        <img src="images/gamescover/PlatroomerGameCover.jpg" alt="Platroomer">
+                        <div class="game-title">Platroomer <img src="images/icons/WindowsIcon.png" alt="Win" class="platform-icon"></div>
+                    </div>
+                </a>
+
+                <!-- BATPOLYGON HEAD RUSH (Arcade uniquement) -->
+                <a href="games/batpolygon_head_rush.html" class="game-card-link" data-type="arcade">
+                    <div class="game-card glass">
+                        <img src="images/gamescover/BatpolygonHeadRushGameCover.jpg" alt="Head Rush">
+                        <div class="game-title">Head Rush 
+                            <img src="images/icons/WindowsIcon.png" alt="Win" class="platform-icon"> 
+                            <img src="images/icons/AndroidIcon.png" alt="And" class="platform-icon">
+                        </div>
+                    </div>
+                </a>
+
+                <!-- BATPOLYGON HOME (Action + Aventure) -->
+                <a href="games/batpolygon_home.html" class="game-card-link" data-type="action aventure">
+                    <div class="game-card glass">
+                        <img src="images/gamescover/BatpolygonHomeGameCover.jpg" alt="Home">
+                        <div class="game-title">Batpolygon Home <img src="images/icons/WindowsIcon.png" alt="Win" class="platform-icon"></div>
+                    </div>
+                </a>
+
+            </div>
+
+            <!-- Message d'absence de résultat -->
+            <div id="noResults" class="no-results">
+                🔍 Aucun jeu ne correspond à votre recherche.
             </div>
         </section>
     </main>
@@ -135,6 +300,52 @@
     <footer class="footer-message">
         <p>Créé par Batpolygon | <a href="eula.html">EULA & Copyright</a></p>
     </footer>
+
+    <!-- SCRIPT DE RECHERCHE ET FILTRAGE -->
+    <script>
+        const searchInput = document.getElementById('gameSearch');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const gameCards = document.querySelectorAll('.games-grid .game-card-link');
+        const noResults = document.getElementById('noResults');
+
+        let currentCategory = 'all';
+        let searchQuery = '';
+
+        function filterGames() {
+            let visibleCount = 0;
+
+            gameCards.forEach(card => {
+                const title = card.querySelector('.game-title').textContent.toLowerCase();
+                const types = (card.dataset.type || '').split(' ');
+
+                const matchesSearch = title.includes(searchQuery);
+                const matchesCategory = (currentCategory === 'all' || types.includes(currentCategory));
+
+                if (matchesSearch && matchesCategory) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            noResults.style.display = (visibleCount === 0) ? 'block' : 'none';
+        }
+
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value.toLowerCase().trim();
+            filterGames();
+        });
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentCategory = btn.dataset.filter;
+                filterGames();
+            });
+        });
+    </script>
 
     <script src="background.js"></script>
 </body>
