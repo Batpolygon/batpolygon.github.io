@@ -4,18 +4,72 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" href="../images/icons/MadeByBatpolygonFavIcon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Découvrez PlushNToy, un projet de moteur de jeu sous Unreal Engine par Batpolygon. Suivez l'évolution de ce projet ambitieux.">
-    <meta name="keywords" content="PlushNToy, Batpolygon, moteur de jeu, Unreal Engine, projet, développement de jeux">
-    <meta property="og:title" content="PlushNToy - Made by Batpolygon">
-    <meta property="og:description" content="Découvrez PlushNToy, un projet de moteur de jeu sous Unreal Engine par Batpolygon. Suivez l'évolution de ce projet ambitieux.">
+    <meta name="description" content="Découvrez PlushNToy, un projet de framework et d'écosystème de jeu sous Unreal Engine par Batpolygon. Suivez l'évolution de ce projet ambitieux.">
+    <meta name="keywords" content="PlushNToy, Batpolygon, framework, Unreal Engine, projet, développement de jeux, open world, survie">
+    <meta property="og:title" content="PlushNToy (Projet) - Made by Batpolygon">
+    <meta property="og:description" content="Découvrez l'évolution de PlushNToy : un framework Unreal Engine qui s'enrichit à chaque nouveau monde.">
     <meta property="og:image" content="https://batpolygon.github.io/images/projectslogo/PlushNToyLogo.png">
     <meta property="og:url" content="https://batpolygon.github.io/projects/plushntoy.html">
     <link rel="canonical" href="https://batpolygon.github.io/projects/plushntoy.html">
     <title>PlushNToy - Made by Batpolygon</title>
     <link rel="stylesheet" href="../style.css">
+
+    <!-- Styles spécifiques pour le layout centré -->
+    <style>
+        .project-header-centered {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 4rem;
+            gap: 2rem;
+        }
+        .project-logo-large {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            justify-content: center;
+        }
+        .project-logo-large img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 0 25px rgba(59, 130, 246, 0.4));
+        }
+        .project-info-box {
+            width: 100%;
+            max-width: 950px;
+            padding: 3rem !important;
+            text-align: left;
+        }
+        .project-info-box h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+        .project-description {
+            font-size: 1.15rem;
+            line-height: 1.75;
+            color: #e0e0e0;
+        }
+        .section-title {
+            margin-top: 5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 2.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .project-info-box { padding: 1.5rem !important; }
+            .project-info-box h1 { font-size: 2.5rem; }
+            .project-logo-large { max-width: 350px; }
+        }
+    </style>
 </head>
 <body>
 
+    <!-- Fond interactif -->
     <canvas id="bg-canvas"></canvas>
 
     <header>
@@ -45,18 +99,44 @@
                 
                 <div class="project-info-box glass">
                     <h1>PlushNToy</h1>
-                    <p class="project-description">
-                        PlushNToy est un projet ambitieux de "moteur de jeu" développé sous <strong>Unreal Engine</strong>. 
-                        L'objectif est de publier au moins un nouveau jeu chaque année, permettant au moteur d'évoluer progressivement pour devenir de plus en plus complet.<br><br>
-                        Le développement a débuté le 7 octobre 2022. Bien plus qu'un simple défi technique, la véritable motivation est de recréer les aventures imaginaires que je partageais avec mes sœurs, en mettant en scène <strong>Man le mannequin, Pel la peluche et Pan le pantin</strong>.
-                    </p>
+                    <div class="project-description">
+                        <p>
+                            <strong>PlushNToy</strong> est un projet ambitieux de <strong>framework développé sous Unreal Engine</strong>. L'objectif à terme est de publier au moins une mise à jour majeure chaque année, permettant au jeu de base d'évoluer progressivement pour devenir de plus en plus complet.
+                        </p>
+                        <p>
+                            Le projet puise son inspiration originelle dans les aventures imaginaires que je partageais avec mes sœurs durant notre enfance. Pour autant, aucun personnage de nos jeux d'époque n'a réellement fait son apparition dans les titres : ce sont avant tout les décors et les mondes qui ont été recréés, comme la chambre d'enfant dans <strong>Platroomer</strong> ou le monde céleste dans <strong>Cloud Trials</strong>.
+                        </p>
+                        <p>
+                            Après plusieurs reboots internes, j'ai pris la décision de <strong>repartir une nouvelle fois de zéro sur Unreal Engine</strong>. J'ai choisi comme socle l'idée d'un jeu de <strong>survie, d'exploration et d'aventure</strong> : c'est un genre vaste et riche en libertés, parfait pour poser des fondations solides et construire dessus au fil du temps.
+                        </p>
+                        <p>
+                            Désormais, les prochains jeux conçus sous PlushNToy ne seront plus des projets séparés, mais <strong>directement intégrés au jeu de base comme un hub central</strong>, selon le principe : <em>un jeu = un monde</em>. Cette approche permet de faire progresser le framework lui-même, de faire évoluer l'expérience globale pour les nouveaux joueurs et de synchroniser la progression entre les différents mondes.
+                        </p>
+                        <p style="color: var(--accent-blue); font-weight: bold; border-left: 3px solid var(--accent-blue); padding-left: 12px; margin-top: 1.5rem;">
+                            Aujourd'hui, le jeu officiel PlushNToy est disponible en version stable, et de futures mises à jour arrivent très bientôt !
+                        </p>
+                    </div>
                 </div>
             </section>
 
-            <!-- SECTION JEUX ASSOCIÉS (Layout Classique) -->
+            <!-- SECTION JEUX ASSOCIÉS -->
             <section class="gamesprime">
-                <h2 class="section-title">Jeux propulsés par PlushNToy</h2>
+                <h2 class="section-title">Jeux de l'univers PlushNToy</h2>
                 <div class="games-box">
+                    
+                    <!-- JEU OFFICIEL -->
+                    <a href="../games/plushntoy.html" class="game-card-link">
+                        <div class="game-card glass">
+                            <div class="new-banner">NOUVEAU !</div>
+                            <img src="../images/gamescover/PlushNToyGameCover.jpg" alt="PlushNToy (Le Jeu)" onerror="this.src='../images/projectslogo/PlushNToyLogo.png'">
+                            <div class="game-title">PlushNToy
+                                <img src="../images/icons/WindowsIcon.png" alt="Win" class="platform-icon">
+                                <img src="../images/icons/LinuxIcon.png" alt="Lin" class="platform-icon">
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- CLOUD TRIALS -->
                     <a href="../games/cloud_trials.html" class="game-card-link">
                         <div class="game-card glass">
                             <img src="../images/gamescover/CloudTrialsGameCover.jpg" alt="Cloud Trials">
@@ -65,6 +145,8 @@
                             </div>
                         </div>
                     </a>
+
+                    <!-- PLATROOMER -->
                     <a href="../games/platroomer.html" class="game-card-link">
                         <div class="game-card glass">
                             <img src="../images/gamescover/PlatroomerGameCover.jpg" alt="Platroomer">
@@ -73,18 +155,35 @@
                             </div>
                         </div>
                     </a>
+
                 </div>
             </section>
 
-            <!-- SECTION CHANGELOG (Blocks Indépendants) -->
+            <!-- SECTION CHANGELOG -->
             <section class="game-changelog">
-                <h2 class="section-title accent-left-title">Changelog du projet</h2>
+                <h2 class="section-title" style="text-align: left; padding-left: 1rem; border-left: 5px solid var(--accent-blue);">Changelog du projet</h2>
                 <div class="changelog-accordion">
                     
+                    <!-- Version 1.0 Stable -->
                     <details class="changelog-version glass" open>
+                        <summary>Version 1.0 [14/10/2026]</summary>
+                        <div class="changelog-content">
+                            <h3 style="color: var(--accent-blue);">Nouvelle Ère (Survival Open-World & Hub)</h3>
+                            <ul>
+                                <li>Reboot complet du projet sous <strong>Unreal Engine</strong> avec architecture de framework pérenne.</li>
+                                <li>Lancement officiel du <strong>jeu PlushNToy en version stable</strong> sur Windows et Linux.</li>
+                                <li>Mise en place de la structure <strong>Hub central</strong> : chaque futur jeu sera intégré sous forme d'un monde connectable.</li>
+                                <li>Système de synchronisation de la progression entre les univers.</li>
+                                <li>Intégration de la menace de la pâte à modeler et mécanique de craft/construction.</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <!-- Version Test 2024 -->
+                    <details class="changelog-version glass">
                         <summary>Version Test 07012024 [07/01/2024]</summary>
                         <div class="changelog-content">
-                            <h3 style="color: var(--accent-blue);">Améliorations (Cloud Trials)</h3>
+                            <h3 style="color: var(--accent-blue);">Monde Céleste (Cloud Trials)</h3>
                             <ul>
                                 <li>Développement de <strong>Cloud Trials</strong> comme démonstrateur technologique.</li>
                                 <li>Intégration d'un <strong>HUB central</strong> pour la navigation entre les niveaux.</li>
@@ -94,14 +193,15 @@
                         </div>
                     </details>
 
+                    <!-- Version Test 2023 -->
                     <details class="changelog-version glass">
                         <summary>Version Test 27012023 [27/01/2023]</summary>
                         <div class="changelog-content">
-                            <h3 style="color: var(--accent-blue);">Première Version (Platroomer)</h3>
+                            <h3 style="color: var(--accent-blue);">La Chambre (Platroomer)</h3>
                             <ul>
-                                <li>Toute première version du moteur utilisée pour <strong>Platroomer</strong>.</li>
+                                <li>Toute première version du framework utilisée pour concevoir <strong>Platroomer</strong>.</li>
                                 <li>Pose des bases : système de plateforme, intégration des pouvoirs.</li>
-                                <li>Implémentation des systèmes fondamentaux : <strong>HUD dynamique</strong> et génération de parcours.</li>
+                                <li>Implémentation des systèmes fondamentaux : <strong>HUD dynamique</strong> et génération aléatoire de parcours.</li>
                             </ul>
                         </div>
                     </details>
@@ -119,7 +219,7 @@
     <script src="../background.js"></script>
 
     <script>
-        // Script pour l'accordéon (ferme les autres quand on en ouvre un)
+        // Script accordéon
         const allDetails = document.querySelectorAll('.changelog-version');
         allDetails.forEach(details => {
             details.addEventListener('toggle', () => {
