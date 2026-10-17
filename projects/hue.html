@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../images/icons/MadeByBatpolygonFavIcon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez HUE, un compagnon de bureau vivant propulsé par Rust et Tauri 2. Personnalité basée sur votre matériel, dialogues IA et voix Animalese.">
+    <meta name="keywords" content="HUE, Batpolygon, Desktop Pet, Compagnon virtuel, IA locale, GGUF, Rust, Tauri 2, TypeScript, Open Source">
+    <meta property="og:title" content="HUE - Living Desktop Companion - Made by Batpolygon">
+    <meta property="og:description" content="HUE est un compagnon de bureau vivant qui vit sur votre écran, réagit à votre matériel et discute avec vous en temps réel.">
+    <meta property="og:image" content="https://batpolygon.github.io/images/projectslogo/HUELogo.png">
+    <meta property="og:url" content="https://batpolygon.github.io/projects/hue.html">
+    <link rel="canonical" href="https://batpolygon.github.io/projects/hue.html">
+    <title>HUE - Made by Batpolygon</title>
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Styles spécifiques pour le layout centré -->
+    <style>
+        .project-header-centered {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 4rem;
+            gap: 2rem;
+        }
+        .project-logo-large {
+            width: 100%;
+            max-width: 450px;
+            display: flex;
+            justify-content: center;
+        }
+        .project-logo-large img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 0 30px rgba(59, 130, 246, 0.45));
+        }
+        .project-info-box {
+            width: 100%;
+            max-width: 950px;
+            padding: 3rem !important;
+        }
+        .project-info-box h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            background: linear-gradient(90deg, #fff, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .project-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 2.5rem;
+        }
+
+        .section-preview {
+            margin-top: 5rem;
+            text-align: center;
+        }
+        .screenshot-container img {
+            width: 100%;
+            max-width: 950px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.7);
+            margin-top: 2rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 3rem;
+            text-align: left;
+        }
+        .feature-item {
+            padding: 2rem;
+        }
+        .feature-item strong {
+            color: var(--accent-blue);
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .project-info-box h1 { font-size: 2.5rem; }
+            .project-logo-large { max-width: 300px; }
+            .project-info-box { padding: 1.5rem !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fond interactif -->
+    <canvas id="bg-canvas"></canvas>
+
+    <header>
+        <div class="logo">
+            <img src="../images/icons/MadeByBatpolygonColoredIcon.png" alt="Logo" class="logo-image">
+            <span>Made By <strong>BATPOLYGON</strong></span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="../games.html">Jeux</a></li>
+                <li><a href="../webgames.html">Jeux Web</a></li>
+                <li><a href="../projects.html" class="active">Projets</a></li>
+                <li><a href="../about.html">À propos</a></li>
+            </ul>
+        </nav>
+    </header>    
+
+    <main>
+        <div class="container">
+            
+            <!-- HEADER PROJET CENTRÉ -->
+            <section class="project-header-centered">
+                <div class="project-logo-large">
+                    <img src="../images/projectslogo/HUELogo.png" alt="HUE Logo" onerror="this.src='../images/projectslogo/MadeByBatpolygonLogo.png'">
+                </div>
+                
+                <div class="project-info-box glass">
+                    <h1>HUE</h1>
+                    <p style="font-size: 1.25rem; line-height: 1.8; color: #e0e0e0;">
+                        <strong>HUE est un compagnon de bureau vivant</strong> conçu avec <strong>Rust, Tauri 2 et Vite</strong>. Il prend la forme d'un petit personnage animé qui vit directement sur votre écran, réagit en temps réel à l'activité de votre PC et peut discuter avec vous. Son identité et son tempérament unique sont directement inspirés des composants de la machine sur laquelle il réside !
+                    </p>
+                    
+                    <div class="project-buttons">
+                        <a href="https://github.com/Batpolygon/HUE/releases/tag/OfficialRelease" class="btn-main" target="_blank" style="margin-top: 0; background: #0078d7; color: #fff;">
+                            📥 Télécharger HUE (Windows Portable)
+                        </a>
+                        <a href="https://github.com/Batpolygon/HUE" class="btn-discord" target="_blank">
+                            🔗 Voir sur GitHub
+                        </a>
+                    </div>
+
+                    <p style="font-size: 0.85rem; color: #888; margin-top: 1.5rem; font-style: italic;">
+                        Exécutable autonome sans installateur sous Windows • Compilable depuis les sources sous Linux.
+                    </p>
+                </div>
+            </section>
+
+            <!-- GRILLE DE FONCTIONNALITÉS -->
+            <section style="margin-top: 6rem;">
+                <h2 style="text-align: center; font-size: 2.5rem;">Fonctionnalités Principales</h2>
+                <div class="features-grid">
+                    <div class="feature-item glass">
+                        <strong>🖥️ Compagnon de Bureau Vivant</strong>
+                        <p>Évolue directement au premier plan de votre écran sans cadre de fenêtre. Déplacez-le, lancez-le ou laissez-le patrouiller le long de votre barre des tâches !</p>
+                    </div>
+                    <div class="feature-item glass">
+                        <strong>⚙️ Personnalité Matérielle</strong>
+                        <p>L'identité de HUE dépend de votre configuration : CPU, RAM, GPU et stockage déterminent son profil, ses réactions et ses répliques.</p>
+                    </div>
+                    <div class="feature-item glass">
+                        <strong>🧠 Intelligence Artificielle</strong>
+                        <p>Discutez avec HUE via n'importe quelle API compatible OpenAI ou utilisez un modèle local GGUF privé grâce à l'intégration native de llama.cpp.</p>
+                    </div>
+                    <div class="feature-item glass">
+                        <strong>🗣️ Voix Synthétique "Animalese"</strong>
+                        <p>HUE s'exprime vocalement avec des bruitages rétro modulables en vitesse et en tonalité, inspirés de l'esthétique Nintendo.</p>
+                    </div>
+                    <div class="feature-item glass">
+                        <strong>🎮 Mode Discret Intelligent</strong>
+                        <p>Se cache automatiquement lorsqu'un jeu, OBS Studio ou une application en plein écran est détectée pour ne jamais gêner vos sessions.</p>
+                    </div>
+                    <div class="feature-item glass">
+                        <strong>⚡ Performance & Légèreté</strong>
+                        <p>Développé avec Tauri 2 et Rust pour une consommation mémoire minimale et une réactivité instantanée.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CHANGELOG -->
+            <section class="game-changelog">
+                <h2 style="margin-top: 6rem; text-align: left; padding-left: 1rem; border-left: 5px solid var(--accent-blue);">Changelog du projet</h2>
+                <div class="changelog-accordion">
+                    <details class="changelog-version glass" open>
+                        <summary>Version 1.0.0 [17/10/2026]</summary>
+                        <div class="changelog-content">
+                            <h3 style="color: var(--accent-blue);">Lancement Officiel</h3>
+                            <ul>
+                                <li>Déploiement du runtime natif sous <strong>Tauri 2 & Rust</strong>.</li>
+                                <li>Système de déplacement sur le bureau : patrouille, barre des tâches et interactions physiques.</li>
+                                <li>Moteur de dialogue compatible <strong>OpenAI API & GGUF Local (llama.cpp)</strong>.</li>
+                                <li>Synthèse vocale audio temps réel inspirée du format Animalese.</li>
+                                <li>Détection automatique du plein écran, des jeux et d'OBS (Mode discret).</li>
+                                <li>Option de démarrage avec la session Windows et icône en zone de notification.</li>
+                                <li>Code source ouvert et disponible sur GitHub.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+            </section>
+
+        </div>
+    </main>    
+
+    <footer class="footer-message">
+        <p>Créé par Batpolygon | <a href="../eula.html">EULA & Copyright</a></p>
+    </footer>
+
+    <!-- Appel externe au script de fond -->
+    <script src="../background.js"></script>
+
+    <script>
+        // Script accordéon
+        const allDetails = document.querySelectorAll('.changelog-version');
+        allDetails.forEach(details => {
+            details.addEventListener('toggle', () => {
+                if (details.open) {
+                    allDetails.forEach(d => {
+                        if (d !== details) d.open = false;
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
