@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../images/icons/MadeByBatpolygonFavIcon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez Commands++, l'addon Minecraft Bedrock ultime par Batpolygon. Commandes natives avancées, détection d'inputs, menus interactifs et bots IA.">
+    <meta name="keywords" content="Commands++, Minecraft Bedrock, Addon, Batpolygon, Script API, Custom Commands, Redstone, Minecraft PE, MCAddon">
+    <meta property="og:title" content="Commands++ [v1.0] - Addon Minecraft Bedrock - Made by Batpolygon">
+    <meta property="og:description" content="Ajoutez de vraies commandes slash personnalisées natives à Minecraft Bedrock : menus UI, gestionnaire d'items, bots IA, hologrammes et circuits Redstone.">
+    <meta property="og:image" content="https://batpolygon.github.io/images/projectslogo/Commands++Logo.png">
+    <meta property="og:url" content="https://batpolygon.github.io/projects/commands-plus-plus.html">
+    <link rel="canonical" href="https://batpolygon.github.io/projects/commands-plus-plus.html">
+    <title>Commands++ - Made by Batpolygon</title>
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Styles spécifiques au projet Commands++ -->
+    <style>
+        .project-header-centered {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 4rem;
+            gap: 2rem;
+        }
+        .project-logo-large {
+            width: 100%;
+            max-width: 450px;
+            display: flex;
+            justify-content: center;
+        }
+        .project-logo-large img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 0 35px rgba(234, 179, 8, 0.45));
+        }
+        .project-info-box {
+            width: 100%;
+            max-width: 950px;
+            padding: 3rem !important;
+        }
+        .project-info-box h1 {
+            font-size: 3.8rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            background: linear-gradient(90deg, #fff, #eab308);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .project-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 2.5rem;
+        }
+
+        /* Grille des points forts */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 3rem;
+            text-align: left;
+        }
+        .feature-item {
+            padding: 2rem;
+        }
+        .feature-item strong {
+            color: #eab308;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+        }
+
+        /* Intégration Vidéo Responsive */
+        .video-section {
+            margin-top: 6rem;
+            text-align: center;
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 950px;
+            margin: 2rem auto 0 auto;
+            padding-bottom: 56.25%; /* Ratio 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.7);
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Wiki / Documentation des commandes */
+        .wiki-section {
+            margin-top: 6rem;
+        }
+        .wiki-item {
+            margin-bottom: 15px;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .wiki-item summary {
+            padding: 1.25rem 1.75rem;
+            font-size: 1.35rem;
+            font-weight: 700;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid transparent;
+        }
+        .wiki-item summary::-webkit-details-marker {
+            display: none;
+        }
+        .wiki-item summary::after {
+            content: "➕";
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+        .wiki-item[open] summary::after {
+            content: "➖";
+        }
+        .wiki-item[open] summary {
+            border-bottom: 1px solid var(--glass-border);
+            color: #eab308;
+        }
+        .wiki-content {
+            padding: 1.75rem;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #d1d5db;
+        }
+        .cmd-badge {
+            background: rgba(234, 179, 8, 0.15);
+            color: #fde047;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 1.1rem;
+            border: 1px solid rgba(234, 179, 8, 0.3);
+        }
+        .cmd-syntax {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: monospace;
+            color: #a7f3d0;
+            margin: 1rem 0;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+        .wiki-details-list {
+            margin: 1rem 0 1rem 1.5rem;
+        }
+        .wiki-details-list li {
+            margin-bottom: 0.5rem;
+        }
+        .redstone-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(239, 68, 68, 0.15);
+            color: #fca5a5;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .project-info-box h1 { font-size: 2.5rem; }
+            .project-logo-large { max-width: 280px; }
+            .project-info-box { padding: 1.5rem !important; }
+            .wiki-item summary { font-size: 1.1rem; padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fond interactif -->
+    <canvas id="bg-canvas"></canvas>
+
+    <header>
+        <div class="logo">
+            <img src="../images/icons/MadeByBatpolygonColoredIcon.png" alt="Logo" class="logo-image">
+            <span>Made By <strong>BATPOLYGON</strong></span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="../games.html">Jeux</a></li>
+                <li><a href="../webgames.html">Jeux Web</a></li>
+                <li><a href="../projects.html" class="active">Projets</a></li>
+                <li><a href="../about.html">À propos</a></li>
+            </ul>
+        </nav>
+    </header>    
+
+    <main>
+        <div class="container">
+            
+            <!-- HEADER PROJET CENTRÉ -->
+            <section class="project-header-centered">
+                <div class="project-logo-large">
+                    <img src="../images/projectslogo/Commands++Logo.png" alt="Commands++ Logo" onerror="this.src='../images/projectslogo/MadeByBatpolygonLogo.png'">
+                </div>
+                
+                <div class="project-info-box glass">
+                    <h1>Commands ++</h1>
+                    <p style="font-size: 1.25rem; line-height: 1.8; color: #e0e0e0;">
+                        <strong>Commands++</strong> est un Addon révolutionnaire pour <strong>Minecraft Bedrock</strong> développé par <strong>Batpolygon</strong>. Exploitant la toute dernière version du Script API natif, il comble les plus grands manques de la version Bedrock par rapport à Java en introduisant de vraies commandes slash avec autocomplétion, des générateurs d'items sur-mesure, des menus interactifs, la détection des touches clavier et un contrôle Redstone chirurgical par comparateur !
+                    </p>
+                    
+                    <div class="project-buttons">
+                        <a href="https://www.mediafire.com/file/di7kqealp1wi9q4/Commands%252B%252B.mcaddon/file" class="btn-main" target="_blank" style="margin-top: 0; background: #eab308; color: #000; font-weight: bold;">
+                            📥 Télécharger Commands++ (.mcaddon)
+                        </a>
+                    </div>
+
+                    <p style="font-size: 0.85rem; color: #aaa; margin-top: 1.5rem; font-style: italic;">
+                        Compatible Minecraft Bedrock 1.21.50+ (Activer les Beta APIs dans les paramètres du monde).
+                    </p>
+                </div>
+            </section>
+
+            <!-- APERÇU VIDÉO PLAYLIST -->
+            <section class="video-section">
+                <h2 style="font-size: 2.4rem;">Démonstrations & Tutoriels Vidéo</h2>
+                <p style="color: #bbb; margin-top: 0.5rem;">Découvrez les fonctionnalités de Commands++ en action à travers la playlist officielle.</p>
+                <div class="video-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/videoseries?list=PLPc5lQQ6oMJo" 
+                        title="Commands++ Official Playlist" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </section>
+
+            <!-- POINTS FORTS DU PACK -->
+            <section style="margin-top: 6rem;">
+                <h2 style="text-align: center; font-size: 2.5rem;">Pourquoi Commands++ ?</h2>
+                <div class="features-grid">
+                    <div class="feature-item glass">
+                        <strong>⚡ Vraies Commandes Natives</strong>
+                        <p>Pas de faux préfixes de chat : de véritables commandes slash reconnues par Minecraft, utilisables aussi bien par les joueurs que par les blocs de commande.</p>
+                    </div>
+                    <div class="feature-item glass">
+                        <strong>⌨️ Autocomplétion Intelligente</strong>
+                        <p>Chaque argument est guidé par les listes de suggestions officielles de Minecraft : items, sélecteurs d'entités, coordonnées et presets.</p>
+                    </div>
+                    <div class="feature-item glass">
+                        <strong>🔴 Compatibilité Redstone Parfaite</strong>
+                        <p>Toutes les commandes de test renvoient un état de succès ou d'échec natif : allumez et éteignez des comparateurs selon des conditions précises.</p>
+                    </div>
+                    <div class="feature-item glass">
+                        <strong>📋 Menus UI Modulaires</strong>
+                        <p>Créez de vraies interfaces graphiques personnalisées avec boutons, icônes d'items et commandes liées, sauvegardées à vie dans votre monde.</p>
+                    </div>
+                    <div class="feature-item glass">
+                        <strong>🤖 Mimic Players (Faux Joueurs)</strong>
+                        <p>Invoquez des bots humanoïdes animés avec le modèle de Steve, capables de sauter, vous suivre, vous protéger ou patrouiller en zone.</p>
+                    </div>
+                    <div class="feature-item glass">
+                        <strong>🛡️ Sécurité & Anti-Perte</strong>
+                        <p>Gestion propre de l'inventaire : si un conteneur est plein lors d'une distribution d'objet, l'item est déposé au sol pour éviter toute disparition.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- WIKI COMPLET DES COMMANDES -->
+            <section class="wiki-section">
+                <h2 style="text-align: left; padding-left: 1rem; border-left: 5px solid #eab308; font-size: 2.4rem; margin-bottom: 2rem;">
+                    Wiki des Commandes (Documentation Officielle)
+                </h2>
+                
+                <div class="wiki-list">
+
+                    <!-- 1. /helpcommands -->
+                    <details class="wiki-item glass">
+                        <summary>
+                            <span><span class="cmd-badge">/helpcommands</span> Guide interactif intégré</span>
+                        </summary>
+                        <div class="wiki-content">
+                            <p>Affiche directement dans le chat l'index de toutes les commandes de Commands++ ou le guide complet d'un module spécifique.</p>
+                            <div class="cmd-syntax">/helpcommands [commande: Enum]</div>
+                            <ul class="wiki-details-list">
+                                <li><strong>Sans argument :</strong> Affiche l'index de toutes les commandes du pack avec leurs descriptions courtes.</li>
+                                <li><strong>Avec nom de commande :</strong> Affiche la fiche technique détaillée (syntaxe, options et exemples).</li>
+                            </ul>
+                            <p><strong>Exemples :</strong></p>
+                            <div class="cmd-syntax">/helpcommands
+/helpcommands mimicplayer
+/helpcommands playerinput</div>
+                        </div>
+                    </details>
+
+                    <!-- 2. /playerinput -->
+                    <details class="wiki-item glass">
+                        <summary>
+                            <span><span class="cmd-badge">/playerinput</span> Détection des touches & clics physiques</span>
+                            <span class="redstone-tag">Redstone ✔</span>
+                        </summary>
+                        <div class="wiki-content">
+                            <p>Capte en direct si un joueur maintient une touche enfoncée sur son clavier, sa manette ou son écran tactile (polling de bouton physique sans délai).</p>
+                            <div class="cmd-syntax">/playerinput &lt;joueur: PlayerSelector&gt; &lt;input: Enum&gt;</div>
+                            <ul class="wiki-details-list">
+                                <li><strong>jump :</strong> Capte si le bouton de saut est enfoncé (Espace, bouton A, etc.), même si le joueur ne saute pas physiquement.</li>
+                                <li><strong>sneak :</strong> Détecte si la touche d'accroupissement est maintenue.</li>
+                                <li><strong>attack :</strong> Détecte un clic gauche (frappe sur une entité ou un bloc).</li>
+                                <li><strong>interact :</strong> Détecte un clic droit (interaction bloc/entité, consommation d'un aliment, utilisation d'un arc/bouclier).</li>
+                                <li><strong>place :</strong> Détecte la pose d'un bloc.</li>
+                                <li><strong>break :</strong> Détecte la destruction d'un bloc.</li>
+                            </ul>
+                            <p><span class="redstone-tag">Redstone :</span> Dans un Command Block à répétition, le comparateur branché reste allumé tant que l'input est actif, et s'éteint dès qu'il est relâché.</p>
+                            <p><strong>Exemples :</strong></p>
+                            <div class="cmd-syntax">/playerinput @s jump
+/playerinput @p attack
+/playerinput @p interact</div>
+                        </div>
+                    </details>
+
+                    <!-- 3. /sense -->
+                    <details class="wiki-item glass">
+                        <summary>
+                            <span><span class="cmd-badge">/sense</span> Détecteur de posture, combat & dégâts</span>
+                            <span class="redstone-tag">Redstone ✔</span>
+                        </summary>
+                        <div class="wiki-content">
+                            <p>Analyse l'état physique, les actions de combat ou les blessures en cours sur n'importe quel joueur ou créature.</p>
+                            <div class="cmd-syntax">/sense &lt;cibles: EntitySelector&gt; &lt;etat: Enum&gt;</div>
+                            <ul class="wiki-details-list">
+                                <li><strong>attack :</strong> L'entité vient de donner un coup au corps-à-corps ou avec un projectile.</li>
+                                <li><strong>hurt :</strong> L'entité subit des dégâts physiques (coups, flèches, explosions, chutes).</li>
+                                <li><strong>hurt_magic :</strong> L'entité subit des dégâts magiques ou de potion (poison, wither, dégâts instantanés).</li>
+                                <li><strong>sprint / walk / idle :</strong> Détecte si la cible court, marche ou est totalement immobile.</li>
+                                <li><strong>jump / fall :</strong> Détecte si la cible s'élève dans un saut ou tombe dans le vide.</li>
+                                <li><strong>swim / in_water / on_ground / climb / glide / sleep / burning.</strong></li>
+                            </ul>
+                            <p><span class="redstone-tag">Redstone :</span> Maintient un signal comparateur de 500 ms (10 ticks) lors d'un coup ou d'une blessure, idéal pour déclencher un circuit sans perte.</p>
+                            <p><strong>Exemples :</strong></p>
+                            <div class="cmd-syntax">/sense @p hurt
+/sense @e[type=zombie] attack
+/sense @a[r=10] sneak</div>
+                        </div>
+                    </details>
+
+                    <!-- 4. /interface -->
+                    <details class="wiki-item glass">
+                        <summary>
+                            <span><span class="cmd-badge">/interface</span> Menus UI modulaires avec boutons</span>
+                        </summary>
+                        <div class="wiki-content">
+                            <p>Créez et personnalisez des interfaces graphiques pop-up natives affichant des boutons cliquables avec icônes. Toutes les interfaces sont enregistrées dans la mémoire permanente de votre monde.</p>
+                            <div class="cmd-syntax">/interface &lt;create|button|event|open|remove|list&gt; [menu_id] [arguments...]</div>
+                            <ul class="wiki-details-list">
+                                <li><strong>create :</strong> <span class="cmd-badge">/interface create &lt;id&gt; "&lt;titre&gt;"</span> (Crée le menu).</li>
+                                <li><strong>button :</strong> <span class="cmd-badge">/interface button &lt;id&gt; &lt;btn_id&gt; "&lt;texte&gt;" [icone]</span> (Ajoute un bouton).</li>
+                                <li><strong>event :</strong> <span class="cmd-badge">/interface event &lt;id&gt; &lt;btn_id&gt; "&lt;commande&gt;"</span> (Associe une action au bouton).</li>
+                                <li><strong>open :</strong> <span class="cmd-badge">/interface open &lt;id&gt; [joueur]</span> (Ouvre l'interface à l'écran).</li>
+                                <li><strong>list & remove :</strong> Pour afficher ou supprimer les interfaces existantes.</li>
+                            </ul>
+                            <p><strong>Exemple complet d'une boutique :</strong></p>
+                            <div class="cmd-syntax">/interface create shop "§6§lBOUTIQUE DU SERVEUR"
+/interface button shop btn_sword "§cÉpée Divine" textures/items/netherite_sword
+/interface event shop btn_sword "customobject @s netherite_sword 1 \"§cÉpée Divine\" \"§7Achetée au shop\" god_sword"
+/interface open shop</div>
+                        </div>
+                    </details>
+
+                    <!-- 5. /customobject -->
+                    <details class="wiki-item glass">
+                        <summary>
+                            <span><span class="cmd-badge">/customobject</span> Créateur d'items personnalisés</span>
+                        </summary>
+                        <div class="wiki-content">
+                            <p>Permet de distribuer des objets d'une complexité impossible en Bedrock vanilla : nom coloré, lore multiligne, presets d'enchantements et verrouillage d'inventaire.</p>
+                            <div class="cmd-syntax">/customobject &lt;cible: EntitySelector&gt; &lt;item: ItemType&gt; [qte] [nom] [lore] [enchants] [lock]</div>
+                            <ul class="wiki-details-list">
+                                <li><strong>item :</strong> Tous les items du jeu proposés avec l'autocomplétion native.</li>
+                                <li><strong>lore :</strong> Utilisez <code>\n</code> pour créer des descriptions sur plusieurs lignes sous l'item.</li>
+                                <li><strong>enchants :</strong> Presets instantanés (<code>god_sword</code>, <code>god_armor</code>, <code>god_tool</code>, <code>god_bow</code>) ou enchants libres (ex: <code>sharpness:5,unbreaking:3</code>).</li>
+                                <li><strong>lock :</strong>
+                                    <ul>
+                                        <li><code>keep</code> : L'item reste dans l'inventaire même si le joueur meurt (keepOnDeath).</li>
+                                        <li><code>inventory</code> : Impossible de jeter l'item ou de le placer dans un coffre.</li>
+                                        <li><code>slot</code> : Verrouille l'item sur son emplacement d'origine.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <p><strong>Exemples :</strong></p>
+                            <div class="cmd-syntax">/customobject @s diamond_sword 1 "§6§lEXCALIBUR" "§7Légendaire\n§eForgée par les dieux" god_sword keep
+/customobject @p compass 1 "§bBoussole du Spawn" "§7Clic droit pour naviguer" none inventory</div>
+                        </div>
+                    </details>
+
+                    <!-- 6. /moveitem -->
+                    <details class="wiki-item glass">
+                        <summary>
+                            <span><span class="cmd-badge">/moveitem</span> Déplacement, échange & duplication de slots</span>
+                            <span class="redstone-tag">Redstone ✔</span>
+                        </summary>
+                        <div class="wiki-content">
+                            <p>Déplace, échange ou clone des objets entre deux slots d'inventaire, que ce soit pour le joueur ou vers un conteneur tiers.</p>
+                            <div class="cmd-syntax">/moveitem &lt;source: EntitySelector&gt; &lt;slotDepart: Int&gt; &lt;slotArrivee: Int&gt; [destination] [swap|copy]</div>
+                            <ul class="wiki-details-list">
+                                <li><strong>swap (par défaut) :</strong> Échange les deux slots en toute sécurité sans risque d'écraser ou de perdre d'item.</li>
+                                <li><strong>copy :</strong> Clone l'item du slot de départ vers le slot d'arrivée en écrasant son contenu (duplication).</li>
+                                <li><strong>Repères de slots :</strong> <code>0 à 8</code> = Barre rapide (Hotbar) | <code>9 à 35</code> = Inventaire principal.</li>
+                            </ul>
+                            <p><strong>Exemples :</strong></p>
+                            <div class="cmd-syntax">/moveitem @s 0 8
+/moveitem @s 0 8 @s copy
+/moveitem @s 0 0 @e[name=Steve] swap</div>
+                        </div>
+                    </details>
+
+                    <!-- 7. /floatingtext -->
+                    <details class="wiki-item glass">
+                        <summary>
+                            <span><span class="cmd-badge">/floatingtext</span> Textes flottants & hologrammes 3D</span>
+                            <span class="redstone-tag">Redstone ✔</span>
+                        </summary>
+                        <div class="wiki-content">
+                            <p>Fait apparaître des hologrammes 3D permanents, lumineux et visibles sous tous les angles sans corps visible, sans gravité et sans collision.</p>
+                            <div class="cmd-syntax">/floatingtext &lt;create|remove|edit|list|removeall&gt; [id] [texte] [pos]</div>
+                            <ul class="wiki-details-list">
+                                <li><strong>create :</strong> <span class="cmd-badge">/floatingtext create &lt;id&gt; "&lt;texte&gt;" [pos]</span> (Supporte les couleurs <code>§</code> et les retours à la ligne <code>\n</code>).</li>
+                                <li><strong>edit :</strong> Modifie le message d'un hologramme existant en temps réel.</li>
+                                <li><strong>remove & removeall :</strong> Supprime un hologramme par son ID ou vide tous les hologrammes d'un coup.</li>
+                                <li><strong>list :</strong> Affiche la liste des hologrammes actifs avec leurs coordonnées et dimensions.</li>
+                            </ul>
+                            <p><strong>Exemples :</strong></p>
+                            <div class="cmd-syntax">/floatingtext create spawn "§e§lBIENVENUE SUR MON SERVEUR\n§7Tapez §a!help §7pour commencer"
+/floatingtext edit spawn "§cServeur en maintenance !"
+/floatingtext list</div>
+                        </div>
+                    </details>
+
+                    <!-- 8. /mimicplayer -->
+                    <details class="wiki-item glass">
+                        <summary>
+                            <span><span class="cmd-badge">/mimicplayer</span> Faux joueurs bots (IA & Animations)</span>
+                            <span class="redstone-tag">Redstone ✔</span>
+                        </summary>
+                        <div class="wiki-content">
+                            <p>Fait apparaître et contrôle un bot humanoïde Steve doté du modèle officiel de joueur, capable d'escalader les blocs (auto-step) et d'exécuter des comportements d'IA natifs.</p>
+                            <div class="cmd-syntax">/mimicplayer &lt;spawn|behaviour|stat&gt; &lt;nom&gt; [arguments...]</div>
+                            <ul class="wiki-details-list">
+                                <li><strong>spawn :</strong> <span class="cmd-badge">/mimicplayer spawn &lt;nom&gt; [x] [y] [z]</span> (Invoque le bot sur vous ou au-dessus du Command Block).</li>
+                                <li><strong>behaviour :</strong> <span class="cmd-badge">/mimicplayer behaviour &lt;nom&gt; &lt;comportement&gt; [combine: true/false]</span>
+                                    <ul>
+                                        <li>Comportements : <code>roamaround</code>, <code>follow</code>, <code>bodyguard</code>, <code>attack</code>, <code>chase</code>, <code>panic</code>, <code>lookat</code>, <code>sneak</code>, <code>stop</code>.</li>
+                                        <li>Avec <code>combine: true</code>, le bot peut cumuler le suivi et la protection (il vous suit, défend contre les monstres et reprend sa marche !).</li>
+                                    </ul>
+                                </li>
+                                <li><strong>stat :</strong> <span class="cmd-badge">/mimicplayer stat &lt;nom&gt; &lt;stat&gt; &lt;valeur&gt;</span> (Modifie sa taille <code>scale</code> de 0.1 à 10, sa vie jusqu'à 1000 PV, sa vitesse ou sa force).</li>
+                            </ul>
+                            <p><span class="redstone-tag">Redstone :</span> S'active en comparateur quand le bot exécute activement sa tâche (ex: il marche en roamaround), et s'éteint lorsqu'il attend (idle).</p>
+                            <p><strong>Exemples :</strong></p>
+                            <div class="cmd-syntax">/mimicplayer spawn Steve
+/mimicplayer behaviour Steve follow false
+/mimicplayer behaviour Steve bodyguard true
+/mimicplayer stat Steve scale 2.5</div>
+                        </div>
+                    </details>
+
+                    <!-- 9. /testforchat -->
+                    <details class="wiki-item glass">
+                        <summary>
+                            <span><span class="cmd-badge">/testforchat</span> Analyseur de chat pour circuits Redstone</span>
+                            <span class="redstone-tag">Redstone ✔</span>
+                        </summary>
+                        <div class="wiki-content">
+                            <p>Recherche un mot ou une phrase précise dans le chat pour activer instantanément des mécanismes Redstone.</p>
+                            <div class="cmd-syntax">/testforchat &lt;mot: String&gt; &lt;contains: Boolean&gt; [latestOnly: Boolean]</div>
+                            <ul class="wiki-details-list">
+                                <li><strong>contains :</strong> <code>true</code> (cherche si le mot est présent dans une phrase) ou <code>false</code> (recherche le mot/phrase exact).</li>
+                                <li><strong>latestOnly :</strong> Si mis à <code>true</code>, n'analyse que le tout dernier message envoyé. Dès qu'un autre message arrive dans le chat, le comparateur s'éteint immédiatement.</li>
+                            </ul>
+                            <p><strong>Exemples :</strong></p>
+                            <div class="cmd-syntax">/testforchat "open sesame" false true
+/testforchat diamant true false</div>
+                        </div>
+                    </details>
+
+                    <!-- 10. /attribute -->
+                    <details class="wiki-item glass">
+                        <summary>
+                            <span><span class="cmd-badge">/attribute</span> Gestionnaire universel d'attributs</span>
+                        </summary>
+                        <div class="wiki-content">
+                            <p>Modifie ou consulte en temps réel les propriétés physiques et les modificateurs de n'importe quelle créature ou joueur.</p>
+                            <div class="cmd-syntax">/attribute &lt;cibles: EntitySelector&gt; &lt;attribut: Enum&gt; [valeur]</div>
+                            <ul class="wiki-details-list">
+                                <li><strong>Attributs disponibles :</strong> <code>health</code>, <code>speed</code>, <code>damage</code>, <code>resistance</code>, <code>regeneration</code>, <code>absorption</code>, <code>jump_boost</code>, <code>invisibility</code>, <code>fire_immunity</code>, <code>water_breathing</code>, <code>freeze</code>, <code>levitation</code>, <code>fire</code>, <code>name</code>, <code>clear</code>.</li>
+                                <li><strong>Mode Consultation :</strong> Laissez la valeur vide pour afficher l'état actuel de l'attribut dans le chat.</li>
+                            </ul>
+                            <p><strong>Exemples :</strong></p>
+                            <div class="cmd-syntax">/attribute @p health 50
+/attribute @e[type=zombie] speed 2
+/attribute @s invisibility true
+/attribute @e[type=sheep] jump_boost 4
+/attribute @s clear</div>
+                        </div>
+                    </details>
+
+                </div>
+            </section>
+
+            <!-- CHANGELOG -->
+            <section class="game-changelog">
+                <h2 style="margin-top: 6rem; text-align: left; padding-left: 1rem; border-left: 5px solid #eab308; font-size: 2.2rem;">Historique des Mises à Jour</h2>
+                <div class="changelog-accordion">
+                    <details class="changelog-version glass" open>
+                        <summary>Version 1.0.0 [30/10/2026]</summary>
+                        <div class="changelog-content">
+                            <h3 style="color: #eab308;">Lancement Officiel de Commands++</h3>
+                            <p style="color: #bbb; margin-bottom: 1rem;">Par <strong>Batpolygon</strong> — Déploiement initial complet sous Script API 2.11.0-beta.</p>
+                            <ul>
+                                <li>Ajout du système de <strong>vrais Custom Commands natifs</strong> avec autocomplétion C++ complète.</li>
+                                <li>Module <strong>/helpcommands</strong> : système d'aide et documentation intégrés.</li>
+                                <li>Module <strong>/playerinput</strong> : détection instantanée de l'appui physique sur les touches et clics (jump, sneak, attack, interact, place, break).</li>
+                                <li>Module <strong>/sense</strong> : détection d'états physiques, de postures et écoute des combats en temps réel avec impulsion Redstone de 500 ms.</li>
+                                <li>Module <strong>/interface</strong> : création et stockage persistant de formulaires avec boutons personnalisés via <code>@minecraft/server-ui</code>.</li>
+                                <li>Module <strong>/customobject</strong> : distribution d'items complexes avec lore multiligne <code>\n</code>, presets d'enchantements et verrouillage (keep, inventory, slot).</li>
+                                <li>Module <strong>/moveitem</strong> : déplacement sécurisé de conteneurs avec modes <code>swap</code> (sans perte) et <code>copy</code> (écrasement).</li>
+                                <li>Module <strong>/floatingtext</strong> : hologrammes 3D persistants basés sur une géométrie pure sans corps ni hitbox.</li>
+                                <li>Module <strong>/mimicplayer</strong> : faux joueurs Steve avec IA natrice, franchissement fluide de blocs (auto-step) et superposition de comportements.</li>
+                                <li>Module <strong>/testforchat</strong> : analyseur de chat rétroactif ou instantané pour automatisation Redstone.</li>
+                                <li>Module <strong>/attribute</strong> : gestionnaire universel de statistiques et d'effets pour toutes les entités du monde.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+            </section>
+
+        </div>
+    </main>    
+
+    <footer class="footer-message">
+        <p>Créé par Batpolygon | <a href="../eula.html">EULA & Copyright</a></p>
+    </footer>
+
+    <!-- Script de fond interactif -->
+    <script src="../background.js"></script>
+
+    <script>
+        // Gestion des accordéons
+        const allDetails = document.querySelectorAll('.changelog-version, .wiki-item');
+        allDetails.forEach(details => {
+            details.addEventListener('toggle', () => {
+                if (details.open && details.classList.contains('changelog-version')) {
+                    allDetails.forEach(d => {
+                        if (d !== details && d.classList.contains('changelog-version')) d.open = false;
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
