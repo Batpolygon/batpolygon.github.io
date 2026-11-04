@@ -4,143 +4,157 @@
     <!-- ==================== PAGES PRINCIPALES ==================== -->
     <url>
         <loc>https://batpolygon.github.io/</loc>
-        <lastmod>2026-03-30</lastmod>
+        <lastmod>2026-11-04</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>https://batpolygon.github.io/games.html</loc>
-        <lastmod>2026-03-30</lastmod>
+        <lastmod>2026-11-04</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://batpolygon.github.io/aigames.html</loc>
+        <lastmod>2026-11-04</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://batpolygon.github.io/webgames.html</loc>
-        <lastmod>2026-03-30</lastmod>
+        <lastmod>2026-11-04</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://batpolygon.github.io/projects.html</loc>
-        <lastmod>2026-03-30</lastmod>
+        <lastmod>2026-11-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://batpolygon.github.io/about.html</loc>
-        <lastmod>2026-03-30</lastmod>
+        <lastmod>2026-11-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
-    <!-- ==================== PAGES DE JEUX ==================== -->
+    <!-- ==================== JEUX IA (AIGAMES) ==================== -->
+    <url>
+        <loc>https://batpolygon.github.io/AIgames/shinobi_legends.html</loc>
+        <lastmod>2026-11-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- ==================== JEUX CLASSIQUES ==================== -->
     <url>
         <loc>https://batpolygon.github.io/games/plushntoy.html</loc>
-        <lastmod>2026-03-30</lastmod>
+        <lastmod>2026-11-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://batpolygon.github.io/games/cardygon.html</loc>
-        <lastmod>2026-03-30</lastmod>
+        <lastmod>2026-11-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://batpolygon.github.io/games/polyhedron.html</loc>
-        <lastmod>2026-03-30</lastmod>
+        <lastmod>2026-11-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://batpolygon.github.io/games/woojyland.html</loc>
-        <lastmod>2026-03-30</lastmod>
+        <lastmod>2026-11-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://batpolygon.github.io/games/all4break.html</loc>
-        <lastmod>2026-03-30</lastmod>
+        <lastmod>2026-11-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://batpolygon.github.io/games/chillmountain.html</loc>
-        <lastmod>2026-03-30</lastmod>
+        <lastmod>2026-11-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://batpolygon.github.io/games/celestial_deus.html</loc>
-        <lastmod>2026-03-30</lastmod>
+        <lastmod>2026-11-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://batpolygon.github.io/games/cloud_trials.html</loc>
-        <lastmod>2026-03-30</lastmod>
+        <lastmod>2026-11-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://batpolygon.github.io/games/hellheaven.html</loc>
-        <lastmod>2026-03-30</lastmod>
+        <lastmod>2026-11-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://batpolygon.github.io/games/tout_milieu.html</loc>
-        <lastmod>2026-03-30</lastmod>
+        <lastmod>2026-11-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://batpolygon.github.io/games/polygons.html</loc>
-        <lastmod>2026-03-30</lastmod>
+        <lastmod>2026-11-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://batpolygon.github.io/games/platroomer.html</loc>
-        <lastmod>2026-03-30</lastmod>
+        <lastmod>2026-11-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://batpolygon.github.io/games/batpolygon_head_rush.html</loc>
-        <lastmod>2026-03-30</lastmod>
+        <lastmod>2026-11-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://batpolygon.github.io/games/batpolygon_home.html</loc>
-        <lastmod>2026-03-30</lastmod>
+        <lastmod>2026-11-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
-    <!-- ==================== PAGES DE PROJETS ==================== -->
+    <!-- ==================== PROJETS ==================== -->
     <url>
         <loc>https://batpolygon.github.io/projects/hue.html</loc>
-        <lastmod>2026-10-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://batpolygon.github.io/projects/plushntoy.html</loc>
-        <lastmod>2026-03-30</lastmod>
+        <lastmod>2026-11-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://batpolygon.github.io/projects/ender.html</loc>
-        <lastmod>2026-03-30</lastmod>
+        <lastmod>2026-11-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://batpolygon.github.io/projects/batlauncher.html</loc>
-        <lastmod>2026-03-30</lastmod>
+        <lastmod>2026-11-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://batpolygon.github.io/projects/plushntoy.html</loc>
+        <lastmod>2026-11-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -148,13 +162,13 @@
     <!-- ==================== PAGES ANNEXES ==================== -->
     <url>
         <loc>https://batpolygon.github.io/report_bug.html</loc>
-        <lastmod>2026-03-30</lastmod>
+        <lastmod>2026-11-04</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.4</priority>
     </url>
     <url>
         <loc>https://batpolygon.github.io/eula.html</loc>
-        <lastmod>2026-03-30</lastmod>
+        <lastmod>2026-11-04</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>

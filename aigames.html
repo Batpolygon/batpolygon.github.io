@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="images/icons/MadeByBatpolygonFavIcon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez les jeux développés avec et autour de l'intelligence artificielle par Batpolygon.">
+    <title>Jeux IA - Made By Batpolygon</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Fond interactif -->
+    <canvas id="bg-canvas"></canvas>
+
+    <header>
+        <div class="logo">
+            <img src="images/icons/MadeByBatpolygonColoredIcon.png" alt="Logo" class="logo-image">
+            <span>Made By <strong>BATPOLYGON</strong></span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="games.html">Jeux</a></li>
+                <li><a href="aigames.html" class="active">Jeux IA</a></li>
+                <li><a href="webgames.html">Jeux Web</a></li>
+                <li><a href="projects.html">Projets</a></li>
+                <li><a href="about.html">À propos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="games container">
+            <h2 class="page-title">Jeux IA :</h2>
+            <div class="welcome glass" style="margin-bottom: 3rem; text-align: center;">
+                <p>
+                    Bienvenue dans la section <strong>Jeux IA</strong> ! Retrouvez ici des créations expérimentales et ambitieuses, conçues en synergie avec des modèles de pointe d'IA.
+                </p>
+            </div>
+
+            <div class="games-grid">
+
+                <!-- SHINOBI LEGENDS -->
+                <a href="AIgames/shinobi_legends.html" class="game-card-link">
+                    <div class="game-card glass">
+                        <div class="new-banner">NOUVEAU !</div>
+                        <img src="images/aigameslogo/ShinobiLegendsIcon.png" alt="Shinobi Legends" onerror="this.src='images/gamescover/DefaultCover.jpg'">
+                        <div class="game-title">Shinobi Legends
+                            <img src="images/icons/WindowsIcon.png" alt="Win" class="platform-icon">
+                            <img src="images/icons/AndroidIcon.png" alt="And" class="platform-icon">
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-message">
+        <p>Créé par Batpolygon | <a href="eula.html">EULA & Copyright</a></p>
+    </footer>
+
+    <script src="background.js"></script>
+</body>
+</html>

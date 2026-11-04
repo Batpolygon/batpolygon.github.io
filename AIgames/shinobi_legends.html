@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../images/icons/MadeByBatpolygonFavIcon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez Shinobi Legends : jeu de combat 1v1 portrait anime cel-shading avec rollback netcode P2P et 30 shinobis uniques. Vibe codé avec Claude Opus 5.5.">
+    <meta name="keywords" content="Shinobi Legends, Batpolygon, Jeu de combat, Rollback Netcode, GGRS, Bevy, Cel-shading, Gacha, Claude Opus, jeu mobile, jeu pc">
+    <meta property="og:title" content="Shinobi Legends - Made by Batpolygon">
+    <meta property="og:description" content="Jeu de combat 1v1 portrait en anime cel-shading avec rollback netcode P2P, 30 shinobis et bêtes d'invocation.">
+    <meta property="og:image" content="https://batpolygon.github.io/images/aigameslogo/ShinobiLegendsIcon.png">
+    <meta property="og:url" content="https://batpolygon.github.io/AIgames/shinobi_legends.html">
+    <link rel="canonical" href="https://batpolygon.github.io/AIgames/shinobi_legends.html">
+    <title>Shinobi Legends - Made by Batpolygon</title>
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Styles spécifiques pour la mise en page détaillée -->
+    <style>
+        .game-top-layout {
+            display: flex;
+            gap: 2.5rem;
+            align-items: flex-start; /* Empêche l'étirement de la jaquette */
+            margin-bottom: 3rem;
+        }
+        .game-cover-left {
+            flex: 0 0 350px;
+        }
+        .game-cover-left img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--box-border-radius);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            border: 1px solid var(--glass-border);
+        }
+        .game-info-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 2.5rem !important;
+        }
+        .title-area {
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .title-area h1 { margin: 0; font-size: 3.5rem; text-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+        
+        .section-media { margin-bottom: 3rem; }
+        .section-media h2 { margin-bottom: 1.5rem; }
+
+        .download-buttons-container { display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 2rem; }
+        .game-actions-bottom { border-top: 1px solid var(--glass-border); padding-top: 1.5rem; margin-top: 1.5rem; }
+        .game-actions-bottom .note { font-size: 0.95rem; color: #aaa; margin-bottom: 15px; font-style: italic; }
+        .game-actions-buttons { display: flex; flex-wrap: wrap; gap: 12px; }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 2rem;
+            margin-bottom: 3rem;
+        }
+        .feature-box {
+            padding: 1.5rem;
+        }
+        .feature-box strong {
+            color: var(--accent-blue);
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+
+        .badge-ai {
+            display: inline-block;
+            background: linear-gradient(90deg, #ff007f, #7928ca);
+            color: #fff;
+            padding: 4px 14px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            box-shadow: 0 0 15px rgba(121, 40, 202, 0.5);
+        }
+
+        @media (max-width: 950px) {
+            .game-top-layout { flex-direction: column; align-items: center; }
+            .game-cover-left { width: 100%; max-width: 350px; }
+            .game-info-right { padding: 1.5rem !important; width: 100%; }
+            .title-area h1 { font-size: 2.5rem; text-align: center; }
+            .download-buttons-container, .game-actions-buttons { justify-content: center; }
+            .platform-tags, .game-description { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fond interactif -->
+    <canvas id="bg-canvas"></canvas>
+
+    <header>
+        <div class="logo">
+            <img src="../images/icons/MadeByBatpolygonColoredIcon.png" alt="Logo" class="logo-image">
+            <span>Made By <strong>BATPOLYGON</strong></span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="../games.html">Jeux</a></li>
+                <li><a href="../aigames.html" class="active">Jeux IA</a></li>
+                <li><a href="../webgames.html">Jeux Web</a></li>
+                <li><a href="../projects.html">Projets</a></li>
+                <li><a href="../about.html">À propos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            
+            <!-- SECTION HAUTE : INFOS JEU -->
+            <section class="game-top-layout">
+                <div class="game-cover-left">
+                    <img src="../images/aigameslogo/ShinobiLegendsIcon.png" alt="Shinobi Legends Cover" onerror="this.src='../images/gamescover/DefaultCover.jpg'">
+                </div>
+                
+                <div class="game-info-right glass">
+                    <div class="title-area">
+                        <span class="badge-ai">🤖 VIBE CODED WITH CLAUDE OPUS 5.5</span>
+                        <h1>Shinobi Legends</h1>
+                    </div>
+                    
+                    <!-- Plateformes : Windows & Android uniquement -->
+                    <p class="platform-tags" style="font-weight: bold; font-size: 1.3rem; margin-top: 0;">
+                        <span style="color: #0088ff;">Windows</span> | <span style="color: #59ff00;">Android</span>
+                    </p>
+                    
+                    <p class="game-description" style="font-size: 1.1rem; line-height: 1.6; color: #e0e0e0; margin-bottom: 1rem;">
+                        <strong>Shinobi Legends</strong> est un jeu de combat 1 contre 1 en <strong>portrait 9:16</strong> au style <strong>anime cel-shading</strong> (toon shading + contours Inverted Hull).<br><br>
+                        Plongez au cœur de l'archipel des Cinq Vallées et du village caché de Kazeyama ! Le jeu intègre un <strong>rollback netcode P2P</strong> ultra-réactif (GGRS + WebRTC) pour des duels sans latence, un système de cartes techniques, des esquives <strong>Kawarimi</strong>, des <strong>Chain Rush</strong> dévastateurs et un système d'invocation scénarisé avec bêtes mythiques.
+                    </p>
+
+                    <!-- BOUTONS DE TÉLÉCHARGEMENT DIRECTS -->
+                    <div class="download-buttons-container">
+                        <a href="https://www.mediafire.com/file/53lxsfzqqgjsih8/ShinobiLegends-Windows.zip/file" class="btn-download" target="_blank">
+                            Télécharger <img src="../images/icons/WindowsIcon.png" alt="Win" style="width: 20px; margin-left: 8px;">
+                        </a>
+                        <a href="https://www.mediafire.com/file/5pg6wn2oeksl51b/ShinobiLegends.apk/file" class="btn-download" target="_blank">
+                            Télécharger <img src="../images/icons/AndroidIcon.png" alt="And" style="width: 20px; margin-left: 8px;">
+                        </a>
+                    </div>
+
+                    <div class="game-actions-bottom">
+                        <p class="note">*Si vous trouvez un ou plusieurs bugs, n'hésitez pas à me les faire remonter sur mon Discord.</p>
+                        <div class="game-actions-buttons">
+                            <a href="https://discord.gg/fTwdczkQ39" class="btn-discord" target="_blank">Discord</a>
+                            <a href="../report_bug.html" class="btn-report-bug">Signaler un bug</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION MEDIA : DEVLOG -->
+            <section class="section-media">
+                <h2>Devlog & Création avec Claude :</h2>
+                <div class="slider-container glass" style="padding: 1.5rem; background: rgba(0,0,0,0.3);">
+                    <div class="slider-track">
+                        <div class="slide">
+                            <!-- Remplace ID_YOUTUBE par l'identifiant de ta vidéo YouTube une fois en ligne -->
+                            <iframe style="width:100%; aspect-ratio: 16/9; border-radius:10px;" src="https://www.youtube.com/embed/svBpzqapoqw" title="Devlog Shinobi Legends - Vibe codé avec Claude Opus 5.5" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- POINTS CLÉS DU JEU -->
+            <section>
+                <h2>Mécaniques & Spécificités</h2>
+                <div class="features-grid">
+                    <div class="feature-box glass">
+                        <strong>⚡ Rollback Netcode P2P</strong>
+                        <p>Simulation déterministe en virgule fixe (GGRS + Matchbox WebRTC). Zéro input lag ressenti en duel en ligne.</p>
+                    </div>
+                    <div class="feature-box glass">
+                        <strong>🔥 30 Shinobis & 5 Éléments</strong>
+                        <p>Roster complet avec affinités (Eau > Feu > Vent > Foudre > Terre) et raretés (Recrue, Vétéran, Élite, Légende).</p>
+                    </div>
+                    <div class="feature-box glass">
+                        <strong>✨ Éveil & Transformations</strong>
+                        <p>Ailes de feu, Démon Primordial, Lotus géant... Transformez votre deck et sublimez votre puissance en combat.</p>
+                    </div>
+                    <div class="feature-box glass">
+                        <strong>🦊 Invocations & Bêtes Mythiques</strong>
+                        <p>Cinématiques d'indices honnêtes : Tortue de Basalte, Aigle-Tonnerre, et le légendaire Renard de Braise à deux queues.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CHANGELOG -->
+            <section class="game-changelog">
+                <h2>Changelog :</h2>
+                <div class="changelog-accordion">
+                    <details class="changelog-version glass" open>
+                        <summary>Version 1.1 [Lancement]</summary>
+                        <div class="changelog-content">
+                            <h3 style="color: var(--accent-blue);">Nouveautés & Fonctionnalités</h3>
+                            <ul>
+                                <li>Roster de <strong>30 shinobis originaux</strong> entièrement modélisés et animés.</li>
+                                <li>Moteur de simulation pure 16.16 déterministe avec support GGRS SyncTest.</li>
+                                <li>Système d'éveil : 19 transformations, barrières, soins, déferlantes et sceaux.</li>
+                                <li>Rollback netcode multijoueur P2P via WebRTC / Matchbox.</li>
+                                <li>Sauvegarde atomique locale et système de tirage Gacha équitable.</li>
+                                <li>Optimisation du format portrait 9:16 pour PC (Windows) et Android.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+            </section>
+
+        </div>
+    </main>
+    
+    <footer class="footer-message">
+        <p>Créé par Batpolygon | <a href="../eula.html">EULA & Copyright</a></p>
+    </footer>
+
+    <!-- Script de fond externe -->
+    <script src="../background.js"></script>
+</body>
+</html>
