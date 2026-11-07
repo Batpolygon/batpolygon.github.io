@@ -41,6 +41,18 @@
 
     <!-- ==================== JEUX IA (AIGAMES) ==================== -->
     <url>
+        <loc>https://batpolygon.github.io/AIgames/project_j0e.html</loc>
+        <lastmod>2026-11-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://batpolygon.github.io/AIgames/dragon_orbs.html</loc>
+        <lastmod>2026-11-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://batpolygon.github.io/AIgames/shinobi_legends.html</loc>
         <lastmod>2026-11-04</lastmod>
         <changefreq>monthly</changefreq>
