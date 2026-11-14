@@ -41,6 +41,12 @@
 
     <!-- ==================== JEUX IA (AIGAMES) ==================== -->
     <url>
+        <loc>https://batpolygon.github.io/AIgames/polyhedron_studio.html</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://batpolygon.github.io/AIgames/batpolygon_west.html</loc>
         <lastmod>2026-11-12</lastmod>
         <changefreq>monthly</changefreq>
