@@ -5,9 +5,9 @@
     <link rel="icon" type="image/png" href="../images/icons/MadeByBatpolygonFavIcon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Découvrez PlushNToy : un jeu d'aventure, de survie et d'exploration en monde ouvert. Construisez votre base et stoppez la propagation de la pâte à modeler !">
-    <meta name="keywords" content="PlushNToy, Batpolygon, survival, open world, aventure, exploration, jeu pc, linux, made by batpolygon">
-    <meta property="og:title" content="PlushNToy (Le Jeu) - Made by Batpolygon">
-    <meta property="og:description" content="Incarnez le jouet de vos rêves, explorez un monde ouvert captivant et stoppez l'invasion de la pâte à modeler !">
+    <meta name="keywords" content="PlushNToy, Batpolygon, survival, open world, aventure, exploration, jeu pc, linux, made by batpolygon, Gameverse Update">
+    <meta property="og:title" content="PlushNToy - Gameverse Update - Made by Batpolygon">
+    <meta property="og:description" content="Incarnez le jouet de vos rêves, explorez des mondes procéduraux infinis et stoppez l'invasion de la pâte à modeler !">
     <meta property="og:image" content="https://batpolygon.github.io/images/gamescover/PlushNToyGameCover.jpg">
     <meta property="og:url" content="https://batpolygon.github.io/games/plushntoy.html">
     <link rel="canonical" href="https://batpolygon.github.io/games/plushntoy.html">
@@ -38,13 +38,32 @@
             flex-direction: column;
             padding: 2.5rem !important;
         }
-        .title-area {
+        .title-version-selector {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             border-bottom: 1px solid var(--glass-border);
             padding-bottom: 1.5rem;
             margin-bottom: 1.5rem;
         }
-        .title-area h1 { margin: 0; font-size: 3.5rem; text-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+        .title-version-selector h1 { margin: 0; font-size: 3.5rem; text-shadow: 0 4px 10px rgba(0,0,0,0.5); }
         
+        #version-selector {
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            border: 1px solid var(--glass-border);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-family: 'KidZone', sans-serif;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #version-selector:hover {
+            border-color: var(--accent-blue);
+            background: rgba(0, 0, 0, 0.85);
+        }
+
         .section-media { margin-bottom: 3rem; }
         .section-media h2 { margin-bottom: 1.5rem; }
         
@@ -57,7 +76,8 @@
             .game-top-layout { flex-direction: column; align-items: center; }
             .game-cover-left { width: 100%; max-width: 350px; }
             .game-info-right { padding: 1.5rem !important; width: 100%; }
-            .title-area h1 { font-size: 2.5rem; text-align: center; }
+            .title-version-selector { flex-direction: column; gap: 15px; text-align: center; }
+            .title-version-selector h1 { font-size: 2.5rem; }
             .download-buttons-container, .game-actions-buttons { justify-content: center; }
             .platform-tags, .game-description { text-align: center; }
         }
@@ -76,7 +96,7 @@
         <nav>
             <ul>
                 <li><a href="../index.html">Accueil</a></li>
-                <li><a href="../games.html" class="active">Jeux</a></li>
+                <li><a href="../games.html" class="active">Jeux Unreal Engine</a></li>
                 <li><a href="../aigames.html">Jeux IA</a></li>
                 <li><a href="../webgames.html">Jeux Web</a></li>
                 <li><a href="../projects.html">Projets</a></li>
@@ -95,29 +115,20 @@
                 </div>
                 
                 <div class="game-info-right glass">
-                    <div class="title-area">
+                    <div class="title-version-selector">
                         <h1>PlushNToy</h1>
+                        <select id="version-selector">
+                            <option value="gameverse" selected>Gameverse Update</option>
+                            <option value="1.0">Version 1.0 (Base)</option>
+                        </select>
                     </div>
                     
-                    <p class="platform-tags" style="font-weight: bold; font-size: 1.3rem; margin-top: 0;">
-                        <span style="color: #0088ff;">Windows</span> | <span style="color: #ffe600;">Linux</span>
-                    </p>
+                    <p id="platform-tags" class="platform-tags" style="font-weight: bold; font-size: 1.3rem; margin-top: 0;"></p>
                     
-                    <p class="game-description" style="font-size: 1.1rem; line-height: 1.6; color: #e0e0e0; margin-bottom: 1rem;">
-                        Plongez au cœur de l'univers de <strong>PlushNToy</strong> avec ce jeu de survie, d'exploration et d'aventure en monde ouvert !<br><br>
-                        Incarnez le jouet de vos rêves, récoltez de précieuses ressources d'<strong>Imagination</strong> et bâtissez votre propre camp de base dans un open world coloré mais périlleux. Mais attention, le temps presse : une matière corrompue menace d'engloutir cet univers. Votre mission est cruciale : <strong>stopper la propagation de la pâte à modeler</strong> avant qu'elle n'envahisse tout le monde !<br><br>
-                        Explorez chaque recoin, fortifiez vos installations et affrontez le mystérieux jouet à l'origine du désastre. Bonne chance !
-                    </p>
+                    <p id="game-description" class="game-description" style="font-size: 1.1rem; line-height: 1.6; color: #e0e0e0; margin-bottom: 1.5rem;"></p>
 
-                    <!-- Boutons de téléchargement -->
-                    <div class="download-buttons-container">
-                        <a href="https://www.mediafire.com/file/ttoqpxy4akt6jis/PlushNToy_Installer.exe/file" class="btn-download" target="_blank">
-                            Télécharger <img src="../images/icons/WindowsIcon.png" alt="Win" style="width: 20px; margin-left: 8px;">
-                        </a>
-                        <a href="https://www.mediafire.com/file/h8zl1sza13w5iw2/PlushNToy_Linux.tar.gz/file" class="btn-download" target="_blank">
-                            Télécharger <img src="../images/icons/LinuxIcon.png" alt="Lin" style="width: 20px; margin-left: 8px;">
-                        </a>
-                    </div>
+                    <!-- Boutons de téléchargement injectés dynamiquement -->
+                    <div class="download-buttons-container" id="download-buttons-container"></div>
 
                     <div class="game-actions-bottom">
                         <p class="note">*Si vous trouvez un ou plusieurs bugs, n'hésitez pas à me les faire remonter sur mon Discord.</p>
@@ -130,23 +141,64 @@
                 </div>
             </section>
 
-            <!-- SECTION MEDIA : TRAILER -->
-            <section class="section-media">
-                <h2>Trailer :</h2>
-                <div class="slider-container glass" style="padding: 1.5rem; background: rgba(0,0,0,0.3);">
-                    <div class="slider-track">
-                        <div class="slide">
-                            <iframe style="width:100%; aspect-ratio: 16/9; border-radius:10px;" src="https://www.youtube.com/embed/r5g1FYJR1rA" title="Trailer de PlushNToy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                    </div>
+            <!-- SECTION MEDIA : VIDÉOS / TRAILERS -->
+            <section id="trailers-section" class="section-media">
+                <h2 id="media-title">Vidéos de la version :</h2>
+                <div class="slider-container glass" id="trailers-container" style="padding: 1.5rem; background: rgba(0,0,0,0.3);">
+                    <!-- Injecté dynamiquement par le JS -->
                 </div>
             </section>
 
-            <!-- CHANGELOG -->
+            <!-- CHANGELOG DYNAMIQUE (UNIQUEMENT LA VERSION SÉLECTIONNÉE) -->
             <section class="game-changelog">
                 <h2>Changelog :</h2>
                 <div class="changelog-accordion">
-                    <details class="changelog-version glass" open>
+                    
+                    <!-- GAMEVERSE UPDATE -->
+                    <details class="changelog-version glass" data-version="gameverse" open>
+                        <summary>Gameverse Update [Mise à jour majeure]</summary>
+                        <div class="changelog-content">
+                            <h3 style="color: var(--accent-blue);">🌌 Génération de Monde Procédurale (Réf. No Man's Sky)</h3>
+                            <ul>
+                                <li>Génération procédurale de mondes énigmes avec puzzles environnementaux.</li>
+                                <li>Répartition aléatoire des gisements et ressources d'Imagination.</li>
+                                <li>Faune et créatures générées avec attributs aléatoires.</li>
+                                <li>Missions de ravitaillement et de collecte attribuées par les PNJ explorateurs.</li>
+                            </ul>
+
+                            <h3 style="color: #22c55e;">⛏️ Nouveaux Objets & Machines (Réf. Minecraft)</h3>
+                            <ul>
+                                <li>Équipements cultes ajoutés : <strong>Épée en diamant</strong>, <strong>Pioche en diamant</strong> et <strong>Pomme en or</strong>.</li>
+                                <li><strong>Machine Raffineur :</strong> Permet de combiner et transmuter différentes ressources pour créer des matériaux rares.</li>
+                                <li><strong>Machine Infuseur :</strong> Système d'enchantement pour armes avec 4 runes :
+                                    <ul>
+                                        <li><strong>Sharpness :</strong> Augmente considérablement les dégâts infligés.</li>
+                                        <li><strong>Knockback :</strong> Repousse violemment les ennemis à l'impact.</li>
+                                        <li><strong>Flame :</strong> Enflamme les cibles touchées.</li>
+                                        <li><strong>Vampirism :</strong> Restaure +1 PV au joueur à chaque coup réussi.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <h3 style="color: #f59e0b;">🐉 Zone des Nuages, Haricot Magique & Montures (Réf. Dragon Ball)</h3>
+                            <ul>
+                                <li>Nouveaux artefacts martiaux : <strong>Bracelet de combat</strong>, <strong>Bracelet magique</strong>, <strong>Bâton de combat</strong> et <strong>Haricot magique</strong>.</li>
+                                <li><strong>Ascension Céleste :</strong> Pour atteindre la Zone des Nuages, vous devez planter le Haricot Magique dans la terre pour faire jaillir une liane colossale montant jusqu'à la stratosphère, puis la grimper !</li>
+                                <li><strong>Nuages Magiques Chevauchables :</strong> Dans cette région aérienne, des nuages magiques vivants apparaissent comme de véritables créatures : vous pouvez les chevaucher et voler librement dans les airs !</li>
+                                <li>Nouveau marchand céleste exclusif au sommet des cieux.</li>
+                                <li>Quête légendaire des <strong>7 Billes Mystiques</strong> : débloque la brique imaginaire <em>Recherche Guidée</em> agissant comme un radar directionnel d'objets.</li>
+                            </ul>
+
+                            <h3 style="color: #a855f7;">🗺️ Confort & Qualité de Vie (QoL)</h3>
+                            <ul>
+                                <li><strong>Aimantation des ressources :</strong> Les jetons d'Imagination gravitent et volent automatiquement vers le joueur à proximité.</li>
+                                <li><strong>Carte du monde :</strong> Ajout d'une carte interactive (Map) avec téléportation instantanée (Fast Travel) vers vos différentes bases.</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <!-- VERSION 1.0 (BASE) -->
+                    <details class="changelog-version glass" data-version="1.0" style="display: none;">
                         <summary>Version 1.0 [14/10/2026]</summary>
                         <div class="changelog-content">
                             <h3 style="color: var(--accent-blue);">Fonctionnalités Initiales</h3>
@@ -158,6 +210,7 @@
                             </ul>
                         </div>
                     </details>
+
                 </div>
             </section>
 
@@ -167,6 +220,127 @@
     <footer class="footer-message">
         <p>Créé par Batpolygon | <a href="../eula.html">EULA & Copyright</a></p>
     </footer>
+
+    <!-- SCRIPT DE GESTION DES VERSIONS & SLIDERS -->
+    <script>
+        const versionData = {
+            "gameverse": {
+                platforms: `<span style="color: #0088ff;">Windows</span> | <span style="color: #ffe600;">Linux</span>`,
+                description: `Plongez dans la <strong>Gameverse Update</strong> de PlushNToy ! Cette extension colossale enrichit l'aventure de mécaniques d'exploration procédurale inspirées de <em>No Man's Sky</em> (mondes puzzles, faune et ressources aléatoires, missions de PNJ) et d'un système complet d'artisanat et d'enchantements inspiré de <em>Minecraft</em> avec le Raffineur et l'Infuseur (Sharpness, Knockback, Flame, Vampirism).<br><br>Embarquez également dans un hommage vibrant à <em>Dragon Ball</em> : plantez le <strong>Haricot Magique</strong> pour faire pousser une tige titanesque vers le ciel, grimpez-la pour accéder à la toute nouvelle <strong>Zone des Nuages</strong>, et chevauchez de véritables <strong>nuages magiques vivants</strong> pour voler en toute liberté ! Partez à la recherche des 7 billes mystiques, profitez de l'aimantation des jetons et téléportez-vous instantanément d'une base à l'autre grâce à la nouvelle carte interactive.`,
+                downloads: [
+                    { name: "Télécharger", icon: "WindowsIcon.png", link: "https://www.mediafire.com/file/i5cqteng3f3q5e8/PlushNToyGameverseUpdate_Installer.exe/file" },
+                    { name: "Télécharger", icon: "LinuxIcon.png", link: "https://www.mediafire.com/file/w3ugdr3wkgj0qv9/PlushNToyGameverseUpdate_Linux.tar.gz/file" }
+                ],
+                trailers: [
+                    { src: "https://www.youtube.com/embed/biIcAjh4mec", title: "Gameverse Update - Showcase Part 3" },
+                    { src: "https://www.youtube.com/embed/k0GrW5ddNV4", title: "Gameverse Update - Gameplay Part 2" },
+                    { src: "https://www.youtube.com/embed/LpsjPZ2V0zQ", title: "Gameverse Update - Présentation Part 1" }
+                ]
+            },
+            "1.0": {
+                platforms: `<span style="color: #0088ff;">Windows</span> | <span style="color: #ffe600;">Linux</span>`,
+                description: `Plongez au cœur de l'univers de <strong>PlushNToy</strong> avec ce jeu de survie, d'exploration et d'aventure en monde ouvert !<br><br>
+                Incarnez le jouet de vos rêves, récoltez de précieuses ressources d'<strong>Imagination</strong> et bâtissez votre propre camp de base dans un open world coloré mais périlleux. Mais attention, le temps presse : une matière corrompue menace d'engloutir cet univers. Votre mission est cruciale : <strong>stopper la propagation de la pâte à modeler</strong> avant qu'elle n'envahisse tout le monde !<br><br>
+                Explorez chaque recoin, fortifiez vos installations et affrontez le mystérieux jouet à l'origine du désastre. Bonne chance !`,
+                downloads: [
+                    { name: "Télécharger", icon: "WindowsIcon.png", link: "https://www.mediafire.com/file/ttoqpxy4akt6jis/PlushNToy_Installer.exe/file" },
+                    { name: "Télécharger", icon: "LinuxIcon.png", link: "https://www.mediafire.com/file/h8zl1sza13w5iw2/PlushNToy_Linux.tar.gz/file" }
+                ],
+                trailers: [
+                    { src: "https://www.youtube.com/embed/r5g1FYJR1rA", title: "Trailer de PlushNToy" }
+                ]
+            }
+        };
+
+        function createVideoSlider(videos) {
+            if (!videos || videos.length === 0) return '';
+            const slidesHTML = videos.map(v => `
+                <div class="slide">
+                    <iframe style="width:100%; aspect-ratio: 16/9; border-radius:10px;" src="${v.src}" title="${v.title}" frameborder="0" allowfullscreen></iframe>
+                </div>
+            `).join('');
+            return `
+                <div class="slider-track">${slidesHTML}</div>
+                <button class="slider-btn prev-btn" aria-label="Précédent">&#10094;</button>
+                <button class="slider-btn next-btn" aria-label="Suivant">&#10095;</button>
+            `;
+        }
+
+        function updatePage(version) {
+            const data = versionData[version];
+            if (!data) return;
+
+            // Mise à jour plateformes et description
+            document.getElementById('platform-tags').innerHTML = data.platforms;
+            document.getElementById('game-description').innerHTML = data.description;
+
+            // Mise à jour des boutons de téléchargement
+            const btnContainer = document.getElementById('download-buttons-container');
+            btnContainer.innerHTML = '';
+            data.downloads.forEach(btn => {
+                const a = document.createElement('a');
+                a.href = btn.link;
+                a.className = 'btn-download';
+                a.target = '_blank';
+                a.innerHTML = `${btn.name} <img src="../images/icons/${btn.icon}" alt="Icon" style="width: 20px; vertical-align: middle; margin-left: 8px;">`;
+                btnContainer.appendChild(a);
+            });
+
+            // Mise à jour des vidéos
+            const tContainer = document.getElementById('trailers-container');
+            tContainer.innerHTML = createVideoSlider(data.trailers);
+            initializeSlider(tContainer);
+
+            // Gestion du changelog : UNIQUEMENT la version sélectionnée s'affiche
+            const allChangelogs = document.querySelectorAll('.changelog-version');
+            allChangelogs.forEach(details => {
+                if (details.dataset.version === version) {
+                    details.style.display = 'block';
+                    details.open = true;
+                } else {
+                    details.style.display = 'none';
+                    details.open = false;
+                }
+            });
+        }
+
+        function initializeSlider(container) {
+            if (!container) return;
+            const track = container.querySelector('.slider-track');
+            let prevButton = container.querySelector('.prev-btn');
+            let nextButton = container.querySelector('.next-btn');
+
+            if (!track) return;
+            const slides = Array.from(track.children);
+            if (slides.length <= 1) { 
+                if (prevButton) prevButton.style.display = 'none';
+                if (nextButton) nextButton.style.display = 'none';
+                return; 
+            }
+            
+            let currentIndex = 0;
+            const updateSlidePosition = (animate = true) => {
+                const slideWidth = container.getBoundingClientRect().width;
+                track.style.transition = animate ? 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)' : 'none';
+                track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+            };
+
+            if (prevButton && nextButton) {
+                prevButton.onclick = () => { currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1; updateSlidePosition(); };
+                nextButton.onclick = () => { currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1; updateSlidePosition(); };
+            }
+
+            window.addEventListener('resize', () => updateSlidePosition(false));
+            updateSlidePosition(false);
+        }
+
+        const selector = document.getElementById('version-selector');
+        selector.addEventListener('change', (e) => updatePage(e.target.value));
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updatePage(selector.value);
+        });
+    </script>
 
     <!-- Appel externe au script de fond -->
     <script src="../background.js"></script>
